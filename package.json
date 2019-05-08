@@ -1,0 +1,33 @@
+{
+  "name": "share",
+  "version": "1.0.0",
+  "description": "ethereum peer-to-peer rewards platform with charitable contributions",
+  "main": "index.js",
+  "dependencies": {
+    "abi-decoder": "^1.2.0",
+    "concurrently": "^4.1.0",
+    "ethereum-input-data-decoder": "^0.1.1",
+    "ethereumjs-wallet": "^0.6.3",
+    "prettier": "^1.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "concurrently --names \"UI,API\" \"npm run test --prefix ui\" \"npm run test --prefix api\" ",
+    "init": "concurrently --names \"UI,API\" \"npm run install --prefix ui\" \"npm run install --prefix api\" ",
+    "start": "concurrently --names \"UI,API\" \"npm run start --prefix ui\" \"npm run start --prefix api\" ",
+    "dev": "concurrently --names \"UI,API\" \"npm run start --prefix ui\" \"npm run dev --prefix api\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/escobard/share.git"
+  },
+  "keywords": [
+    "ethereum"
+  ],
+  "author": "Daniel Escobar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/escobard/share/issues"
+  },
+  "homepage": "https://github.com/escobard/share#readme"
+}

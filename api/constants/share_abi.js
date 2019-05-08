@@ -1,0 +1,137 @@
+const abi = [
+  {
+    "inputs": [
+      {
+        "name": "_ownerRole",
+        "type": "address"
+      },
+      {
+        "name": "_charityRole",
+        "type": "address"
+      },
+      {
+        "name": "_lotteryRole",
+        "type": "address"
+      },
+      {
+        "name": "_donorRole",
+        "type": "address"
+      },
+      {
+        "name": "_donationBase",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_lottery",
+        "type": "address"
+      },
+      {
+        "name": "_charity",
+        "type": "address"
+      }
+    ],
+    "name": "initiateContract",
+    "outputs": [],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "makeDonation",
+    "outputs": [],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "fetchDonationID",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_donationID",
+        "type": "uint256"
+      }
+    ],
+    "name": "fetchDonation",
+    "outputs": [
+      {
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "name": "lottery",
+        "type": "address"
+      },
+      {
+        "name": "charity",
+        "type": "address"
+      },
+      {
+        "name": "donor",
+        "type": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "name": "charityAmount",
+        "type": "uint256"
+      },
+      {
+        "name": "lotteryAmount",
+        "type": "uint256"
+      },
+      {
+        "name": "ownerAmount",
+        "type": "uint256"
+      },
+      {
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "isInitialized",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+
+module.exports = abi;

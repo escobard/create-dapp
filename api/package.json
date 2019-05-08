@@ -1,0 +1,34 @@
+{
+  "name": "share-api",
+  "version": "0.0.1",
+  "description": "api used to control interaction between ui and ethereum layer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "SET NODE_ENV=dev & nodemon index.js",
+    "test": "nyc mocha tests/routes/*.js"
+  },
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
+  "author": "escobard",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "ethereumjs-tx": "^1.3.7",
+    "ethereumjs-util": "^6.1.0",
+    "ethereumjs-wallet": "^0.6.0",
+    "express": "^4.16.4",
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3": "1.0.0-beta.46"
+  },
+  "devDependencies": {
+    "babel-plugin-istanbul": "^5.1.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "supertest": "^3.4.2"
+  }
+}
