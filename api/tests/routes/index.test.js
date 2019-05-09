@@ -4,12 +4,14 @@ const request = require("supertest");
 describe("Testing all routes", () => {
   let server;
 
-  beforeEach(() => {
+  beforeEach((done) => {
     server = require("../../index");
+    done();
   });
 
-  afterEach(() => {
+  afterEach((done) => {
     server.close();
+    done();
   });
 
   it("responds to /health", done => {
