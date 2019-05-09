@@ -39,22 +39,18 @@ module.exports = async (req, res, next) => {
     console.error("Data type validation errors:", dataTypeErrors);
     return res.status(400).json({
       status: "Data type validation errors:",
-      errors: dataTypeErrors.join()
+      errors: dataTypeErrors.join(", ")
     });
   }
-  /*
+
     // business logic validation
     validation.exactLength(
-      address_pu,
-      42,
-      "Public address must contain exactly 42 characters"
+      stringLength,
+      10,
+      "stringLength must contain exactly 10 characters"
     );
-    validation.exactLength(
-      address_pr,
-      64,
-      " Private address must contain exactly 64 characters"
-    );
-    validation.customValidation(amount > 1, " Amount cannot be greater than 1");
+
+    validation.customValidation(numberMax > 10, "numberMax cannot be greater than 10");
 
     let businessErrors = validation.getErrors();
 
@@ -62,9 +58,9 @@ module.exports = async (req, res, next) => {
       console.error("Business Logic validation errors:", businessErrors);
       return res.status(400).json({
         status: "Business Logic validation errors:",
-        errors: dataTypeErrors.join()
+        errors: dataTypeErrors.join(", ")
       });
-    }*/
+    }
 
   next();
 };
