@@ -5,6 +5,7 @@ const Validation = require("../utils/validation");
  */
 module.exports = async (req, res, next) => {
   let { stringType, stringLength, numberType, numberMax } = req.body;
+
   let validation = new Validation();
 
   // null case values validation
@@ -16,11 +17,13 @@ module.exports = async (req, res, next) => {
   // rejects request in case of null values
   let nullErrors = validation.getErrors();
 
+  console.log('MIDDLEWARE', stringType)
+
   if (nullErrors.length >= 1) {
     console.error("Null validation errors:", nullErrors);
     return res.status(400).json({
       status: "Null validation errors:",
-      errors: nullErrors.join()
+      errors: nullErrors.join(", ")
     });
   }
 /*

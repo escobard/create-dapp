@@ -16,7 +16,7 @@ class Validation{
    */
 
   exists(value, error){
-    if (value === null || undefined){
+    if (value === (null || undefined)){
       this.setError(error);
     }
   }
