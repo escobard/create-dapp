@@ -1,7 +1,7 @@
 const routes = {
     port: process.env.PORT || 4000,
     health: '/health',
-    greetings: '/greetings',
+    postForm: '/postForm',
     makeDonation: '/makeDonation',
     makeDonationStatus: '/makeDonationStatus',
     fetchDonation: '/fetchDonation'
