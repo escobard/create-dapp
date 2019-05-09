@@ -8,7 +8,8 @@ router.post('/', postFormValidation, (req, res) => {
   // TODO - update this route, determine server status (running on local vs prod) to navigator, version number of the app, etc
   res.status(200).json(
     {
-      body: req.body
+      status: "postForm request validated!",
+      formValues: req.body
     });
 });
 
