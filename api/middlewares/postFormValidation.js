@@ -26,11 +26,12 @@ module.exports = async (req, res, next) => {
       errors: nullErrors.join(", ")
     });
   }
-/*
+
   // data type validation
-  validation.isString(address_pu, "Public address must be a string");
-  validation.isString(address_pr, " Private address must be a string");
-  validation.isNumber(amount, " Amount must be a number");
+  validation.isString(stringType, "stringType must be a string");
+  validation.isString(stringLength, "stringLength must be a string");
+  validation.isNumber(numberType, "numberType must be a number");
+  validation.isNumber(numberMax, "numberMax must be a number");
 
   let dataTypeErrors = validation.getErrors();
 
@@ -41,29 +42,29 @@ module.exports = async (req, res, next) => {
       errors: dataTypeErrors.join()
     });
   }
+  /*
+    // business logic validation
+    validation.exactLength(
+      address_pu,
+      42,
+      "Public address must contain exactly 42 characters"
+    );
+    validation.exactLength(
+      address_pr,
+      64,
+      " Private address must contain exactly 64 characters"
+    );
+    validation.customValidation(amount > 1, " Amount cannot be greater than 1");
 
-  // business logic validation
-  validation.exactLength(
-    address_pu,
-    42,
-    "Public address must contain exactly 42 characters"
-  );
-  validation.exactLength(
-    address_pr,
-    64,
-    " Private address must contain exactly 64 characters"
-  );
-  validation.customValidation(amount > 1, " Amount cannot be greater than 1");
+    let businessErrors = validation.getErrors();
 
-  let businessErrors = validation.getErrors();
-
-  if (businessErrors.length >= 1) {
-    console.error("Business Logic validation errors:", businessErrors);
-    return res.status(400).json({
-      status: "Business Logic validation errors:",
-      errors: dataTypeErrors.join()
-    });
-  }*/
+    if (businessErrors.length >= 1) {
+      console.error("Business Logic validation errors:", businessErrors);
+      return res.status(400).json({
+        status: "Business Logic validation errors:",
+        errors: dataTypeErrors.join()
+      });
+    }*/
 
   next();
 };
