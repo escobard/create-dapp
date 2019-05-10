@@ -51,7 +51,7 @@ describe("Testing postForm route", () => {
   it("route rejects when business logic invalid", done => {
     const invalidData = {
       stringType: "",
-      stringLength: "asdf",
+      stringLength: "1234556789",
       numberType: 1,
       numberMax: 11
     };
