@@ -28,6 +28,26 @@ describe("Testing postForm route", () => {
     done();
   });
 
+  it("route rejects when data types invalid", done => {
+
+    const invalidData = {
+      "stringType":1,
+      "stringLength":1,
+      "numberType":"",
+      "numberMax":""
+    }
+
+    request(server)
+      .post("/postForm")
+      .send(invalidData)
+      .set("Accept", "application/json")
+      .expect({
+        "status": "Data type validation errors:",
+        "errors": "stringType must be a string, stringLength must be a string, numberType must be a number, numberMax must be a number"
+      });
+    done();
+  });
+
   it("route rejects when data valid", done => {
     const validData = {
       stringType: "asdfasdf",
