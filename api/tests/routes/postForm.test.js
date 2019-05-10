@@ -2,7 +2,6 @@ const request = require("supertest");
 
 describe("Testing postForm route", () => {
   let server;
-  global.nodePort = 5000;
 
   // TODO find a way to make this re-usable
   beforeEach(done => {
