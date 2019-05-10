@@ -20,8 +20,9 @@ else{
 require("./routes")(app);
 
 // logic to change port globally, for tests
+global.nodePort = port;
 
-let server = app.listen(port, () =>
+let server = app.listen(global.nodePort, () =>
   console.log(`Example app listening on port ${port}!`)
 );
 

@@ -2,6 +2,7 @@ const request = require("supertest");
 
 describe("Testing health route", () => {
   let server;
+  global.nodePort = 5000;
 
   // TODO find a way to make this re-usable
   beforeEach((done) => {
