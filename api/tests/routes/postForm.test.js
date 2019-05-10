@@ -29,21 +29,41 @@ describe("Testing postForm route", () => {
   });
 
   it("route rejects when data types invalid", done => {
-
     const invalidData = {
-      "stringType":1,
-      "stringLength":1,
-      "numberType":"",
-      "numberMax":""
-    }
+      stringType: 1,
+      stringLength: 1,
+      numberType: "",
+      numberMax: ""
+    };
 
     request(server)
       .post("/postForm")
       .send(invalidData)
       .set("Accept", "application/json")
       .expect({
-        "status": "Data type validation errors:",
-        "errors": "stringType must be a string, stringLength must be a string, numberType must be a number, numberMax must be a number"
+        status: "Data type validation errors:",
+        errors:
+          "stringType must be a string, stringLength must be a string, numberType must be a number, numberMax must be a number"
+      });
+    done();
+  });
+
+  it("route rejects when business logic invalid", done => {
+    const invalidData = {
+      stringType: "",
+      stringLength: "asdf",
+      numberType: 1,
+      numberMax: 11
+    };
+
+    request(server)
+      .post("/postForm")
+      .send(invalidData)
+      .set("Accept", "application/json")
+      .expect({
+        status: "Business Logic validation errors:",
+        errors:
+          "stringLength must contain exactly 10 characters, numberMax cannot be greater than 10"
       });
     done();
   });
