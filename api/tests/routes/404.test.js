@@ -4,12 +4,12 @@ const request = require("supertest");
 describe("Testing 404 route", () => {
   let server;
 
-  beforeEach((done) => {
+  beforeEach(done => {
     server = require("../../index");
     done();
   });
 
-  afterEach((done) => {
+  afterEach(done => {
     server.close();
     done();
   });
@@ -17,6 +17,10 @@ describe("Testing 404 route", () => {
   it("404 everything else", done => {
     request(server)
       .get("/foo/bar")
-      .expect(404, done());
+      .expect(404)
+      .end((err, res) => {
+        if (err) return done(err);
+        done();
+      });
   });
 });
