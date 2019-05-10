@@ -1,6 +1,6 @@
 const request = require("supertest");
 
-describe("Testing health route", () => {
+describe("Testing postForm route", () => {
   let server;
 
   // TODO find a way to make this re-usable
@@ -14,9 +14,18 @@ describe("Testing health route", () => {
     done();
   });
 
-  it("responds to /health", done => {
+  it("route passes data if when valid", done => {
+
+    const validData = {
+      "stringType":"",
+      "stringLength":"1234556789",
+      "numberType":1,
+      "numberMax":10
+    }
+
     request(server)
-      .get("/health")
+      .post("/postForm")
+      .send(validData)
       .expect(
         {
           healthy: true,
