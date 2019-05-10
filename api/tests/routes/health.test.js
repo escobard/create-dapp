@@ -1,9 +1,9 @@
 const request = require("supertest");
 
-// TODO - base tests for API to be updated for all Share routes
 describe("Testing all routes", () => {
   let server;
 
+  // TODO find a way to make this re-usable
   beforeEach((done) => {
     server = require("../../index");
     done();
@@ -13,10 +13,16 @@ describe("Testing all routes", () => {
     server.close();
     done();
   });
-  
-  it("404 everything else", done => {
+
+  it("responds to /health", done => {
     request(server)
-      .get("/foo/bar")
-      .expect(404, done());
+      .get("/health")
+      .expect(
+        {
+          healthy: true,
+          process: "dev"
+        },
+      );
+    done();
   });
 });
