@@ -4,7 +4,6 @@
 
 class Validation{
   constructor(){
-
     this.errors = [];
   }
 
@@ -88,6 +87,5 @@ class Validation{
     this.errors = [];
   }
 }
-
 
 module.exports=Validation;

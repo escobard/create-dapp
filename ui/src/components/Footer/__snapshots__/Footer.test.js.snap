@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer snapshot renders should render correctly mode 1`] = `
+<footer>
+  <p>
+    Copyright © 2019
+  </p>
+</footer>
+`;
