@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form snapshot renders should render fetchDonation form correctly 1`] = `
+exports[`Form snapshot renders should render makeDonation form and fields correctly 1`] = `
 <Fragment>
   <Form
     as="form"
@@ -13,66 +13,37 @@ exports[`Form snapshot renders should render fetchDonation form correctly 1`] = 
         as={[Function]}
         control={[Function]}
         key="0"
-        label="Address Public"
-        name="address"
+        label="String Type"
+        name="stringType"
         onChange={[Function]}
-        placeholder="Enter user's public address"
+        placeholder="Enter a random string"
       />
       <FormInput
         as={[Function]}
         control={[Function]}
         key="1"
-        label="Donation ID"
-        name="id"
+        label="String Length"
+        name="stringLength"
         onChange={[Function]}
-        placeholder="Enter the Donation ID"
-      />
-    </FormGroup>
-    <FormField
-      control={[Function]}
-      onClick={[Function]}
-    >
-      Submit
-    </FormField>
-  </Form>
-</Fragment>
-`;
-
-exports[`Form snapshot renders should render makeDonation form correctly 1`] = `
-<Fragment>
-  <Form
-    as="form"
-  >
-    <Message />
-    <FormGroup
-      widths="equal"
-    >
-      <FormInput
-        as={[Function]}
-        control={[Function]}
-        key="0"
-        label="Address Public"
-        name="addressPub"
-        onChange={[Function]}
-        placeholder="Donor's public address"
-      />
-      <FormInput
-        as={[Function]}
-        control={[Function]}
-        key="1"
-        label="Private Key"
-        name="privKey"
-        onChange={[Function]}
-        placeholder="Donor's private address - only used to SIGN raw transactions within API, not stored or cached"
+        placeholder="Enter a random string, must have char length greater than 10"
       />
       <FormInput
         as={[Function]}
         control={[Function]}
         key="2"
-        label="Amount"
-        name="amount"
+        label="Number Type"
+        name="numberType"
         onChange={[Function]}
-        placeholder="Donation amount in ether"
+        placeholder="Enter a random number, must have char length greater than 10"
+      />
+      <FormInput
+        as={[Function]}
+        control={[Function]}
+        key="3"
+        label="Number Max"
+        name="numberMax"
+        onChange={[Function]}
+        placeholder="Enter a random number, must be greater than 10"
       />
     </FormGroup>
     <FormField
