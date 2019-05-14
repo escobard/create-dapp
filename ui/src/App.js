@@ -8,7 +8,7 @@ import "./styles/global.scss";
 
 import {
   makeDonationFields,
-  fetchDonationFields,
+  fetchDonationFields, postFormFields
 } from "./constants";
 
 import {fetchDonation, makeDonation, makeDonationStatus} from "./utils/requests";
@@ -321,7 +321,11 @@ class App extends Component {
       fetchDonationTitle,
       fetchDonationMessage,
       fetchDonationStatus,
-      fetchedDonation
+      fetchedDonation,
+      postFormTitle,
+      postFormMessage,
+      postFormStatus,
+      postFormResult
     } = this.state;
 
     return (
@@ -334,7 +338,6 @@ class App extends Component {
             messageHeader={makeDonationTitle}
             messageValue={makeDonationMessage}
             messageStatus={makeDonationStatus}
-            setMessage={this.setMessage}
           />
         </section>
 
@@ -345,7 +348,16 @@ class App extends Component {
             messageHeader={fetchDonationTitle}
             messageValue={fetchDonationMessage}
             messageStatus={fetchDonationStatus}
-            setMessage={this.setMessage}
+          />
+        </section>
+
+        <section className="float">
+          <Form
+            postForm={this.postForm}
+            fields={postFormFields}
+            messageHeader={postFormTitle}
+            messageValue={postFormMessage}
+            messageStatus={postFormStatus}
           />
         </section>
 

@@ -40,7 +40,6 @@ export const fetchDonationFields = [
   }
 ];
 
-
 export const postFormFields = [
   {
     name: "stringType",
