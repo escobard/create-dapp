@@ -117,13 +117,10 @@ class App extends Component {
         const { data: { status } } = response;
 
         this.setState({
-          makeDonationTitle: "postForm() sent",
+          makeDonationTitle: "postForm() validated!",
           makeDonationMessage: status,
-          makeDonationStatus: "blue"
+          makeDonationStatus: "green"
         });
-
-        // starts logic to check for donationStatus
-        return this.startTimer();
       }
     }
   };
@@ -150,6 +147,56 @@ class App extends Component {
       messageErrors: []
     });
   };
+
+  /** Validates postForm values
+   * @name validatePostForm
+   * @dev used to reduce clutter in makeDonation
+   * @param {string} stringType, contains random string value
+   * @param {string} stringLength, contains random string value with a length greater than 10
+   * @param {string} numberType, contains random string value
+   * @param {string} numberMax, contains number greater than 10
+   **/
+
+  validatePostForm = (stringType, stringLength, numberType, numberMax) => {
+    let { messageErrors } = this.state;
+
+    this.validateField(
+      address_pu,
+      address_pu.length !== 42,
+      "Address Public must be valid public key"
+    );
+
+    this.validateField(
+      private_key,
+      private_key.length !== 64,
+      " Address Private must be valid private key"
+    );
+
+    this.validateField(amount, isNaN(amount), " Amount must be a number");
+
+    this.validateField(
+      amount,
+      amount > 1,
+      " Amount cannot be more than 1 ether"
+    );
+
+    // sets messagesState
+    if (messageErrors.length > 0) {
+      this.setState({
+        makeDonationStatus: "red",
+        makeDonationTitle: "makeDonation() error(s)",
+        makeDonationMessage: `Contains the following error(s): ${messageErrors.join()}.`
+      });
+      this.emptyErrors();
+    } else {
+      this.setState({
+        makeDonationStatus: "green",
+        makeDonationTitle: "makeDonation() validated",
+        makeDonationMessage: `Making donation...`
+      });
+    }
+  }
+
 
   /** Validates makeDonation form values
    * @name validateMakeDonation
