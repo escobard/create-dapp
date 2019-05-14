@@ -41,14 +41,8 @@ module.exports = async (req, res, next) => {
     });
   }
 
-    // business logic validation
-    validation.exactLength(
-      stringLength,
-      10,
-      "stringLength must contain exactly 10 characters"
-    );
-
-    validation.customValidation(numberMax > 10, "numberMax cannot be greater than 10");
+    validation.customValidation(stringLength.length < 10, "stringLength length must be greater than 10");
+    validation.customValidation(numberMax < 10, "numberMax must be greater than 10");
 
     let businessErrors = validation.getErrors();
 
