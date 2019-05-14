@@ -45,14 +45,13 @@ const environment =
 
 console.log('environment', environment);
 
+// TODO - to be updated with new heroku env for digipdfs
 const apiRoot = environment === "heroku" ? "https://share-controller.herokuapp.com" : "http://localhost:4000";
 
 console.log('root', apiRoot)
 
 export const apiRoutes = {
-  makeDonation: `${apiRoot + "/makeDonation"}`,
-  fetchDonation: `${apiRoot + "/fetchDonation"}`,
-  makeDonationStatus: `${apiRoot + "/makeDonationStatus"}`,
+  makeDonation: `${apiRoot + "/postForm"}`
 };
 
 export const headers = { "Access-Control-Allow-Origin": "*" };
