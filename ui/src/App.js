@@ -2,16 +2,15 @@ import React, { Component } from "react";
 
 import Navigation from "./components/Navigation";
 import Form from "./components/Form";
-import DonationTable from "./components/DonationTable";
 
 import "./styles/global.scss";
 
 import {
   makeDonationFields,
-  fetchDonationFields, postFormFields
+  postFormFields
 } from "./constants";
 
-import {fetchDonation, makeDonation, makeDonationStatus} from "./utils/requests";
+import { postForm } from "./utils/requests";
 import Footer from "./components/Footer";
 
 class App extends Component {
@@ -21,88 +20,9 @@ class App extends Component {
     makeDonationMessage:
       "Enter a valid public key in the Address Public field, the public address' private key in the Private Key field, and an ether value smaller than 1 in the Amount field.",
     makeDonationStatus: null,
-    fetchDonationTitle: "Fetch Donation form instructions",
-    fetchDonationMessage:
-      "Enter a valid donor public key in the Address Public field and a valid donationID in the donationID field.",
-    fetchDonationStatus: null,
-    donationID: false,
-    donorAddress: false,
-    fetchedDonation: false,
-    formMessage: "",
-    time: 0,
-    isOn: false,
-    start: 0
-  };
-
-  /** Triggers logic to start the timer
-   * @name startTimer
-   * @dev every second checkStatus request is triggered, to check donationStatus from API
-   **/
-
-  startTimer = async () => {
-    this.setState({
-      isOn: true,
-      time: this.state.time,
-      start: Date.now() - this.state.time
-    });
-
-    this.timer = setInterval(async () => await this.checkStatus(), 1000);
-  };
-
-  /** Triggers logic to stop the timer
-   * @name stopTimer
-   **/
-
-  stopTimer = () => {
-    this.setState({ isOn: false });
-    clearInterval(this.timer);
-  };
-
-  /** Triggers logic to stop the timer
-   * @name resetTimer
-   **/
-
-  resetTimer = () => {
-    this.setState({ time: 0, isOn: false });
-  };
-
-  /** Sends GET request to API to check donationStatus
-   * @name checkStatus
-   * @dev refer to the /makeDonationStatus route within the API request handling logic
-   * @returns this.resetTimer || this.setState || err
-   **/
-
-  checkStatus = async () => {
-    let response = await makeDonationStatus();
-
-    // ends the timer if donation has been created.
-    if (response.data.result === "created") {
-      this.stopTimer();
-
-      let {
-        data: { result, status, donationID }
-      } = response;
-
-      this.setState({
-        donationStatus: result,
-        donationID: donationID,
-        makeDonationTitle: "makeDonation() success",
-        makeDonationMessage:
-          `Time spent creating donation: ${this.state.time} seconds. ` + status,
-        makeDonationStatus: "green"
-      });
-      return this.resetTimer();
-    } else {
-      return this.setState({
-        time: this.state.time + 1,
-        donationStatus: response.data.result,
-        makeDonationTitle: "makeDonation() started",
-        makeDonationMessage:
-          "Donation Validated! " +
-          `Time spent creating donation: ${this.state.time} seconds. `,
-        makeDonationStatus: "blue"
-      });
-    }
+    postFormTitle: "Post Form",
+    postFormMessage: "Follow the placeholder instructions to validate data on the UI and API side",
+    postFormStatus: null
   };
 
   /** Submits the donation POST request to the API
@@ -131,7 +51,7 @@ class App extends Component {
         amount: amount
       }
 
-      let response = await makeDonation(request);
+      let response; // = await makeDonation(request);
 
       // checks for API promise rejections
       if(!response.status){
@@ -145,60 +65,65 @@ class App extends Component {
         const { data: { status } } = response;
 
         this.setState({
-          donorAddress: address_pu,
-          makeDonationTitle: "makeDonation() started",
+          makeDonationTitle: "makeDonation() validated!",
+          makeDonationMessage: status,
+          makeDonationStatus: "green"
+        });
+      }
+    }
+  };
+
+  /** Submits the POST request to the API
+   * @name postForm
+   * @dev this requests tests basic validation between UI and API
+   * @param {string} stringType, contains random string value
+   * @param {string} stringLength, contains random string value with a length greater than 10
+   * @param {string} numberType, contains random string value
+   * @param {string} numberMax, contains number greater than 10
+   * @returns /postForm route response, or validation errors
+   **/
+
+  postForm = async (stringType, stringLength, numberType, numberMax) => {
+    let { messageErrors } = this.state;
+
+    // turns both strings into numbers
+    numberType = parseInt(numberType);
+    numberMax = parseInt(numberMax);
+
+    // triggers validation logic
+    this.validatePostForm(stringType, stringLength, numberType, numberMax);
+
+    // only runs request, if no validation errors are present
+    if (messageErrors.length === 0) {
+
+      const request = {
+        stringType,
+        stringLength,
+        numberType,
+        numberMax
+      };
+
+      let response; // = await makeDonation(request);
+
+      // checks for API promise rejections
+      if(!response.status){
+        return this.setState({
+          makeDonationTitle: "postForm() error(s)",
+          makeDonationMessage: response,
+          makeDonationStatus: "red"
+        });
+      }
+      else if(response.data.result === 'validated'){
+        const { data: { status } } = response;
+
+        this.setState({
+          makeDonationTitle: "postForm() sent",
           makeDonationMessage: status,
           makeDonationStatus: "blue"
         });
 
         // starts logic to check for donationStatus
         return this.startTimer();
-      }
-    }
-  };
-
-  /** Submits the fetch donation POST request to the API
-   * @devs this function returns the fetched donation object from ethereum, via the API
-   * @param {string} address_pu, contains public address form field value
-   * @param {string} donationID, contains amount form field value
-   * @returns /fetchDonation route response, or validation errors
-   **/
-
-  fetchDonation = async (address_pu, donationID) => {
-    let { messageErrors } = this.state;
-
-    donationID = parseInt(donationID);
-
-    this.validateFetchDonation(address_pu, donationID);
-
-    if (messageErrors.length === 0) {
-
-      const request = { address_pu: address_pu, id: donationID };
-
-      let response = await fetchDonation(request);
-
-      // checks for API promise rejections
-      if (!response.status){
-        return this.setState({
-          fetchDonationTitle: "fetchDonation error(s)",
-          fetchDonationMessage: response,
-          fetchDonationStatus: "red"
-        });
-      }
-      else if(response.data.result === "fetched"){
-        const { data: { donation } } = response;
-
-        // donation object from ethereum is turned into an array to work with react
-        let donationArray = Object.keys(donation).map(key => {
-          return [key, donation[key]];
-        });
-
-        return this.setState({
-          fetchedDonation: donationArray,
-          fetchDonationTitle: "fetchDonation() success",
-          fetchDonationMessage: `Donation ${donation.id} fetched, find your donation data below.`,
-          fetchDonationStatus: "green"
-        });
       }
     }
   };
@@ -274,54 +199,11 @@ class App extends Component {
     }
   };
 
-  /** Validates validateFetchDonation form values
-   * @name validateFetchDonation
-   * @dev used to reduce clutter in makeDonation
-   * @param {string} address_pu, contains public address form field value
-   * @param {string} donationID, contains amount form field value
-   **/
-
-  validateFetchDonation = (address_pu, donationID) => {
-    let { messageErrors } = this.state;
-
-    this.validateField(
-      address_pu,
-      address_pu.length !== 42,
-      "Address Public must be valid public key"
-    );
-
-    this.validateField(
-      donationID,
-      isNaN(donationID),
-      " Amount must be a number"
-    );
-
-    if (messageErrors.length > 0) {
-      this.setState({
-        fetchDonationStatus: "red",
-        fetchDonationTitle: "fetchDonation() error(s)",
-        fetchDonationMessage: `Contains the following error(s): ${messageErrors.join()}.`
-      });
-      this.emptyErrors();
-      return;
-    } else {
-      this.setState({
-        fetchDonationStatus: "blue",
-        fetchDonationTitle: "fetchDonation() started",
-        fetchDonationMessage: `Fetching donation...`
-      });
-    }
-  };
-
   render() {
     let {
       makeDonationTitle,
       makeDonationMessage,
       makeDonationStatus,
-      fetchDonationTitle,
-      fetchDonationMessage,
-      fetchDonationStatus,
-      fetchedDonation,
       postFormTitle,
       postFormMessage,
       postFormStatus,
@@ -343,16 +225,6 @@ class App extends Component {
 
         <section className="float">
           <Form
-            fetchDonation={this.fetchDonation}
-            fields={fetchDonationFields}
-            messageHeader={fetchDonationTitle}
-            messageValue={fetchDonationMessage}
-            messageStatus={fetchDonationStatus}
-          />
-        </section>
-
-        <section className="float">
-          <Form
             postForm={this.postForm}
             fields={postFormFields}
             messageHeader={postFormTitle}
@@ -360,12 +232,6 @@ class App extends Component {
             messageStatus={postFormStatus}
           />
         </section>
-
-        {fetchedDonation ? (
-          <section className="float">
-            <DonationTable donationData={fetchedDonation} />
-          </section>
-        ) : null}
 
         <Footer/>
       </main>

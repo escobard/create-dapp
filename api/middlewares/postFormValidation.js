@@ -17,8 +17,6 @@ module.exports = async (req, res, next) => {
   // rejects request in case of null values
   let nullErrors = validation.getErrors();
 
-  console.log('MIDDLEWARE', stringType)
-
   if (nullErrors.length >= 1) {
     console.error("Null validation errors:", nullErrors);
     return res.status(400).json({

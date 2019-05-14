@@ -9,6 +9,7 @@ router.post('/', postFormValidation, (req, res) => {
   res.status(200).json(
     {
       status: "postForm request validated!",
+      result: "validated",
       formValues: req.body
     });
 });
