@@ -161,23 +161,24 @@ class App extends Component {
     let { messageErrors } = this.state;
 
     this.validateField(
-      address_pu,
-      address_pu.length !== 42,
-      "Address Public must be valid public key"
+      stringType,
+      stringType.length === 0,
+      "string Type cannot be empty"
     );
 
     this.validateField(
-      private_key,
-      private_key.length !== 64,
-      " Address Private must be valid private key"
+      stringLength,
+      stringLength.length < 10,
+      "string Length must be greater than 10"
     );
 
-    this.validateField(amount, isNaN(amount), " Amount must be a number");
+    this.validateField(numberType, isNaN(amount), "numberType must be a number");
+    this.validateField(numberMax, isNaN(amount), "numberMax must be a number");
 
     this.validateField(
-      amount,
-      amount > 1,
-      " Amount cannot be more than 1 ether"
+      numberMax,
+      numberMax < 10,
+      "numberMax must be greater than 10"
     );
 
     // sets messagesState
@@ -185,7 +186,7 @@ class App extends Component {
       this.setState({
         makeDonationStatus: "red",
         makeDonationTitle: "makeDonation() error(s)",
-        makeDonationMessage: `Contains the following error(s): ${messageErrors.join()}.`
+        makeDonationMessage: `Contains the following error(s): ${messageErrors.join(", ")}.`
       });
       this.emptyErrors();
     } else {
