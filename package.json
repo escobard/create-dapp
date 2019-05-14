@@ -1,5 +1,5 @@
 {
-  "name": "share",
+  "name": "create-dapp",
   "version": "1.0.0",
   "description": "ethereum peer-to-peer rewards platform with charitable contributions",
   "main": "index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/escobard/share.git"
+    "url": "git+https://github.com/escobard/create-dapp.git"
   },
   "keywords": [
     "ethereum"
@@ -27,7 +27,7 @@
   "author": "Daniel Escobar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/escobard/share/issues"
+    "url": "https://github.com/escobard/create-dapp/issues"
   },
-  "homepage": "https://github.com/escobard/share#readme"
+  "homepage": "https://github.com/escobard/create-dapp#readme"
 }
