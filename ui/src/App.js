@@ -163,37 +163,37 @@ class App extends Component {
     this.validateField(
       stringType,
       stringType.length === 0,
-      "string Type cannot be empty"
+      "String Type cannot be empty"
     );
 
     this.validateField(
       stringLength,
       stringLength.length < 10,
-      "string Length must be greater than 10"
+      "String Length must be greater than 10"
     );
 
-    this.validateField(numberType, isNaN(amount), "numberType must be a number");
-    this.validateField(numberMax, isNaN(amount), "numberMax must be a number");
+    this.validateField(numberType, isNaN(numberType), "Number Type must be a number");
+    this.validateField(numberMax, isNaN(numberMax), "Number Max must be a number");
 
     this.validateField(
       numberMax,
       numberMax < 10,
-      "numberMax must be greater than 10"
+      "Number Max must be greater than 10"
     );
 
     // sets messagesState
     if (messageErrors.length > 0) {
       this.setState({
-        makeDonationStatus: "red",
-        makeDonationTitle: "makeDonation() error(s)",
-        makeDonationMessage: `Contains the following error(s): ${messageErrors.join(", ")}.`
+        postFormStatus: "red",
+        postFormTitle: "postForm() error(s)",
+        postFormMessage: `Contains the following error(s): ${messageErrors.join(", ")}.`
       });
       this.emptyErrors();
     } else {
       this.setState({
-        makeDonationStatus: "green",
-        makeDonationTitle: "makeDonation() validated",
-        makeDonationMessage: `Making donation...`
+        postFormStatus: "green",
+        postFormTitle: "postForm() validated",
+        postFormMessage: `Making donation...`
       });
     }
   }
