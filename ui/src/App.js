@@ -103,23 +103,23 @@ class App extends Component {
         numberMax
       };
 
-      let response; // = await makeDonation(request);
+      let response = await postForm(request);
 
       // checks for API promise rejections
       if(!response.status){
         return this.setState({
-          makeDonationTitle: "postForm() error(s)",
-          makeDonationMessage: response,
-          makeDonationStatus: "red"
+          postFormTitle: "postForm() error(s)",
+          postFormMessage: response,
+          postFormStatus: "red"
         });
       }
       else if(response.data.result === 'validated'){
         const { data: { status } } = response;
 
         this.setState({
-          makeDonationTitle: "postForm() validated!",
-          makeDonationMessage: status,
-          makeDonationStatus: "green"
+          postFormTitle: "postForm() validated!",
+          postFormMessage: status,
+          postFormStatus: "green"
         });
       }
     }

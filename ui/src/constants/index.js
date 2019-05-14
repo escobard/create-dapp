@@ -83,7 +83,7 @@ const apiRoot = environment === "heroku" ? "https://share-controller.herokuapp.c
 console.log('root', apiRoot)
 
 export const apiRoutes = {
-  makeDonation: `${apiRoot + "/postForm"}`
+  postForm: `${apiRoot + "/postForm"}`
 };
 
 export const headers = { "Access-Control-Allow-Origin": "*" };
