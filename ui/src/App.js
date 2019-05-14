@@ -2,75 +2,21 @@ import React, { Component } from "react";
 
 import Navigation from "./components/Navigation";
 import Form from "./components/Form";
+import Footer from "./components/Footer";
+
+import { postFormFields } from "./constants";
+import { postForm } from "./utils/requests";
 
 import "./styles/global.scss";
 
-import {
-  makeDonationFields,
-  postFormFields
-} from "./constants";
-
-import { postForm } from "./utils/requests";
-import Footer from "./components/Footer";
-
 class App extends Component {
+
   state = {
     messageErrors: [],
-    makeDonationTitle: "Make Donation form instructions",
-    makeDonationMessage:
-      "Enter a valid public key in the Address Public field, the public address' private key in the Private Key field, and an ether value smaller than 1 in the Amount field.",
-    makeDonationStatus: null,
     postFormTitle: "Post Form",
-    postFormMessage: "Follow the placeholder instructions to validate data on the UI and API side",
+    postFormMessage:
+      "Follow the placeholder instructions to validate data on the UI and API side",
     postFormStatus: null
-  };
-
-  /** Submits the donation POST request to the API
-   * @name makeDonation
-   * @dev this requests triggers the timer, and checkStatus logic
-   * @param {string} address_pu, contains public address form field value
-   * @param {string} private_key, contains private address form field value
-   * @param {string} amount, contains amount form field value
-   * @returns /makeDonation route response, or validation errors
-   **/
-
-  makeDonation = async (address_pu, private_key, amount) => {
-    let { messageErrors } = this.state;
-
-    amount = parseFloat(amount);
-
-    // triggers validation logic
-    this.validateMakeDonation(address_pu, private_key, amount);
-
-    // only runs request, if no validation errors are present
-    if (messageErrors.length === 0) {
-
-      const request = {
-        address_pu: address_pu,
-        address_pr: private_key,
-        amount: amount
-      }
-
-      let response; // = await makeDonation(request);
-
-      // checks for API promise rejections
-      if(!response.status){
-        return this.setState({
-          makeDonationTitle: "makeDonation() error(s)",
-          makeDonationMessage: response,
-          makeDonationStatus: "red"
-        });
-      }
-      else if(response.data.result === 'validated'){
-        const { data: { status } } = response;
-
-        this.setState({
-          makeDonationTitle: "makeDonation() validated!",
-          makeDonationMessage: status,
-          makeDonationStatus: "green"
-        });
-      }
-    }
   };
 
   /** Submits the POST request to the API
@@ -95,7 +41,6 @@ class App extends Component {
 
     // only runs request, if no validation errors are present
     if (messageErrors.length === 0) {
-
       const request = {
         stringType,
         stringLength,
@@ -106,15 +51,16 @@ class App extends Component {
       let response = await postForm(request);
 
       // checks for API promise rejections
-      if(!response.status){
+      if (!response.status) {
         return this.setState({
           postFormTitle: "postForm() error(s)",
           postFormMessage: response,
           postFormStatus: "red"
         });
-      }
-      else if(response.data.result === 'validated'){
-        const { data: { status } } = response;
+      } else if (response.data.result === "validated") {
+        const {
+          data: { status }
+        } = response;
 
         this.setState({
           postFormTitle: "postForm() validated!",
@@ -172,8 +118,16 @@ class App extends Component {
       "String Length must be greater than 10"
     );
 
-    this.validateField(numberType, isNaN(numberType), "Number Type must be a number");
-    this.validateField(numberMax, isNaN(numberMax), "Number Max must be a number");
+    this.validateField(
+      numberType,
+      isNaN(numberType),
+      "Number Type must be a number"
+    );
+    this.validateField(
+      numberMax,
+      isNaN(numberMax),
+      "Number Max must be a number"
+    );
 
     this.validateField(
       numberMax,
@@ -186,7 +140,9 @@ class App extends Component {
       this.setState({
         postFormStatus: "red",
         postFormTitle: "postForm() error(s)",
-        postFormMessage: `Contains the following error(s): ${messageErrors.join(", ")}.`
+        postFormMessage: `Contains the following error(s): ${messageErrors.join(
+          ", "
+        )}.`
       });
       this.emptyErrors();
     } else {
@@ -196,80 +152,18 @@ class App extends Component {
         postFormMessage: `Making donation...`
       });
     }
-  }
-
-
-  /** Validates makeDonation form values
-   * @name validateMakeDonation
-   * @dev used to reduce clutter in makeDonation
-   * @param {string} address_pu, contains public address form field value
-   * @param {string} private_key, contains private address form field value
-   * @param {string} amount, contains amount form field value
-   **/
-
-  validateMakeDonation = (address_pu, private_key, amount) => {
-    let { messageErrors } = this.state;
-
-    this.validateField(
-      address_pu,
-      address_pu.length !== 42,
-      "Address Public must be valid public key"
-    );
-
-    this.validateField(
-      private_key,
-      private_key.length !== 64,
-      " Address Private must be valid private key"
-    );
-
-    this.validateField(amount, isNaN(amount), " Amount must be a number");
-
-    this.validateField(
-      amount,
-      amount > 1,
-      " Amount cannot be more than 1 ether"
-    );
-
-    // sets messagesState
-    if (messageErrors.length > 0) {
-      this.setState({
-        makeDonationStatus: "red",
-        makeDonationTitle: "makeDonation() error(s)",
-        makeDonationMessage: `Contains the following error(s): ${messageErrors.join()}.`
-      });
-      this.emptyErrors();
-    } else {
-      this.setState({
-        makeDonationStatus: "green",
-        makeDonationTitle: "makeDonation() validated",
-        makeDonationMessage: `Making donation...`
-      });
-    }
   };
 
   render() {
     let {
-      makeDonationTitle,
-      makeDonationMessage,
-      makeDonationStatus,
       postFormTitle,
       postFormMessage,
-      postFormStatus,
-      postFormResult
+      postFormStatus
     } = this.state;
 
     return (
       <main className="application">
         <Navigation />
-        <section className="float">
-          <Form
-            makeDonation={this.makeDonation}
-            fields={makeDonationFields}
-            messageHeader={makeDonationTitle}
-            messageValue={makeDonationMessage}
-            messageStatus={makeDonationStatus}
-          />
-        </section>
 
         <section className="float">
           <Form
@@ -281,7 +175,7 @@ class App extends Component {
           />
         </section>
 
-        <Footer/>
+        <Footer />
       </main>
     );
   }

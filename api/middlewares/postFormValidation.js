@@ -41,18 +41,25 @@ module.exports = async (req, res, next) => {
     });
   }
 
-    validation.customValidation(stringLength.length < 10, "stringLength length must be greater than 10");
-    validation.customValidation(numberMax < 10, "numberMax must be greater than 10");
+  validation.customValidation(
+    stringLength.length < 10,
+    "stringLength length must be greater than 10"
+  );
 
-    let businessErrors = validation.getErrors();
+  validation.customValidation(
+    numberMax < 10,
+    "numberMax must be greater than 10"
+  );
 
-    if (businessErrors.length >= 1) {
-      console.error("Business Logic validation errors:", businessErrors);
-      return res.status(400).json({
-        status: "Business Logic validation errors:",
-        errors: dataTypeErrors.join(", ")
-      });
-    }
+  let businessErrors = validation.getErrors();
+
+  if (businessErrors.length >= 1) {
+    console.error("Business Logic validation errors:", businessErrors);
+    return res.status(400).json({
+      status: "Business Logic validation errors:",
+      errors: dataTypeErrors.join(", ")
+    });
+  }
 
   next();
 };

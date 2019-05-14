@@ -38,10 +38,6 @@ class DynamicForm extends Component {
     let { makeDonation, postForm } = this.props;
     let { value0, value1, value2, value3 } = this.state;
 
-    if (makeDonation) {
-      makeDonation(value0, value1, value2);
-    }
-
     if (postForm){
       postForm(value0, value1, value2, value3)
     }
@@ -114,8 +110,6 @@ class DynamicForm extends Component {
       messageValue,
       messageStatus
     } = this.props;
-
-    // console.log("STATE", this.state);
 
     return (
       <Fragment>
