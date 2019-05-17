@@ -9,7 +9,5 @@ services:
     ports: 
       - "3000:3000"
     volumes:
-      - ./ui:/usr/create-dapp/ui/
-      - node_modules:/src/node_modules
-volumes:
-  node_modules:
+      - /usr/create-dapp/node_modules
+      - ./ui:/usr/create-dapp/ui
