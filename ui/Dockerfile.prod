@@ -7,7 +7,7 @@
 #### using multi-stage builds only supported with docker 17.05+
 FROM node:alpine as builder
 
-WORKDIR '/usr/create-dapp/ui'
+WORKDIR /usr/create-dapp/ui
 
 COPY package.json .
 

@@ -1,7 +1,7 @@
 version: '3'
 services:
   ui:
-    container_name: ui
+    container_name: ui_dev
     build:
       context: ./ui
       dockerfile: Dockerfile.dev
@@ -12,7 +12,7 @@ services:
       - /usr/create-dapp/ui/node_modules
     working_dir: /usr/create-dapp/ui
   tests:
-    container_name: ui-tests
+    container_name: ui_tests_dev
     build:
       context: ./ui
       dockerfile: Dockerfile.test
