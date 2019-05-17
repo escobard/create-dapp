@@ -1,6 +1,7 @@
 version: '3'
 services:
   ui:
+    container_name: ui
     build:
       ## specifies where the source files are for the service, in this casae this directory
       context: ./ui
@@ -9,4 +10,4 @@ services:
       - "3000:3000"
     volumes:
       - /usr/create-dapp/ui/node_modules
-      - ./ui:/usr/create-dapp/ui
+      - ./ui:/usr/create-dapp/ui/
