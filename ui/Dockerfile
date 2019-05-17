@@ -2,7 +2,7 @@
 
 FROM node:alpine
 
-WORKDIR '/usr/section6/ui'
+WORKDIR '/usr/create-dapp/ui'
 
 ## copes the package.json file to working directory, split to ensure npm install and source file is separate
 COPY package.json .
