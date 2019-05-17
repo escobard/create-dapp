@@ -126,7 +126,7 @@ class DynamicForm extends Component {
             </Form.Field>
           </Form>
         ) : (
-          <p>Form has no input props!</p>
+          <p>Form has input props!</p>
         )}
       </Fragment>
     );
