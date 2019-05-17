@@ -5,7 +5,7 @@ import { postFormFields } from "../../constants";
 
 describe("Form snapshot renders", () => {
   it("should render makeDonation form and fields correctly", () => {
-    const component = shallow(<DynamicForm fields={postormFields} />);
+    const component = shallow(<DynamicForm fields={postFormFields} />);
 
     expect(component).toMatchSnapshot();
   });
