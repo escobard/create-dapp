@@ -11,3 +11,12 @@ services:
       - ./ui:/usr/create-dapp/ui
       - /usr/create-dapp/ui/node_modules
     working_dir: /usr/create-dapp/ui
+  tests:
+    container_name: ui-tests
+    build:
+      context: ./ui
+      dockerfile: Dockerfile.test
+    volumes:
+      - ./ui:/usr/create-dapp/ui
+      - /usr/create-dapp/ui/node_modules
+    working_dir: /usr/create-dapp/ui
