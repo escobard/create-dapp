@@ -5,7 +5,7 @@ services:
     working_dir: /usr/create-dapp/ui
     build:
       context: ./ui
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     ports:
       ## Accounting for ngnix
       - "3000:80"
@@ -17,7 +17,7 @@ services:
     working_dir: /usr/create-dapp/api
     build:
       context: ./api
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     ports:
     - "4000:4000"
     volumes:
