@@ -6,6 +6,7 @@ services:
     ports:
     - "3000:3000"
     environment:
+    - NODE_ENV=development
     - DOCKER=dev
     build:
       context: ./ui
@@ -19,6 +20,7 @@ services:
     ports:
     - "4000:4000"
     environment:
+    - NODE_ENV=development
     - DOCKER=dev
     build:
       context: ./api
