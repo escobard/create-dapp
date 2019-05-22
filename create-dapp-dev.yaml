@@ -1,18 +1,19 @@
 version: '3'
 services:
   ui:
-    container_name: ui_dev
+    container_name: ui_prod
     working_dir: /usr/create-dapp/ui
     build:
       context: ./ui
       dockerfile: Dockerfile.dev
-    ports: 
-      - "3000:3000"
+    ports:
+      ## Accounting for ngnix
+      - "3000:80"
     volumes:
       - ./ui:/usr/create-dapp/ui
       - /usr/create-dapp/ui/node_modules
   api:
-    container_name: api_dev
+    container_name: api_prod
     working_dir: /usr/create-dapp/api
     build:
       context: ./api
@@ -20,5 +21,5 @@ services:
     ports:
     - "4000:4000"
     volumes:
-    - ./api:/usr/create-dapp/api
+    - .:/usr/create-dapp/api
     - /usr/create-dapp/api/node_modules

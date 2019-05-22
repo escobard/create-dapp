@@ -1,3 +1,5 @@
+
+# Stage 1 - build process
 FROM node:alpine as builder
 
 WORKDIR /usr/create-dapp/ui
@@ -10,10 +12,11 @@ COPY . .
 
 RUN npm run build
 
+# Stage 2 - prod env
 FROM nginx:alpine
 
 COPY --from=builder /usr/create-dapp/ui/build /usr/share/nginx/html
 
-WORKDIR /usr/create-dapp/ui
+EXPOSE 80
 
-RUN npm install -g serve
+CMD ["nginx", "-g", "daemon off;"]
