@@ -1,58 +1,56 @@
-export const makeDonationFields = [
+export const postFormFields = [
   {
-    name: "addressPub",
-    label: "Address Public",
-    placeholder: "Donor's public address",
+    name: "stringType",
+    label: "String Type",
+    placeholder: "Enter a random string",
     value: "",
     error: false
   },
   {
-    name: "privKey",
-    label: "Private Key",
-    placeholder:
-      "Donor's private address - only used to SIGN raw transactions within API, not stored or cached",
+    name: "stringLength",
+    label: "String Length",
+    placeholder: "Enter a random string, must have char length greater than 10",
     value: "",
     error: false
   },
   {
-    name: "amount",
-    label: "Amount",
-    placeholder: "Donation amount in ether",
+    name: "numberType",
+    label: "Number Type",
+    placeholder: "Enter a random number, must have char length greater than 10",
+    value: "",
+    error: false
+  },
+  {
+    name: "numberMax",
+    label: "Number Max",
+    placeholder: "Enter a random number, must be greater than 10",
     value: "",
     error: false
   }
 ];
 
-export const fetchDonationFields = [
-  {
-    name: "address",
-    label: "Address Public",
-    placeholder: "Enter user's public address",
-    value: "",
-    error: false
-  },
-  {
-    name: "id",
-    label: "Donation ID",
-    placeholder: "Enter the Donation ID",
-    value: "",
-    error: false
-  }
-];
-
-const environment =
+let environment =
   process.env.NODE_ENV === "production" ? "heroku" : "development";
 
-console.log('environment', environment);
+// checks for docker runtime - need to add this variable check to API
+environment = process.DOCKER === 'prod' ? 'docker-production' : environment ;
 
-const apiRoot = environment === "heroku" ? "https://share-controller.herokuapp.com" : "http://localhost:4000";
+environment = process.DOCKER === 'dev' ? 'docker-dev' : environment ;
 
-console.log('root', apiRoot)
+console.log('DOCKER', process.env)
+
+console.log("environment", environment);
+
+// TODO - to be updated with new heroku env for digipdfs
+const apiRoot =
+  environment === "heroku"
+    ? "https://share-controller.herokuapp.com"
+    : "http://localhost:4000";
+
+console.log("root", apiRoot);
 
 export const apiRoutes = {
-  makeDonation: `${apiRoot + "/makeDonation"}`,
-  fetchDonation: `${apiRoot + "/fetchDonation"}`,
-  makeDonationStatus: `${apiRoot + "/makeDonationStatus"}`,
+  postForm: `${apiRoot + "/postForm"}`
 };
 
 export const headers = { "Access-Control-Allow-Origin": "*" };

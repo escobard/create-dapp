@@ -35,16 +35,11 @@ class DynamicForm extends Component {
    **/
 
   submitForm = () => {
-    let { makeDonation, fetchDonation } = this.props;
-    let { value0, value1, value2 } = this.state;
+    let { makeDonation, postForm } = this.props;
+    let { value0, value1, value2, value3 } = this.state;
 
-    if (makeDonation) {
-      makeDonation(value0, value1, value2);
-    }
-
-    if (fetchDonation) {
-
-      fetchDonation(value0, value1);
+    if (postForm){
+      postForm(value0, value1, value2, value3)
     }
   };
 
@@ -116,8 +111,6 @@ class DynamicForm extends Component {
       messageStatus
     } = this.props;
 
-    // console.log("STATE", this.state);
-
     return (
       <Fragment>
         {hasFields ? (
@@ -133,7 +126,7 @@ class DynamicForm extends Component {
             </Form.Field>
           </Form>
         ) : (
-          <p>Form has no input props!</p>
+          <p>Form has input props!</p>
         )}
       </Fragment>
     );

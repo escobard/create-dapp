@@ -1,1 +1,0 @@
- These contracts manages the various addresses and constraints for operations that can be executed only by specific roles.

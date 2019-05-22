@@ -1,0 +1,14 @@
+# Named .dev to underscore that this Dockerfile is only used to run the application locally
+
+FROM node:alpine
+
+WORKDIR /usr/create-dapp/ui
+
+## copes the package.json file to working directory, split to ensure npm install and source file is separate
+COPY package.json .
+
+## this allows us to never need the `node_modules` folder locally, since all dependencies are installed within the docker kernel
+RUN npm install
+
+## each of these represents a command, each comma represents a space
+CMD ["npm", "run", "test-watch"]

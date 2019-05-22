@@ -1,0 +1,30 @@
+version: '3'
+services:
+  ui:
+    container_name: ui_dev
+    working_dir: /usr/create-dapp/ui
+    ports:
+    - "3000:3000"
+    environment:
+    - NODE_ENV=development
+    - DOCKER=dev
+    build:
+      context: ./ui
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./ui:/usr/create-dapp/ui
+      - /usr/create-dapp/ui/node_modules
+  api:
+    container_name: api_dev
+    working_dir: /usr/create-dapp/api
+    ports:
+    - "4000:4000"
+    environment:
+    - NODE_ENV=development
+    - DOCKER=dev
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    volumes:
+    - ./api:/usr/create-dapp/api
+    - /usr/create-dapp/api/node_modules

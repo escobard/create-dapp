@@ -8,7 +8,7 @@ exports[`Navigation snapshot renders should render correctly mode 1`] = `
         Object {
           "active": true,
           "key": "home",
-          "name": "share v1",
+          "name": "create dapp",
         },
       ]
     }
