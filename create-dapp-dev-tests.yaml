@@ -11,7 +11,7 @@ services:
       - ./ui:/usr/create-dapp/ui
       - /usr/create-dapp/ui/node_modules
     working_dir: /usr/create-dapp/ui
-  tests:
+  ui_tests:
     container_name: ui_tests_dev
     build:
       context: ./ui
