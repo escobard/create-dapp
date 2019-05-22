@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon -L index.js",
+    "prod": "DOCKER=prod node index.js",
     "test": "nyc mocha tests/routes/*.js"
   },
   "engines": {

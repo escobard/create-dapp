@@ -33,7 +33,11 @@ let environment =
   process.env.NODE_ENV === "production" ? "heroku" : "development";
 
 // checks for docker runtime - need to add this variable check to API
-environment = process.env.DOCKER === 'prod' ? 'docker-production' : 'heroku' ;
+environment = process.DOCKER === 'prod' ? 'docker-production' : environment ;
+
+environment = process.DOCKER === 'dev' ? 'docker-dev' : environment ;
+
+console.log('DOCKER', process.env)
 
 console.log("environment", environment);
 
