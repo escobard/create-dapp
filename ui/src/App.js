@@ -164,7 +164,7 @@ class App extends Component {
     return (
       <main className="application">
         <Navigation />
-        <h1>HI ATB</h1>
+        <h1>HI sATB</h1>
         <section className="float">
           <Form
             postForm={this.postForm}
