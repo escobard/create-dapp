@@ -29,8 +29,11 @@ export const postFormFields = [
   }
 ];
 
-const environment =
+let environment =
   process.env.NODE_ENV === "production" ? "heroku" : "development";
+
+// checks for docker runtime - need to add this variable check to API
+environment = process.env.DOCKER === 'prod' ? 'docker-production' : 'heroku' ;
 
 console.log("environment", environment);
 

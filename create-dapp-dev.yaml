@@ -6,7 +6,7 @@ services:
     ports:
     - "3000:3000"
     environment:
-    - NODE_ENV=dev
+    - DOCKER=dev
     build:
       context: ./ui
       dockerfile: Dockerfile.dev
@@ -19,7 +19,7 @@ services:
     ports:
     - "4000:4000"
     environment:
-    - NODE_ENV=dev
+    - DOCKER=dev
     build:
       context: ./api
       dockerfile: Dockerfile.dev
