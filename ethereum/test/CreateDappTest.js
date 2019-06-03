@@ -1,10 +1,10 @@
-// this grabs the Share.sol file within /contracts
+// this grabs the CreateDapp.sol file within /contracts
 const LotteryRole = artifacts.require("./LotteryRole.sol"),
   CharityRole = artifacts.require("./CharityRole.sol"),
   OwnerRole = artifacts.require("./OwnerRole.sol"),
   DonorRole = artifacts.require("./DonorRole.sol"),
   DonationBase = artifacts.require("./DonationBase.sol");
-Share = artifacts.require("./Share.sol");
+Share = artifacts.require("./CreateDapp.sol");
 
 // extracts the accounts array from the contract
 contract("Share", accounts => {

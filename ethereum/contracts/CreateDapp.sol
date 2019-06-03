@@ -1,69 +1,24 @@
 pragma solidity ^0.4.23;
-// add all imports for user privileges here
-
-// actor contracts
-import "./accesscontrol/CharityRole.sol";
-import "./accesscontrol/OwnerRole.sol";
-import "./accesscontrol/LotteryRole.sol";
-import "./accesscontrol/DonorRole.sol";
-
-// base contract
-import "./base/DonationBase.sol";
-
 
 contract Share {
 
     address private Owner;
-    address private Lottery;
-    address private Charity;
     bool private initialized = false;
-    OwnerRole private ownerRole;
-    CharityRole private charityRole;
-    LotteryRole private lotteryRole;
-    DonorRole private donorRole;
-    DonationBase private donationBase;
 
-    // assigns an ID to each donation
-    uint private donationID = 1;
+    // assigns an ID to each payment
+    uint private paymentID = 1;
 
     /// @notice sets the owner to the Owner variable upon contract init
     /// @dev can be expanded to account for many more constructor features
-    /// @param _ownerRole address, contains the address of the OwnerRole contract
-    /// @param _charityRole address, contains the address of the CharityRole contract
-    /// @param _lotteryRole address, contains the address of the LotteryRole contract
-    /// @param _donorRole address, contains the address of the DonorRole contract
-    /// @param _donationBase address, contains the address of the DonationBase contract
-    constructor(address _ownerRole, address _charityRole, address _lotteryRole, address _donorRole, address _donationBase) public {
+    constructor() public {
         Owner = msg.sender;
-
-        // sets the address for the instance of each helper contract
-        ownerRole = OwnerRole(_ownerRole);
-        charityRole = CharityRole(_charityRole);
-        lotteryRole = LotteryRole(_lotteryRole);
-        donorRole = DonorRole(_donorRole);
-        donationBase = DonationBase(_donationBase);
     }
 
     // TODO - this logic must also include the new contract
     function initiateContract(address _lottery, address _charity) public payable{
 
-        require(initialized == false && ownerRole.isOwner(msg.sender));
-
-        // TODO - this logic must add the smart contract address for CharityRole
-        // TODO - ei - Charity = CharityRole(_charity) - argument must contain address of contract
-
-        // sets the lottery for the lotteryRole contract
-        lotteryRole.setLottery(_lottery, msg.sender);
-
-        // gets lottery address
-        Lottery = lotteryRole.getLottery(msg.sender);
-
-        // sets the charity for the charityRole contract
-        charityRole.setCharity(_charity, msg.sender);
-
-        // gets charity address
-        Charity = charityRole.getCharity(msg.sender);
-
+        require(initialized == false, "Contract already initialized!");
+        require(Owner == msg.sender, "Invalid sender!");
         initialized = true;
     }
 
