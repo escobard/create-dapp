@@ -4,78 +4,29 @@ contract Share {
 
     address private Owner;
     bool private initialized = false;
-
-    // assigns an ID to each payment
     uint private paymentID = 1;
+    
+    mapping(uint => Payment) public Payments;
 
-    /// @notice sets the owner to the Owner variable upon contract init
-    /// @dev can be expanded to account for many more constructor features
+    struct Payment {
+        address user
+        uint amount
+    }
+
     constructor() public {
         Owner = msg.sender;
     }
 
-    // TODO - this logic must also include the new contract
-    function initiateContract(address _lottery, address _charity) public payable{
-
-        require(initialized == false, "Contract already initialized!");
-        require(Owner == msg.sender, "Invalid sender!");
-        initialized = true;
-    }
-
-    /// @notice parent function for all contract functionality
-    /// @dev Should consider splitting this out further if necessary by reviewers
-
-    function makeDonation() public payable{
-        // owner, charity, and lottery accounts cannot utilize the handleFunds function
-        require(initialized == true && !ownerRole.isOwner(msg.sender) && !charityRole.isCharity() && !lotteryRole.isLottery());
-
-        donorRole.setDonor(msg.sender, Owner);
-        address Donor = donorRole.getDonor(Owner);
-
-        donationBase.setReceived(Owner, Lottery, Charity, Donor, donationID);
+    /// @notice handles metamask transaction coming from UI
+    function makePayment() public payable {
 
         uint amount = msg.value;
-        uint charityAmount = amount * 95 / 100;
-        uint lotteryAmount = amount * 4 / 100;
-        uint ownerAmount = amount * 1 / 100;
+        
+        Payments[paymentID] = Payment(msg.sender, amount)
 
-        donationBase.setProcessed(Owner, amount, donationID);
+        paymentID = paymentID + 1;
 
-        // TODO - these can be refactored to ownerRole, since it utilizes the transfer of ownership principle
-        Charity.transfer(charityAmount);
-
-        donationBase.setSentToCharity(Owner, charityAmount, donationID);
-
-        Lottery.transfer(lotteryAmount);
-
-        donationBase.setSentToLottery(Owner, lotteryAmount, donationID);
-
-        // dispatches remaining funds to owner, this ensures that all gas is covered
-        Owner.transfer(ownerAmount);
-
-        donationBase.setSentToOwner(Owner, ownerAmount, donationID);
-
-
-        // add lotteryEntrees struct
-        donationBase.setLottery(Owner, Donor, donationID);
-
-        // TODO - figure out why state updates are not updating donationID, pointless extra memory usage by setting donation twice
-        donationBase.setDonation(
-            Owner,
-            Lottery,
-            Charity,
-            Donor,
-            amount,
-            charityAmount,
-            lotteryAmount,
-            ownerAmount,
-            donationID
-        );
-
-        donationBase.setStored(Owner, donationID);
-
-        // updates donationID;
-        donationID = donationID + 1;
+        address(this).transfer(msg.value);
     }
 
     function fetchDonationID() public view returns (uint){
@@ -118,6 +69,8 @@ contract Share {
         require(ownerRole.isOwner(msg.sender));
         return initialized;
     }
+
+    // need a function to pay out contract balance
 
 }
 
