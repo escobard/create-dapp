@@ -8,6 +8,7 @@ contract CreateDapp {
     // necessary conversion with solidity 0.5.0 to use address.transfer()
     // more here: https://ethereum.stackexchange.com/questions/66486/type-address-is-not-implicitly-convertible-to-expected-type-address-payable?noredirect=1&lq=1
     address payable PayContract;
+    address payable PayOwner;
     bool private initialized = false;
     uint private paymentID = 1;
     
@@ -22,6 +23,7 @@ contract CreateDapp {
         Owner = msg.sender;
         Contract = address(this);
         PayContract = address(uint160(Contract));
+        PayOwner = address(uint160(Owner));
     }
 
     function makePayment() public payable {
@@ -39,7 +41,7 @@ contract CreateDapp {
 
         require(msg.sender == Owner, "Unauthorized address!");
 
-        Owner.transfer(address(this).balance);
+        PayOwner.transfer(address(this).balance);
     }
 
 }
