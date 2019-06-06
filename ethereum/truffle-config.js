@@ -10,10 +10,11 @@ module.exports = {
       port: 8545,
       network_id: "*",
       gas: 80000000,   // <--- Twice as much
+      gasLimit: 2100000000000,
       gasPrice: 10000000000,
     },
       solc: {
-        version: "0.4.25"
+        version: "0.5.0"
       },
     rinkeby:{
       provider: () =>{
