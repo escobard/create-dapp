@@ -1,5 +1,6 @@
 FROM node:alpine
-WORKDIR /usr/create-dapp/ethereum
+WORKDIR /usr/create-dapp/api
 COPY package.json .
 RUN npm install
-CMD ["truffle", "test"]
+CMD ["npm", "run", "dev"]
+>>>>>>> master
