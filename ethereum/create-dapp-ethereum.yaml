@@ -19,6 +19,9 @@ services:
     build:
       context: ./truffle
       dockerfile: Dockerfile.truffle
+    depends_on:
+      - "ganache"
     volumes:
     - ./truffle:/usr/create-dapp/truffle
     - /usr/create-dapp/truffle/node_modules
+    command: ["truffle", "test"]
