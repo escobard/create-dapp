@@ -1,5 +1,6 @@
 FROM node:alpine
-WORKDIR /usr/create-dapp/ethereum
+WORKDIR /usr/create-dapp/ganache
 COPY package.json .
 RUN npm install
+CMD ["ganache-cli"]
 CMD ["truffle", "test"]
