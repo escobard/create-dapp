@@ -3,3 +3,4 @@ WORKDIR /usr/create-dapp/api
 COPY package.json .
 RUN npm install
 CMD ["npm", "run", "dev"]
+>>>>>>> master

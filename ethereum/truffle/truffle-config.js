@@ -5,15 +5,16 @@ let HDWalletProvider = require('truffle-hdwallet-provider');
 module.exports = {
   networks:{
     development:{
-      host: '127.0.0.1',
+      host: 'ganache',
       // expects desktop ganache client, change to 8545 for cli
       port: 8545,
       network_id: "*",
       gas: 80000000,   // <--- Twice as much
+      gasLimit: 2100000000000,
       gasPrice: 10000000000,
     },
       solc: {
-        version: "0.4.25"
+        version: "0.5.0"
       },
     rinkeby:{
       provider: () =>{

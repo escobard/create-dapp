@@ -1,5 +1,5 @@
 {
-  "name": "smart_contracts",
+  "name": "truffle",
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
@@ -14,7 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^7.0.0",
-    "openzeppelin-solidity": "2.0.0-rc.1",
     "truffle-hdwallet-provider": "0.0.6"
   }
 }

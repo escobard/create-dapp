@@ -1,0 +1,24 @@
+version: '3'
+services:
+  ## installing with a docker 
+  ganache:
+    image: trufflesuite/ganache-cli:latest
+    command: "ganache-cli -h 0.0.0.0"
+    ports:
+      - 8545:8545
+  truffle:
+    container_name: truffle
+    working_dir: /usr/create-dapp/truffle
+    ports:
+    - "8080:8080"
+    build:
+      context: ./truffle
+      dockerfile: Dockerfile.truffle
+    depends_on:
+      - "ganache"
+    stdin_open: true
+    tty: true
+    volumes:
+    - ./truffle:/usr/create-dapp/truffle
+    - /usr/create-dapp/truffle/node_modules
+    command: ["truffle", "test"]
