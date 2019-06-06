@@ -1,5 +1,6 @@
 FROM node:alpine
 WORKDIR /usr/create-dapp/ethereum
 COPY package.json .
+RUN npm install -g truffle
 RUN npm install
 CMD ["truffle", "test"]

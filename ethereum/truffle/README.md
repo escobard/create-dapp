@@ -1,7 +1,3 @@
-# Share - Ethereum
-
-For more documentation, visit [documents/ether.md](documents/ether.md)
-
 ## Usage
 
 ### Installation
