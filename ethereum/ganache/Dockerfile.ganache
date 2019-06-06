@@ -3,4 +3,3 @@ WORKDIR /usr/create-dapp/ganache
 COPY package.json .
 RUN npm install
 CMD ["ganache-cli"]
-CMD ["truffle", "test"]

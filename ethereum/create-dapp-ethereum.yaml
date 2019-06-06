@@ -1,0 +1,24 @@
+version: '3'
+services:
+  ganache:
+    container_name: ganache
+    working_dir: /usr/create-dapp/ganache
+    ports:
+    - "8545:8545"
+    build:
+      context: ./ganache
+      dockerfile: Dockerfile.ganache
+    volumes:
+      - ./ganache:/usr/create-dapp/ganache
+      - /usr/create-dapp/ganache/node_modules
+  truffle:
+    container_name: truffle
+    working_dir: /usr/create-dapp/truffle
+    ports:
+    - "7545:7545"
+    build:
+      context: ./truffle
+      dockerfile: Dockerfile.truffle
+    volumes:
+    - ./truffle:/usr/create-dapp/truffle
+    - /usr/create-dapp/truffle/node_modules
