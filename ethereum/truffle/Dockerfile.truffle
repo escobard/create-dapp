@@ -1,6 +1,11 @@
 FROM node:alpine
-WORKDIR /usr/create-dapp/ethereum
+WORKDIR /usr/create-dapp/truffle
 COPY package.json .
+
+## necessary to install truffle globally 
+RUN mkdir -p /root/.config/configstore
+RUN chmod g+rwx /root /root/.config /root/.config/configstore
+
 RUN npm install -g truffle
 RUN npm install
 CMD ["truffle", "test"]
