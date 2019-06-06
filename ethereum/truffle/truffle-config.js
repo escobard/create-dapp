@@ -5,7 +5,7 @@ let HDWalletProvider = require('truffle-hdwallet-provider');
 module.exports = {
   networks:{
     development:{
-      host: '127.0.0.1',
+      host: 'ganache',
       // expects desktop ganache client, change to 8545 for cli
       port: 8545,
       network_id: "*",
