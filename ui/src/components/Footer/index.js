@@ -5,7 +5,7 @@ import "./styles.scss"
 const Footer = () => (
   <footer>
     <p>
-      Copyright &copy; 2019, <a href="https://github.com/escobard">git@escobard</a>
+      Copyright &copy; 2019
     </p>
   </footer>
 );

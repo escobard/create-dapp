@@ -1,3 +1,3 @@
 
-export const items = [{ key: "home", active: true, name: "share v1" }];
+export const items = [{ key: "home", active: true, name: "create dapp" }];
 

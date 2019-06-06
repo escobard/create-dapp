@@ -1,1 +1,0 @@
-is the contract that controls ownership and transfer of ownership.

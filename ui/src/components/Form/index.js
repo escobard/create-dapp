@@ -35,16 +35,11 @@ class DynamicForm extends Component {
    **/
 
   submitForm = () => {
-    let { makeDonation, fetchDonation } = this.props;
-    let { value0, value1, value2 } = this.state;
+    let { postForm } = this.props;
+    let { value0, value1, value2, value3 } = this.state;
 
-    if (makeDonation) {
-      makeDonation(value0, value1, value2);
-    }
-
-    if (fetchDonation) {
-
-      fetchDonation(value0, value1);
+    if (postForm){
+      postForm(value0, value1, value2, value3)
     }
   };
 
@@ -54,7 +49,7 @@ class DynamicForm extends Component {
    **/
 
   inputState = (fieldObject, index) => {
-    Object.keys(fieldObject).map(key => {
+    Object.keys(fieldObject).forEach(key => {
       // only creates state for the error / value variables
       if (key === "error" || key === "value") {
         // uses index argument to create scalable state for each object in this.fields
@@ -63,8 +58,9 @@ class DynamicForm extends Component {
         // sets the state key name and value
         return this.setState({ [stateVariable]: fieldObject[key] });
       }
-    });
-  };
+    })
+
+  }
 
   /** Handles the change of each field's input, when the user types into a field
    * @dev this is where field level validation could be introduced
@@ -116,8 +112,6 @@ class DynamicForm extends Component {
       messageStatus
     } = this.props;
 
-    // console.log("STATE", this.state);
-
     return (
       <Fragment>
         {hasFields ? (
@@ -133,7 +127,7 @@ class DynamicForm extends Component {
             </Form.Field>
           </Form>
         ) : (
-          <p>Form has no input props!</p>
+          <p>Form has input props!</p>
         )}
       </Fragment>
     );

@@ -1,0 +1,5 @@
+FROM node:alpine
+WORKDIR /usr/create-dapp/ui
+COPY package.json .
+RUN npm install
+CMD ["npm", "run", "start"]
