@@ -1,5 +1,4 @@
 FROM node:alpine
 WORKDIR /usr/create-dapp/ganache
-COPY package.json .
-RUN npm install
+RUN npm install -g ganache-cli
 CMD ["ganache-cli"]
