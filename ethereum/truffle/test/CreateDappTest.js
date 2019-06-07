@@ -11,7 +11,6 @@ contract("CreateDapp", accounts => {
   let charity = accounts[2];
   let donor = accounts[3];
   let other = accounts[4];
-  let amount = web3.toWei(0.1, "ether");
 
   beforeEach(async () => {
     this.CreateDapp = await CreateDapp.new({
@@ -32,7 +31,7 @@ contract("CreateDapp", accounts => {
         });
         */
   });
-}
+});
   /*
   describe("Tests makeDonation()", () => {
     // initializes contract every time prior to makeDonation();
