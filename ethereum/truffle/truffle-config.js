@@ -11,6 +11,7 @@ module.exports = {
       port: 8545,
       network_id: "*",
       gas: 0,
+      from: "0x5a6f1822a489ee83a708b1768126c577551f2823"
     },
       solc: {
         version: "0.5.0"
