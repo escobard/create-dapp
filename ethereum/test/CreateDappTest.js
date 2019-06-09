@@ -18,7 +18,15 @@ contract("CreateDapp", accounts => {
   });
 
   describe("Tests makePayment", () => {
+
     it("owner can make payment", async () => {
+      await this.contract.makePayment({ from: owner, value: amount });
+      let paymentID = await this.contract.paymentID();
+
+      assert.equal(paymentID, 2);
+    });
+
+    it("user can make payment", async () => {
       await this.contract.makePayment({ from: user, value: amount });
       let paymentID = await this.contract.paymentID();
 
