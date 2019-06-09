@@ -1,7 +1,8 @@
 
 
 // this grabs the CreateDapp.sol file within /contracts
-const CreateDapp = artifacts.require("./CreateDapp.sol");
+const CreateDapp = artifacts.require("./CreateDapp.sol"),
+  truffleAssert = require('truffle-assertions');
 
 // extracts the accounts array from the contract
 contract("CreateDapp", accounts => {
@@ -44,21 +45,22 @@ contract("CreateDapp", accounts => {
 
       let payments = await this.contract.fetchPayment(1, { from: owner });
 
-      assert.equal(payments, 2);
+      assert.equal(payments[0], owner);
+      assert.equal(payments[1], amount);
     });
 
     it("payment must exist", async () => {
-
-      let paymentsError = await this.contract.fetchPayment(2, { from: owner });
-
-      assert.equal(paymentsError, 'Undefined payment.');
+      await truffleAssert.reverts(
+        this.contract.fetchPayment(2, { from: owner }),
+        'Undefined payment.'
+      );
     });
 
     it("only owner can fetch payments", async () => {
-
-      let paymentsError = await this.contract.fetchPayment(1, { from: user });
-
-      assert.equal(paymentsError, 'Unauthorized sender.');
+      await truffleAssert.reverts(
+        this.contract.fetchPayment(1, { from: user }),
+        'Unauthorized sender.'
+      );
     });
 
   });
