@@ -10,8 +10,9 @@ contract("CreateDapp", accounts => {
 
   // sets all addresses globally for re-use
   let owner = accounts[0],
-  user = accounts[3],
+  user = accounts[1],
   amount = web3.utils.toWei('0.1', "ether");
+
   beforeEach(async () => {
     this.contract = await CreateDapp.new({
       from: owner
@@ -67,8 +68,13 @@ contract("CreateDapp", accounts => {
 
   describe("Tests emptyBalance", () => {
 
+    let ownerBalance,
+      contractBalance;
+
     beforeEach(async () => {
       await this.contract.makePayment({ from: owner, value: amount });
+      ownerBalance = owner.balance;
+      contractBalance = this.contract.balance;
     });
 
     it("only owner can fetch payments", async () => {
@@ -78,5 +84,18 @@ contract("CreateDapp", accounts => {
       );
     });
 
+    it("owner can empty contract balance", async () => {
+
+      let prevOwnerBalance = ownerBalance,
+        prevContractBalance = contractBalance;
+
+      await this.contract.emptyBalance({ from: owner });
+
+      ownerBalance = owner.balance;
+      contractBalance = this.contract.balance;
+
+      assert.equal(prevOwnerBalance, ownerBalance);
+      assert.equal(prevContractBalance, contractBalance);
+    });
   });
 });
