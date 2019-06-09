@@ -41,6 +41,7 @@ contract CreateDapp {
         address user,
         uint amount
     ){
+        require(msg.sender === Owner, 'Unauthorized sender.')
         return ( Payments[_paymentID].user, Payments[_paymentID].amount )
     }
 
