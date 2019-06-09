@@ -1,3 +1,5 @@
+
+
 // this grabs the CreateDapp.sol file within /contracts
 const CreateDapp = artifacts.require("./CreateDapp.sol");
 
@@ -6,12 +8,9 @@ contract("CreateDapp", accounts => {
   // TODO - Testing contract address by instance here: https://truffleframework.com/docs/truffle/testing/writing-tests-in-solidity#example
 
   // sets all addresses globally for re-use
-  let owner = accounts[0];
-  let lottery = accounts[1];
-  let charity = accounts[2];
-  let donor = accounts[3];
-  let other = accounts[4];
-
+  let owner = accounts[0],
+  user = accounts[3],
+  amount = web3.utils.toWei('0.1', "ether");
   beforeEach(async () => {
     this.contract = await CreateDapp.new({
       from: owner
@@ -20,10 +19,10 @@ contract("CreateDapp", accounts => {
 
   describe("Tests makePayment", () => {
     it("owner can make payment", async () => {
-      await this.contract.makePayment({ from: donor, value: amount });
-      let response = await this.contract.paymentID;
+      await this.contract.makePayment({ from: user, value: amount });
+      let paymentID = await this.contract.paymentID();
 
-      assert.equal(response, 2);
+      assert.equal(paymentID, 2);
     });
   });
 });

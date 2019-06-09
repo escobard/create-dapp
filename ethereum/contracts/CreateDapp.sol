@@ -29,12 +29,12 @@ contract CreateDapp {
     function makePayment() public payable {
 
         uint amount = msg.value;
-        
+
         Payments[paymentID] = Payment(msg.sender, amount);
 
         paymentID = paymentID + 1;
-        
-        PayContract.transfer(msg.value);
+
+        PayContract.send(msg.value);
     }
 
     function emptyBalance() public payable {
