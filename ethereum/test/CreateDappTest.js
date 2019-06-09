@@ -49,14 +49,14 @@ contract("CreateDapp", accounts => {
 
     it("only owner can fetch payments", async () => {
 
-      let paymentsError = await this.contract.fetchPayments(1, { from: user });
+      let paymentsError = await this.contract.fetchPayment(1, { from: user });
 
       assert.equal(paymentsError, 'Unauthorized sender.');
     });
 
     it("payment must exist", async () => {
 
-      let paymentsError = await this.contract.fetchPayments(2, { from: user });
+      let paymentsError = await this.contract.fetchPayments(2, { from: owner });
 
       assert.equal(paymentsError, 'Undefined payment.');
     });

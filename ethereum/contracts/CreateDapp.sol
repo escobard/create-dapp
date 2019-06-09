@@ -37,9 +37,16 @@ contract CreateDapp {
         PayContract.send(msg.value);
     }
 
+    function fetchPayment(uint _paymentID) public view returns (
+        address user,
+        uint amount
+    ){
+        return ( Payments[_paymentID].user, Payments[_paymentID].amount )
+    }
+
     function emptyBalance() public payable {
 
-        require(msg.sender == Owner, "Unauthorized address!");
+        require(msg.sender == Owner, "Unauthorized sender.");
 
         PayOwner.transfer(address(this).balance);
     }
