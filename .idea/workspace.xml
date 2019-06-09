@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-dapp-dev-tests.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-dapp-dev.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-dapp-ethereum.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create-dapp-prod.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ethereum/test/CreateDappTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/test/CreateDappTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -62,7 +55,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dev" value="32" />
-          <entry key="js" value="1047" />
+          <entry key="js" value="1188" />
           <entry key="json" value="137" />
           <entry key="prod" value="101" />
           <entry key="sol" value="643" />
@@ -74,7 +67,7 @@
         <counts>
           <entry key="Dockerfile" value="135" />
           <entry key="JSON" value="137" />
-          <entry key="JavaScript" value="1047" />
+          <entry key="JavaScript" value="1188" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Solidity file" value="643" />
           <entry key="YAML" value="188" />
@@ -103,8 +96,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ethereum/test/CreateDappTest.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="764">
-                  <caret line="97" column="38" selection-start-line="97" selection-start-column="38" selection-end-line="97" selection-end-column="38" />
+                <state relative-caret-position="588">
+                  <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
                   <folding>
                     <element signature="e#622#1059#0" />
                     <element signature="e#1104#1114#0" />
@@ -284,12 +277,12 @@
       <workItem from="1559572488750" duration="2859000" />
       <workItem from="1559584850909" duration="4614000" />
       <workItem from="1559873921627" duration="664000" />
-      <workItem from="1560049553498" duration="11813000" />
+      <workItem from="1560049553498" duration="12573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42256000" />
+    <option name="totallyTimeSpent" value="43016000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -517,8 +510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ethereum/test/CreateDappTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="764">
-          <caret line="97" column="38" selection-start-line="97" selection-start-column="38" selection-end-line="97" selection-end-column="38" />
+        <state relative-caret-position="588">
+          <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
           <folding>
             <element signature="e#622#1059#0" />
             <element signature="e#1104#1114#0" />

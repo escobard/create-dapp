@@ -73,8 +73,8 @@ contract("CreateDapp", accounts => {
 
     beforeEach(async () => {
       await this.contract.makePayment({ from: owner, value: amount });
-      ownerBalance = owner.balance;
-      contractBalance = this.contract.balance;
+      ownerBalance = await web3.eth.getBalance(owner);
+      contractBalance = await web3.eth.getBalance(this.contract.address);
     });
 
     it("only owner can fetch payments", async () => {
@@ -91,11 +91,11 @@ contract("CreateDapp", accounts => {
 
       await this.contract.emptyBalance({ from: owner });
 
-      ownerBalance = owner.balance;
-      contractBalance = this.contract.balance;
+      ownerBalance = await web3.eth.getBalance(owner);
+      contractBalance = await web3.eth.getBalance(this.contract.address);
 
-      assert.equal(prevOwnerBalance, ownerBalance);
-      assert.equal(prevContractBalance, contractBalance);
+      assert.equal(prevOwnerBalance < ownerBalance, true);
+      assert.equal(prevContractBalance > contractBalance, true);
     });
   });
 });
