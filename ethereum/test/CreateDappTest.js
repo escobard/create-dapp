@@ -42,14 +42,14 @@ contract("CreateDapp", accounts => {
 
     it("owner can fetch payments by id", async () => {
 
-      let payments = await this.contract.fetchPayments(1, { from: owner });
+      let payments = await this.contract.fetchPayment(1, { from: owner });
 
       assert.equal(payments, 2);
     });
 
     it("payment must exist", async () => {
 
-      let paymentsError = await this.contract.fetchPayments(2, { from: owner });
+      let paymentsError = await this.contract.fetchPayment(2, { from: owner });
 
       assert.equal(paymentsError, 'Undefined payment.');
     });
