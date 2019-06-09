@@ -56,10 +56,10 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dev" value="32" />
-          <entry key="js" value="669" />
+          <entry key="js" value="674" />
           <entry key="json" value="136" />
           <entry key="prod" value="101" />
-          <entry key="sol" value="543" />
+          <entry key="sol" value="635" />
           <entry key="test" value="8" />
           <entry key="yaml" value="188" />
         </counts>
@@ -68,9 +68,9 @@
         <counts>
           <entry key="Dockerfile" value="135" />
           <entry key="JSON" value="136" />
-          <entry key="JavaScript" value="669" />
+          <entry key="JavaScript" value="674" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Solidity file" value="543" />
+          <entry key="Solidity file" value="635" />
           <entry key="YAML" value="188" />
         </counts>
       </usages-collector>
@@ -103,7 +103,7 @@
             <entry file="file://$PROJECT_DIR$/ethereum/test/CreateDappTest.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="654">
-                  <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+                  <caret line="53" column="35" lean-forward="true" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="53" />
                 </state>
               </provider>
             </entry>
@@ -156,8 +156,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="685">
-                  <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+                <state relative-caret-position="729">
+                  <caret line="43" column="64" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
                 </state>
               </provider>
             </entry>
@@ -313,12 +313,12 @@
       <workItem from="1559572488750" duration="2859000" />
       <workItem from="1559584850909" duration="4614000" />
       <workItem from="1559873921627" duration="664000" />
-      <workItem from="1560049553498" duration="7983000" />
+      <workItem from="1560049553498" duration="8471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38426000" />
+    <option name="totallyTimeSpent" value="38914000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -530,14 +530,14 @@
     <entry file="file://$PROJECT_DIR$/ethereum/test/CreateDappTest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+          <caret line="53" column="35" lean-forward="true" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+        <state relative-caret-position="729">
+          <caret line="43" column="64" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
         </state>
       </provider>
     </entry>
