@@ -1,5 +1,5 @@
 FROM node:alpine
-WORKDIR /usr/create-dapp/truffle
+WORKDIR /usr/create-dapp/ethereum
 COPY package.json .
 
 RUN apk add --no-cache git

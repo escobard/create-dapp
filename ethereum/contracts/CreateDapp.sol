@@ -10,7 +10,7 @@ contract CreateDapp {
     address payable PayContract;
     address payable PayOwner;
     bool private initialized = false;
-    uint private paymentID = 1;
+    uint public paymentID = 1;
     
     mapping(uint => Payment) public Payments;
 
@@ -29,17 +29,26 @@ contract CreateDapp {
     function makePayment() public payable {
 
         uint amount = msg.value;
-        
+
         Payments[paymentID] = Payment(msg.sender, amount);
 
         paymentID = paymentID + 1;
-        
-        PayContract.transfer(msg.value);
+
+        PayContract.send(msg.value);
+    }
+
+    function fetchPayment(uint _paymentID) public view returns (
+        address user,
+        uint amount
+    ){
+        require(_paymentID <= paymentID - 1, 'Undefined payment.');
+        require(msg.sender == Owner, 'Unauthorized sender.');
+        return ( Payments[_paymentID].user, Payments[_paymentID].amount );
     }
 
     function emptyBalance() public payable {
 
-        require(msg.sender == Owner, "Unauthorized address!");
+        require(msg.sender == Owner, "Unauthorized sender.");
 
         PayOwner.transfer(address(this).balance);
     }

@@ -8,17 +8,17 @@ services:
       - 8545:8545
   truffle:
     container_name: truffle
-    working_dir: /usr/create-dapp/truffle
+    working_dir: /usr/create-dapp/ethereum
     ports:
     - "8080:8080"
     build:
-      context: ./truffle
+      context: ./ethereum
       dockerfile: Dockerfile.truffle
     depends_on:
       - "ganache"
     stdin_open: true
     tty: true
     volumes:
-    - ./truffle:/usr/create-dapp/truffle
-    - /usr/create-dapp/truffle/node_modules
+    - ./ethereum:/usr/create-dapp/ethereum
+    - /usr/create-dapp/ethereum/node_modules
     command: ["truffle", "test"]
