@@ -55,7 +55,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dev" value="32" />
-          <entry key="js" value="590" />
+          <entry key="js" value="663" />
           <entry key="json" value="136" />
           <entry key="prod" value="101" />
           <entry key="sol" value="388" />
@@ -67,7 +67,7 @@
         <counts>
           <entry key="Dockerfile" value="135" />
           <entry key="JSON" value="136" />
-          <entry key="JavaScript" value="590" />
+          <entry key="JavaScript" value="663" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Solidity file" value="388" />
           <entry key="YAML" value="188" />
@@ -101,8 +101,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ethereum/test/CreateDappTest.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="522">
-                  <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+                <state relative-caret-position="676">
+                  <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
                 </state>
               </provider>
             </entry>
@@ -312,12 +312,12 @@
       <workItem from="1559572488750" duration="2859000" />
       <workItem from="1559584850909" duration="4614000" />
       <workItem from="1559873921627" duration="664000" />
-      <workItem from="1560049553498" duration="6101000" />
+      <workItem from="1560049553498" duration="6301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36544000" />
+    <option name="totallyTimeSpent" value="36744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -535,8 +535,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ethereum/test/CreateDappTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+        <state relative-caret-position="676">
+          <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
         </state>
       </provider>
     </entry>
