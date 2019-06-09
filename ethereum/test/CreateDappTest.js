@@ -13,32 +13,22 @@ contract("CreateDapp", accounts => {
   let other = accounts[4];
 
   beforeEach(async () => {
-    this.CreateDapp = await CreateDapp.new({
+    this.contract = await CreateDapp.new({
       from: owner
     });
   });
 
-  describe("Tests contract initiation", () => {
-    it("owner can initialize contract", async () => {
+  describe("Tests makePayment", () => {
+    it("owner can make payment", async () => {
+      await this.contract.makePayment({ from: donor, value: amount });
+      let response = await this.contract.paymentID;
+
+      assert.equal(response, 2);
     });
-
-    /* this doesn't work since it reverts as expected, to test contract errors check: https://ethereum.stackexchange.com/questions/48627/how-to-catch-revert-error-in-truffle-test-javascript
-        it('only owner can initialize contract', async () =>{
-
-            let response = await this.contract.initiateContract(lottery, charity, {from: other})
-
-            assert.eqal(response, undefined)
-        });
-        */
   });
 });
   /*
   describe("Tests makeDonation()", () => {
-    // initializes contract every time prior to makeDonation();
-    beforeEach(async () => {
-      await this.contract.initiateContract(lottery, charity, { from: owner });
-    });
-
     it("donor can create donation, checks donation iteration", async () => {
       await this.contract.makeDonation({ from: donor, value: amount });
       let response = await this.contract.fetchDonationID();

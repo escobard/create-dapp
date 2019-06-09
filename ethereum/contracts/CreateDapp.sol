@@ -10,7 +10,7 @@ contract CreateDapp {
     address payable PayContract;
     address payable PayOwner;
     bool private initialized = false;
-    uint private paymentID = 1;
+    uint public paymentID = 1;
     
     mapping(uint => Payment) public Payments;
 
