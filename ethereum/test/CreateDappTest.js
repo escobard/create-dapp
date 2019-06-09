@@ -44,7 +44,14 @@ contract("CreateDapp", accounts => {
 
       let payments = await this.contract.fetchPayments(1, { from: owner });
 
-      assert.equal(paymentID, 2);
+      assert.equal(payments, 2);
+    });
+
+    it("only owner can fetch payments", async () => {
+
+      let paymentsError = await this.contract.fetchPayments(1, { from: user });
+
+      assert.equal(paymentsError, 2);
     });
 
   });
