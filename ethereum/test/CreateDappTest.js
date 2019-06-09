@@ -67,5 +67,16 @@ contract("CreateDapp", accounts => {
 
   describe("Tests emptyBalance", () => {
 
+    beforeEach(async () => {
+      await this.contract.makePayment({ from: owner, value: amount });
+    });
+
+    it("only owner can fetch payments", async () => {
+      await truffleAssert.reverts(
+        this.contract.emptyBalance({ from: user }),
+        'Unauthorized sender.'
+      );
+    });
+
   });
 });
