@@ -11,7 +11,7 @@ module.exports = function(deployer) {
       }
     };
     fs.writeFileSync(
-      __dirname + "config.json",
+      "config.json",
       JSON.stringify(config, null, "\t"),
       "utf-8"
     );

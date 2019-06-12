@@ -4117,10 +4117,16 @@
       "links": {},
       "address": "0x9e13DE5a34dfbcC2548C0D2DC956347070e349Ae",
       "transactionHash": "0x848a3a67c9e10b8bd13355fa7764514efd35af22b8d66a129b8da5ef2e2857da"
+    },
+    "1560313026067": {
+      "events": {},
+      "links": {},
+      "address": "0x249e864c88AE0DFd3B9Dc9c445ac484121C29713",
+      "transactionHash": "0x3c8e4cb949d41294f6d24207650445c97506b897b06fc60518e9047d9bcd78e7"
     }
   },
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-06-12T04:00:07.666Z",
+  "updatedAt": "2019-06-12T04:17:09.678Z",
   "devdoc": {
     "methods": {}
   },
