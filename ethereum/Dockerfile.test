@@ -15,5 +15,4 @@ RUN mkdir -p /root/.config/configstore
 RUN chmod g+rwx /root /root/.config /root/.config/configstore
 
 RUN npm install -g truffle
-
-CMD ["truffle", "test"]
+RUN truffle migrate --reset

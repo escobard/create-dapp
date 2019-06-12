@@ -13,12 +13,14 @@ services:
     - "8080:8080"
     build:
       context: ./ethereum
-      dockerfile: Dockerfile.truffle
+      dockerfile: ethereum/Dockerfile.test
     depends_on:
       - "ganache"
     stdin_open: true
     tty: true
     volumes:
+    - ./ui/config.json:/usr/create-dapp/ui/config.json
+    - ./api/config.json:/usr/create-dapp/api/config.json
     - ./ethereum:/usr/create-dapp/ethereum
     - /usr/create-dapp/ethereum/node_modules
     command: ["truffle", "test"]
