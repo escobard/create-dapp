@@ -1,4 +1,4 @@
-const mnemonic = require("./config.js");
+const mnemonic = require("./mnemonic.js");
 
 let HDWalletProvider = require('truffle-hdwallet-provider');
 

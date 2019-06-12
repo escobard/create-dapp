@@ -1,9 +1,8 @@
-FROM node:alpine
+FROM node:alpine as builder
 WORKDIR /usr/create-dapp/ethereum
 COPY package.json .
-
-RUN apk add --no-cache git
-RUN apk add --no-cache --virtual .gyp \
+RUN apk add git
+RUN apk add --virtual .gyp \
         python \
         make \
         g++ \
@@ -15,5 +14,3 @@ RUN mkdir -p /root/.config/configstore
 RUN chmod g+rwx /root /root/.config /root/.config/configstore
 
 RUN npm install -g truffle
-
-CMD ["truffle", "test"]
