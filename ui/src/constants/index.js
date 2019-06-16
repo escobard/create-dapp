@@ -37,17 +37,11 @@ environment = process.DOCKER === 'prod' ? 'docker-production' : environment ;
 
 environment = process.DOCKER === 'dev' ? 'docker-dev' : environment ;
 
-console.log('DOCKER', process.env)
-
-console.log("environment", environment);
-
 // TODO - to be updated with new heroku env for digipdfs
 const apiRoot =
   environment === "heroku"
     ? "https://share-controller.herokuapp.com"
     : "http://localhost:4000";
-
-console.log("root", apiRoot);
 
 export const apiRoutes = {
   postForm: `${apiRoot + "/postForm"}`

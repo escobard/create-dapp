@@ -11,4 +11,4 @@ COPY package.json .
 RUN npm install
 
 ## each of these represents a command, each comma represents a space
-CMD ["npm", "run", "test-watch"]
+CMD ["npm", "run", "test"]
