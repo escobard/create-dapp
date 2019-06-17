@@ -71,7 +71,7 @@ jobs: # a collection of steps
     docker:
       - image: docker:17.05.0-ce-git
       - image: trufflesuite/ganache-cli
-        command: ganache-cli -i 1234 -e 100000000000 -l 4700038 -p 8545
+        command: ganache-cli -e 100000000000 -l 4700038 -p 8545
     steps:
       - checkout # The first step, checkout, is a special step to check out the source code; this will be downloaded to the directory specified by working_directory.
       - setup_remote_docker # This step helps you avoid the Docker-in-Docker problem
