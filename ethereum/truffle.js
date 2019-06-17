@@ -7,6 +7,7 @@ module.exports = {
     development:{
       // TODO - make this variable so that host is normal if local vs local docker
       host: '0.0.0.0:8545', //"127.0.0.1", 
+      network_id: 1234,
       gas: 4700000,
       gasPrice: 20 * 1000000000
     },
