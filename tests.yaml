@@ -6,7 +6,6 @@ services:
       context: ./ui
       dockerfile: Dockerfile.test
     volumes:
-      - ./ui:/usr/create-dapp/ui
       - /usr/create-dapp/ui/node_modules
     working_dir: /usr/create-dapp/ui
   api_tests:
@@ -15,6 +14,5 @@ services:
       context: ./api
       dockerfile: Dockerfile.test
     volumes:
-      - ./api:/usr/create-dapp/api
       - /usr/create-dapp/api/node_modules
     working_dir: /usr/create-dapp/api

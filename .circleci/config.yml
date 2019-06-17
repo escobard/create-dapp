@@ -65,6 +65,48 @@ jobs: # a collection of steps
     - run: # run tests
         name: test
         command: "cd api && npm test"
+  test-build-docker-compose:
+    working_directory: ~/docker-compose
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout # The first step, checkout, is a special step to check out the source code; this will be downloaded to the directory specified by working_directory.
+      - setup_remote_docker # This step helps you avoid the Docker-in-Docker problem
+      - run: # necessary to add docker-compose dependency
+          name: Install dependencies
+          command: |
+            apk add --no-cache \
+              py-pip=9.0.0-r1
+            pip install \
+              docker-compose==1.12.0 \
+      - restore_cache:
+          keys:
+            - v1-{{ .Branch }} # When there’s a cache suffixed with v1-{{ <branch name> }}, CircleCI will restore your directory to /caches/app.tar.
+          paths:
+            - /caches/ui-test.tar #  app.tar is the Docker image file from the previous build. When /caches/app.tar exists, Docker will load it, allowing us to reuse images from previous builds.
+            - /caches/api-test.tar
+      - run:
+          name: Load Docker image layer cache
+          command: |
+            set +o pipefail
+            docker load -i /caches/ui-test.tar | true
+      - run: # When you build a Docker image, you’ll need to specify --cache-from=<image name>.
+          name: Build application Docker image
+          command: |
+            docker build -f /ui/Dockerfile.test --cache-from=ui-test -t ui-test .
+      - run: # We’ll save the Docker image we built in /caches/app.tar.
+          name: Save Docker image layer cache
+          command: |
+            mkdir -p /caches
+            docker save -o /caches/ui-test.tar ui-test
+      - save_cache:
+          key: v1-{{ .Branch }}-{{ epoch }}
+          paths:
+            - /caches/ui-test.tar
+      - run:
+          name: Run tests
+          command: |
+            docker-compose -f ./docker-compose.test.yml up
   heroku-deploy-ui:
     working_directory: ~/ui # directory where steps will run
     docker: # run the steps with Docker
