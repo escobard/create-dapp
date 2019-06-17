@@ -1,21 +1,5 @@
 version: '3'
 services:
-  ui_tests:
-    container_name: ui_tests
-    build:
-      context: ./ui
-      dockerfile: Dockerfile.test
-    volumes:
-      - /usr/create-dapp/ui/node_modules
-    working_dir: /usr/create-dapp/ui
-  api_tests:
-    container_name: api_tests
-    build:
-      context: ./api
-      dockerfile: Dockerfile.test
-    volumes:
-      - /usr/create-dapp/api/node_modules
-    working_dir: /usr/create-dapp/api
   truffle:
     container_name: truffle
     working_dir: /usr/create-dapp/ethereum
