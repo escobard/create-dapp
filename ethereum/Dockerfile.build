@@ -8,7 +8,7 @@ RUN apk add --virtual .gyp \
         python \
         make \
         g++ \
-    && npm install \
+    && npm install
 
 ## necessary to install truffle globally 
 RUN mkdir -p /root/.config/configstore
