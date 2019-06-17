@@ -32,9 +32,6 @@ export const postFormFields = [
 let environment =
   process.env.NODE_ENV === "production" ? "heroku" : "development";
 
-console.log(process.env);
-console.log(ganache)
-
 // TODO - to be updated with new heroku env for digipdfs
 let apiRoot =
   environment === "heroku"
