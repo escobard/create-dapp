@@ -4,7 +4,7 @@ COPY package.json .
 COPY . .
 
 RUN apk add git
-RUN apk add --virtual --no-cache .gyp \
+RUN apk add --no-cache .gyp \
         python \
         make \
         g++ \
