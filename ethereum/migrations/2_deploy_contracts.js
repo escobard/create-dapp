@@ -11,6 +11,7 @@ module.exports = function(deployer) {
         appAddress: CreateDapp.address
       }
     };
+    console.log('CONFIG', config)
     fs.writeFileSync(
       "./config/config.json",
       JSON.stringify(config, null, "\t"),

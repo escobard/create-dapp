@@ -26,10 +26,7 @@ services:
     container_name: ui_dev
     working_dir: /usr/create-dapp/ui
     ports:
-    - "3000:3000"
-    environment:
-    - NODE_ENV=development
-    - DOCKER=dev
+    - "1337:3000"
     build:
       context: ./ui
       dockerfile: Dockerfile.dev
@@ -41,15 +38,12 @@ services:
       - ./ui:/usr/create-dapp/ui
       - /usr/create-dapp/ui/node_modules
     command: |
-      sh -c "npm start docker"
+      sh -c "npm run dev"
   api:
     container_name: api_dev
     working_dir: /usr/create-dapp/api
     ports:
-    - "4000:4000"
-    environment:
-    - NODE_ENV=development
-    - DOCKER=dev
+    - "117:4000"
     build:
       context: ./api
       dockerfile: Dockerfile.dev

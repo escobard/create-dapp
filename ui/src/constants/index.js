@@ -34,19 +34,17 @@ export const postFormFields = [
 let environment =
   process.env.NODE_ENV === "production" ? "heroku" : "development";
 
-// checks for docker runtime - need to add this variable check to API
-environment = process.DOCKER === 'prod' ? 'docker-production' : environment ;
-
-environment = process.DOCKER === 'dev' ? 'docker-dev' : environment ;
-
 console.log(process.env);
 console.log(ganache)
 
 // TODO - to be updated with new heroku env for digipdfs
-const apiRoot =
+let apiRoot =
   environment === "heroku"
     ? "https://share-controller.herokuapp.com"
     : "http://localhost:4000";
+
+apiRoot = process.env.DOCKER === "dev" ? "http://localhost:117" : apiRoot;
+apiRoot = process.env.DOCKER === "prod" ? "compute-engine-url" : apiRoot;
 
 export const apiRoutes = {
   postForm: `${apiRoot + "/postForm"}`
