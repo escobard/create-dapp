@@ -24,8 +24,6 @@ services:
     build:
       context: ./ethereum
       dockerfile: Dockerfile.build
-    depends_on:
-      - "ganache"
     stdin_open: true
     tty: true
     volumes:
