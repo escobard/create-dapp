@@ -8,8 +8,9 @@ RUN apk add --virtual .gyp \
         python \
         make \
         g++ \
-    && npm install -g node-gyp \
     && npm install \
+    && cd node_modules/scrypt-for-humans/node_modules/scrypt \
+    && node-gyp configure build \
     && apk del .gyp
 
 ## necessary to install truffle globally 
