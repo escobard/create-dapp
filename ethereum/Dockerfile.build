@@ -1,4 +1,4 @@
-FROM alpine-node:11 as builder
+FROM node:11.15.0-alpine as builder
 WORKDIR /usr/create-dapp/ethereum
 COPY package.json .
 COPY . .
