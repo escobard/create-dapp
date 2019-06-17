@@ -16,3 +16,16 @@ services:
     volumes:
       - /usr/create-dapp/api/node_modules
     working_dir: /usr/create-dapp/api
+  truffle:
+    container_name: truffle
+    working_dir: /usr/create-dapp/ethereum
+    ports:
+    - "8080:8080"
+    build:
+      context: ./ethereum
+      dockerfile: Dockerfile.build
+    stdin_open: true
+    tty: true
+    volumes:
+    - /usr/create-dapp/ethereum/node_modules
+    command: ["truffle", "test"]

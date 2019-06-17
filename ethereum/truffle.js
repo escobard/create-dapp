@@ -6,11 +6,11 @@ module.exports = {
   networks:{
     development:{
       // TODO - make this variable so that host is normal if local vs local docker
-      host: 'ganache', //"127.0.0.1", 
-      // expects desktop ganache client, change to 8545 for cli
+      host: 'localhost', //"127.0.0.1", 
       port: 8545,
       network_id: "*",
-      gas: 0,
+      gas: 4700000,
+      gasPrice: 20 * 1000000000
     },
       solc: {
         version: "0.5.0"

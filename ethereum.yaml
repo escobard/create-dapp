@@ -19,6 +19,6 @@ services:
     stdin_open: true
     tty: true
     volumes:
-    - ./ethereum:/usr/create-dapp/ethereum
+    - ./:/usr/create-dapp/ethereum
     - /usr/create-dapp/ethereum/node_modules
     command: ["truffle", "migrate", "--reset"]
