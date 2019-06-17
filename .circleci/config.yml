@@ -86,27 +86,45 @@ jobs: # a collection of steps
             - /caches/ui-test.tar #  app.tar is the Docker image file from the previous build. When /caches/app.tar exists, Docker will load it, allowing us to reuse images from previous builds.
             - /caches/api-test.tar
       - run:
-          name: Load Docker image layer cache
+          name: Load Docker image layer cache ui-test
           command: |
             set +o pipefail
             docker load -i /caches/ui-test.tar | true
       - run: # When you build a Docker image, you’ll need to specify --cache-from=<image name>.
-          name: Build application Docker image
+          name: Build application Docker image ui-test
           command: |
             docker build -f /ui/Dockerfile.test --cache-from=ui-test -t ui-test .
       - run: # We’ll save the Docker image we built in /caches/app.tar.
-          name: Save Docker image layer cache
+          name: Save Docker image layer cache ui-test 
           command: |
             mkdir -p /caches
             docker save -o /caches/ui-test.tar ui-test
       - save_cache:
-          key: v1-{{ .Branch }}-{{ epoch }}
+          key: v1-{{ .Branch }}-{{ epoch }}-ui-test
           paths:
             - /caches/ui-test.tar
+            - run:
+          name: Load Docker image layer cache ui-test
+          command: |
+            set +o pipefail
+            docker load -i /caches/api-test.tar | true
+      - run: # When you build a Docker image, you’ll need to specify --cache-from=<image name>.
+          name: Build application Docker image ui-test
+          command: |
+            docker build -f /api/Dockerfile.test --cache-from=api-test -t api-test .
+      - run: # We’ll save the Docker image we built in /caches/app.tar.
+          name: Save Docker image layer cache api-test 
+          command: |
+            mkdir -p /caches
+            docker save -o /caches/api-test.tar api-test
+      - save_cache:
+          key: v1-{{ .Branch }}-{{ epoch }}-api-test
+          paths:
+            - /caches/api-test.tar
       - run:
           name: Run tests
           command: |
-            docker-compose -f ./docker-compose.test.yml up
+            docker-compose -f ./tests-heroku.yml up --build
   heroku-deploy-ui:
     working_directory: ~/ui # directory where steps will run
     docker: # run the steps with Docker
