@@ -5,13 +5,13 @@ const CreateDapp = artifacts.require("./CreateDapp.sol"),
 module.exports = function(deployer) {
   deployer.deploy(CreateDapp).then(() => {
     let config = {
-      localhost: {
+      ganache: {
         url: "http://localhost:8545",
         appAddress: CreateDapp.address
       }
     };
     fs.writeFileSync(
-      "config.json",
+      "./config/config.json",
       JSON.stringify(config, null, "\t"),
       "utf-8"
     );

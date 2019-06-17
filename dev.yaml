@@ -1,5 +1,27 @@
 version: '3'
 services:
+  ganache:
+    image: trufflesuite/ganache-cli:latest
+    command: "ganache-cli -h 0.0.0.0"
+    ports:
+      - 8545:8545
+  truffle:
+    container_name: truffle
+    working_dir: /usr/create-dapp/ethereum
+    ports:
+    - "8080:8080"
+    build:
+      context: ./ethereum
+      dockerfile: Dockerfile.build
+    depends_on:
+      - "ganache"
+    stdin_open: true
+    tty: true
+    volumes:
+    - ./ethereum:/usr/create-dapp/ethereum
+    - /usr/create-dapp/ethereum/node_modules
+    command: |
+      sh -c "truffle migrate --reset"
   ui:
     container_name: ui_dev
     working_dir: /usr/create-dapp/ui
@@ -11,9 +33,15 @@ services:
     build:
       context: ./ui
       dockerfile: Dockerfile.dev
+    depends_on:
+      - "ganache"
+      - "truffle"
     volumes:
+      - ./ethereum/config:/usr/create-dapp/ui/src/ethereum
       - ./ui:/usr/create-dapp/ui
       - /usr/create-dapp/ui/node_modules
+    command: |
+      sh -c "npm start"
   api:
     container_name: api_dev
     working_dir: /usr/create-dapp/api
@@ -25,6 +53,9 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile.dev
+    depends_on:
+      - "ganache"
+      - "truffle"
     volumes:
     - ./api:/usr/create-dapp/api
     - /usr/create-dapp/api/node_modules

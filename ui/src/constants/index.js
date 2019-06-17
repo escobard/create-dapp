@@ -1,3 +1,5 @@
+const ganache = require("../ethereum/config.json")
+
 export const postFormFields = [
   {
     name: "stringType",
@@ -36,6 +38,9 @@ let environment =
 environment = process.DOCKER === 'prod' ? 'docker-production' : environment ;
 
 environment = process.DOCKER === 'dev' ? 'docker-dev' : environment ;
+
+console.log(process.env);
+console.log(ganache)
 
 // TODO - to be updated with new heroku env for digipdfs
 const apiRoot =
