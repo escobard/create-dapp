@@ -7,8 +7,8 @@ RUN apk add git
 RUN apk add --virtual .gyp \
         python \
         make \
-        g++ \
-    && apk del .gyp
+        g++ 
+        
 RUN npm install -g node-gyp
 RUN npm install
 
