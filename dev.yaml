@@ -41,7 +41,7 @@ services:
       - ./ui:/usr/create-dapp/ui
       - /usr/create-dapp/ui/node_modules
     command: |
-      sh -c "npm start"
+      sh -c "npm start docker"
   api:
     container_name: api_dev
     working_dir: /usr/create-dapp/api

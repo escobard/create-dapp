@@ -7,6 +7,7 @@ module.exports = function(deployer) {
     let config = {
       ganache: {
         url: "http://localhost:8545",
+        ownerAddress: Migrations.owner,
         appAddress: CreateDapp.address
       }
     };
