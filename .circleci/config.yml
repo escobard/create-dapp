@@ -70,6 +70,8 @@ jobs: # a collection of steps
     working_directory: ~/docker-compose
     docker:
       - image: docker:17.05.0-ce-git
+      - image: trufflesuite/ganache-cli
+        command: ganache-cli -e 100000000000 -l 4700038 -p 8545
     steps:
       - checkout # The first step, checkout, is a special step to check out the source code; this will be downloaded to the directory specified by working_directory.
       - setup_remote_docker # This step helps you avoid the Docker-in-Docker problem
@@ -83,7 +85,7 @@ jobs: # a collection of steps
       - run:
           name: Run tests
           command: |
-            docker-compose -f ./tests-heroku.yml up --build
+            docker-compose -f tests-circleci.yaml up --build
   heroku-deploy-ui:
     working_directory: ~/ui # directory where steps will run
     docker: # run the steps with Docker
