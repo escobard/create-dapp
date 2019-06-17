@@ -82,7 +82,6 @@ jobs: # a collection of steps
               py-pip=9.0.0-r1
             pip install \
               docker-compose==1.12.0 \
-            && apk add --virtual make
       - run:
           name: Run tests
           command: |
