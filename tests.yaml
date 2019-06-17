@@ -19,7 +19,7 @@ services:
   ganache:
     container_name: ganache
     image: trufflesuite/ganache-cli:latest
-    command: "ganache-cli -h 0.0.0.0 -e 100000000000"
+    command: "ganache-cli -e 100000000000"
     ports:
       - 8545:8545
   truffle:
