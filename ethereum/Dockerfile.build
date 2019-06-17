@@ -1,6 +1,8 @@
 FROM node:alpine as builder
 WORKDIR /usr/create-dapp/ethereum
 COPY package.json .
+COPY . .
+
 RUN apk add git
 RUN apk add --virtual .gyp \
         python \
@@ -8,6 +10,7 @@ RUN apk add --virtual .gyp \
         g++ \
     && npm install \
     && apk del .gyp
+
 
 ## necessary to install truffle globally 
 RUN mkdir -p /root/.config/configstore

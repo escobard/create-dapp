@@ -16,3 +16,24 @@ services:
     volumes:
       - /usr/create-dapp/api/node_modules
     working_dir: /usr/create-dapp/api
+  ganache:
+    container_name: ganache
+    image: trufflesuite/ganache-cli:latest
+    command: "ganache-cli -h 0.0.0.0 -e 100000000000"
+    ports:
+      - 8545:8545
+  truffle:
+    container_name: truffle
+    working_dir: /usr/create-dapp/ethereum
+    ports:
+    - "8080:8080"
+    build:
+      context: ./ethereum
+      dockerfile: Dockerfile.build
+    depends_on:
+      - "ganache"
+    stdin_open: true
+    tty: true
+    volumes:
+    - /usr/create-dapp/ethereum/node_modules
+    command: ["truffle", "test"]
