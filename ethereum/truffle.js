@@ -6,10 +6,7 @@ module.exports = {
   networks:{
     development:{
       // TODO - make this variable so that host is normal if local vs local docker
-      host: 'localhost', //"127.0.0.1", 
-      // expects desktop ganache client, change to 8545 for cli
-      port: 8545,
-      network_id: 1234,
+      host: '0.0.0.0:8545', //"127.0.0.1", 
       gas: 4700000,
       gasPrice: 20 * 1000000000
     },
