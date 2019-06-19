@@ -43,6 +43,8 @@ apiRoot = process.env.DOCKER === "prod" ? "compute-engine-url" : apiRoot;
 
 const ganache = process.env.NODE_ENV !== 'test' && process.env.DOCKER ? require("../ethereum/config.json") : null;
 
+console.log(ganache)
+
 export const apiRoutes = {
   postForm: `${apiRoot + "/postForm"}`
 };
