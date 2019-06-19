@@ -38,7 +38,7 @@ let apiRoot =
     ? "https://share-controller.herokuapp.com"
     : "http://localhost:4000";
 
-apiRoot = process.env.DOCKER === "dev" ? "http://localhost:117" : apiRoot;
+apiRoot = process.env.DOCKER === "dev" ? "http://localhost:1117" : apiRoot;
 apiRoot = process.env.DOCKER === "prod" ? "compute-engine-url" : apiRoot;
 
 const ganache = process.env.NODE_ENV !== 'test' && process.env.DOCKER ? require("../ethereum/config.json") : null;

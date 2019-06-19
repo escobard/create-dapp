@@ -24,17 +24,22 @@ Expanded product concept and highlights can be found here: [documentation/concep
 
 Documentation has been fragmented into several different markdown files, to facilitate collaboration.
 
-### APP Usage
+## APP Usage
 
 Production version available here: https://share-ui.herokuapp.com/
 
-Follow the instructions within the messages to utilize, expanded instructions here: [documentation/usage.md](https://github.com/escobard/share/blob/master/documentation/usage.md)
+Expanded instructions here: [documentation/usage.md](https://github.com/escobard/share/blob/master/documentation/usage.md)
+
+### Docker
+
 
 ### UI
 
+`docker-compose -f dev.yaml up --build`
+
 UI documentation can be found here: [documentation/ui.md](https://github.com/escobard/share/blob/master/documentation/ui.md)
 
-UI local usage doc can be found here: [ui/README.md](https://github.com/escobard/share/blob/master/ui/README.md)
+UI NPM usage doc can be found here: [ui/README.md](https://github.com/escobard/share/blob/master/ui/README.md)
 
 ### API 
 

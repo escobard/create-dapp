@@ -4369,10 +4369,22 @@
       "links": {},
       "address": "0xB696C33656c65d0Fdcc0C0D1fAfe7D1Ad983BB2d",
       "transactionHash": "0xd7cc5d9b2469919cc327da7a80bf27ccd824ac5515f78263a7169f66e6653f3a"
+    },
+    "1560916342559": {
+      "events": {},
+      "links": {},
+      "address": "0x6e03Dc75CECCFAd1dAbEE245eCd7dD528d67cC2F",
+      "transactionHash": "0x0b2b98eec2b64a50800170f98ce6c86d86ad9c69a3870ec9403e82095709d5ac"
+    },
+    "1560916843816": {
+      "events": {},
+      "links": {},
+      "address": "0xBca4cFa26d1E4e75838e8f5BdCCBc30ADFA7250f",
+      "transactionHash": "0x531f1c26eb7210e1b1e17014b49ec76711f103023341c4ed5d4f62e5d1c7cfd9"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-06-19T03:26:22.240Z",
+  "updatedAt": "2019-06-19T04:00:47.912Z",
   "devdoc": {
     "methods": {}
   },

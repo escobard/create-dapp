@@ -7,7 +7,7 @@ const setOrigin = (app) =>{
     app.use(cors({ origin: "https://share-ui.herokuapp.com" }));
   }
   else{
-    app.use(cors({ origin: "*" }));
+    app.use(cors({ origin: "http://localhost:1337" }));
     global.environment = "dev";
   }
 };

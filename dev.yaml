@@ -43,7 +43,7 @@ services:
     container_name: api_dev
     working_dir: /usr/create-dapp/api
     ports:
-    - "117:4000"
+    - "1117:4000"
     build:
       context: ./api
       dockerfile: Dockerfile.dev
@@ -54,3 +54,5 @@ services:
     - ./api:/usr/create-dapp/api
     - ./ethereum/config:/usr/create-dapp/api/ethereum
     - /usr/create-dapp/api/node_modules
+    command: |
+      sh -c "npm run dev"

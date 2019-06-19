@@ -2,7 +2,7 @@
 
 For more UI documentation, visit [documents/ui.md](documents/ui.md)
 
-## Usage
+## Usage - npm
 
 ### Installation
 
