@@ -5,7 +5,7 @@ const fs = require("fs"),
 
 module.exports = function(deployer) {
   deployer.deploy(Migrations).then(() => {
-    deployer.deploy(CreateDapp).then(() => {
+    return deployer.deploy(CreateDapp).then(() => {
       let config = {
         ethereum: {
           url: "http://localhost:8545",
