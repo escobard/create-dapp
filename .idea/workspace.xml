@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/Dockerfile.test" beforeDir="false" afterPath="$PROJECT_DIR$/api/Dockerfile.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tests.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/Dockerfile.test" beforeDir="false" afterPath="$PROJECT_DIR$/ui/Dockerfile.test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethereum/truffle.js" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/truffle.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,8 +25,8 @@
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -107,7 +104,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="479">
+                <state relative-caret-position="880">
                   <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
                 </state>
               </provider>
@@ -223,11 +220,11 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/ui/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2983" />
-    <option name="y" value="992" />
-    <option name="width" value="2576" />
-    <option name="height" value="1416" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-698" />
+    <option name="y" value="609" />
+    <option name="width" value="3864" />
+    <option name="height" value="2124" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -237,7 +234,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,6 +255,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,11 +301,12 @@
       <workItem from="1559873921627" duration="664000" />
       <workItem from="1560049553498" duration="13739000" />
       <workItem from="1560303277782" duration="7265000" />
+      <workItem from="1560904317313" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53510000" />
+    <option name="totallyTimeSpent" value="54109000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,7 +318,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2568" y="395" width="2576" height="1416" extended-state="6" />
+    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10480694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -508,13 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ethereum/mnemonic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ethereum/migrations/2_deploy_contracts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -522,9 +513,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ethereum/mnemonic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
+        <state relative-caret-position="880">
           <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
