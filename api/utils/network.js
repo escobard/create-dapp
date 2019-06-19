@@ -1,4 +1,5 @@
-const cors = require("cors");
+const cors = require("cors"),
+  ethereum = require('../ethereum/config');
 
 const setOrigin = (app) =>{
   // TODO this needs to be refactored to a helper - needs to handle GCP logic after containerization
@@ -12,12 +13,11 @@ const setOrigin = (app) =>{
   }
 };
 
-const setEtherNetwork = () =>{
+// TODO - use these to communicate with the ether contract for phase 5
+const fetchEtherNetwork = () => ethereum.url;
 
-}
+const fetchContractAddress = () => ethereum.contractAddress;
 
-const setContractAddress = () =>{
-
-}
+const fetchOwnerAddress = () => ethereum.ownerAddress;
 
 module.exports = { setOrigin };

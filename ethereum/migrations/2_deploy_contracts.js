@@ -5,10 +5,10 @@ const CreateDapp = artifacts.require("./CreateDapp.sol"),
 module.exports = function(deployer) {
   deployer.deploy(CreateDapp).then(() => {
     let config = {
-      ganache: {
+      ethereum: {
         url: "http://localhost:8545",
         ownerAddress: Migrations.owner,
-        appAddress: CreateDapp.address
+        contractAddress: CreateDapp.address
       }
     };
     console.log('CONFIG', config)
