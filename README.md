@@ -16,7 +16,7 @@ Furthermore, the following stack was chosen to rapidly deliver a production read
 2) Github for source control and Github Projects for scrum.
 2) React for the UI with `create-react-app`.
 3) Node with Express for the restful API.
-5) Sequilize to handle DB logic.
+5) Ethereum and smart contracts for data persistence.
 
 Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/share/blob/master/documentation/concept.md)
 
@@ -32,10 +32,21 @@ Expanded instructions here: [documentation/usage.md](https://github.com/escobard
 
 ### Docker
 
+#### Development
+
+`docker-compose -f dev.yaml up --build`
+
+#### Testing
+
+`docker-compose -f tests.yaml up --build`
+
+#### Truffle Deploy
+
+`docker-compose -f truffle-migrate.yaml up --build`
 
 ### UI
 
-`docker-compose -f dev.yaml up --build`
+
 
 UI documentation can be found here: [documentation/ui.md](https://github.com/escobard/share/blob/master/documentation/ui.md)
 
