@@ -1,7 +1,10 @@
-var Migrations = artifacts.require("./Migrations.sol");
+
+const fs = require("fs"),
+  Migrations = artifacts.require("./Migrations.sol"),
+  CreateDapp = artifacts.require("./CreateDapp.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Migrations).then(() =>{
+  deployer.deploy(Migrations).then(() => {
     deployer.deploy(CreateDapp).then(() => {
       let config = {
         ethereum: {
@@ -10,7 +13,7 @@ module.exports = function(deployer) {
           contractAddress: CreateDapp.address
         }
       };
-      console.log('CONFIG', config)
+      console.log("CONFIG", config);
       fs.writeFileSync(
         "./config/config.json",
         JSON.stringify(config, null, "\t"),
