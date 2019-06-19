@@ -1,0 +1,6 @@
+{
+	"ganache": {
+		"url": "http://localhost:8545",
+		"appAddress": "0xb911517534aAb308ce8BDA929cDc03E0142Ffed3"
+	}
+}

@@ -1,30 +1,55 @@
 version: '3'
 services:
+  ganache:
+    image: trufflesuite/ganache-cli:latest
+    command: "ganache-cli -h 0.0.0.0"
+    ports:
+      - 8545:8545
+  truffle:
+    container_name: truffle
+    working_dir: /usr/create-dapp/ethereum
+    ports:
+    - "8080:8080"
+    build:
+      context: ./ethereum
+      dockerfile: Dockerfile.build
+    depends_on:
+      - "ganache"
+    stdin_open: true
+    tty: true
+    volumes:
+    - ./ethereum:/usr/create-dapp/ethereum
+    - /usr/create-dapp/ethereum/node_modules
+    command: |
+      sh -c "truffle migrate --reset"
   ui:
     container_name: ui_dev
     working_dir: /usr/create-dapp/ui
     ports:
-    - "3000:3000"
-    environment:
-    - NODE_ENV=development
-    - DOCKER=dev
+    - "1337:3000"
     build:
       context: ./ui
       dockerfile: Dockerfile.dev
+    depends_on:
+      - "ganache"
+      - "truffle"
     volumes:
+      - ./ethereum/config:/usr/create-dapp/ui/src/ethereum
       - ./ui:/usr/create-dapp/ui
       - /usr/create-dapp/ui/node_modules
+    command: |
+      sh -c "npm run dev"
   api:
     container_name: api_dev
     working_dir: /usr/create-dapp/api
     ports:
-    - "4000:4000"
-    environment:
-    - NODE_ENV=development
-    - DOCKER=dev
+    - "117:4000"
     build:
       context: ./api
       dockerfile: Dockerfile.dev
+    depends_on:
+      - "ganache"
+      - "truffle"
     volumes:
     - ./api:/usr/create-dapp/api
     - /usr/create-dapp/api/node_modules
