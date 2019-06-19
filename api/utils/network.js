@@ -12,4 +12,12 @@ const setOrigin = (app) =>{
   }
 };
 
+const setEtherNetwork = () =>{
+
+}
+
+const setContractAddress = () =>{
+
+}
+
 module.exports = { setOrigin };

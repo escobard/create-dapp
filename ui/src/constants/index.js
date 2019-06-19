@@ -1,3 +1,4 @@
+// TODO - refactor to constants/formFields.js
 export const postFormFields = [
   {
     name: "stringType",
@@ -28,6 +29,8 @@ export const postFormFields = [
     error: false
   }
 ];
+
+// TODO - too much going on here, split all of the logic into util functions, import to this file, export constants from /constants/routes.js
 
 let environment =
   process.env.NODE_ENV === "production" ? "heroku" : "development";

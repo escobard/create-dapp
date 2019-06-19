@@ -32,6 +32,10 @@ Expanded instructions here: [documentation/usage.md](https://github.com/escobard
 
 ### Docker
 
+It's recommended to use `docker-compose` to set up your development environment.
+
+The following `docker-compose` scripts are currently available: 
+
 #### Development
 
 `docker-compose -f dev.yaml up --build`
@@ -45,8 +49,6 @@ Expanded instructions here: [documentation/usage.md](https://github.com/escobard
 `docker-compose -f truffle-migrate.yaml up --build`
 
 ### UI
-
-
 
 UI documentation can be found here: [documentation/ui.md](https://github.com/escobard/share/blob/master/documentation/ui.md)
 
