@@ -1,11 +1,11 @@
 # create-dapp
 
-An npm package to fo generate full stack product boilerplates
+An npm package to generate full stack javascript product boilerplates.
 
 ## Product Technology
 
 This product follows the traditional MVC (Model View Controller) paradigm where:
-   - The Model = the postgre db (or mongo, should deicde) - is handled in the `/database` directory
+   - The Model = the Truffle ethereum layer 
    - The View = the React user interface - is handled in the `/ui` directory
    - The Controller = the Node restful api  - handled in the `/api` directory
 

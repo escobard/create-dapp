@@ -1,1 +1,6 @@
-{}
+{
+	"ethereum": {
+		"url": "http://localhost:8545",
+		"contractAddress": "0xf0Ac4168120A02DdA0098527909238fDcFA10E05"
+	}
+}
