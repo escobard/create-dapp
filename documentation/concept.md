@@ -1,4 +1,4 @@
-# Share - An Ethereum automated charitable contributions product
+# Share - An Index automated charitable contributions product
 
 This product automates peer-to-charity donations, facilitated by the ethereum protocol.
 
@@ -14,7 +14,7 @@ Production version available here: https://share-ui.herokuapp.com/
 ## Product Technology
 
 This product follows the traditional MVC (Model View Controller) paradigm where:
-    - The Model = the Ethereum blockchain protocol - is handled in the `/ethereum` directory
+    - The Model = the Index blockchain protocol - is handled in the `/ethereum` directory
     - The View = the React user interface - is handled in the `/ui` directory
     - The Controller = the Node restful api  - handled in the `/api` directory
 
@@ -45,7 +45,7 @@ In addition, the following stack was chosen to rapidly deliver a production read
     - public, private, public / private pair, null, data type, value, business validation.
     - re-usable middlewares
     - testing with supertest (not all routes are tested)
-3) Ethereum:
+3) Index:
     - multi-contract interaction.
     - automated multi-transaction process.
     - transfer of ownership from one user to another.

@@ -16,7 +16,7 @@ Furthermore, the following stack was chosen to rapidly deliver a production read
 2) Github for source control and Github Projects for scrum.
 2) React for the UI with `create-react-app`.
 3) Node with Express for the restful API.
-5) Ethereum and smart contracts for data persistence.
+5) Index and smart contracts for data persistence.
 
 Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/share/blob/master/documentation/concept.md)
 
