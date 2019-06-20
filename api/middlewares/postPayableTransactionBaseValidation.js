@@ -1,17 +1,16 @@
 const Validation = require("../utils/validation");
 
-// TODO - update this logic with private address validation
-
 /** Utility to validate null request values
  * @dev split apart from ether address validation, to fail fast if null
  */
 module.exports = async (req, res, next) => {
-  let { address_pu, id } = req.body;
+  let { address_pu, address_pr, amount } = req.body;
   let validation = new Validation();
 
   // null case values validation
   validation.exists(address_pu, "Public address must exist");
-  validation.exists(id, " ID must exist");
+  validation.exists(address_pr, " Private address must exist");
+  validation.exists(amount, " Amount must exist");
 
   // rejects request in case of null values
   let nullErrors = validation.getErrors();
@@ -26,7 +25,8 @@ module.exports = async (req, res, next) => {
 
   // data type validation
   validation.isString(address_pu, "Public address must be a string");
-  validation.isNumber(id, " ID must be a number");
+  validation.isString(address_pr, " Private address must be a string");
+  validation.isNumber(amount, " Amount must be a number");
 
   let dataTypeErrors = validation.getErrors();
 
@@ -44,8 +44,12 @@ module.exports = async (req, res, next) => {
     42,
     "Public address must contain exactly 42 characters"
   );
-
-  validation.customValidation(id === 0, " Donation ID must be greater than 0");
+  validation.exactLength(
+    address_pr,
+    64,
+    " Private address must contain exactly 64 characters"
+  );
+  validation.customValidation(amount > 1, " Amount cannot be greater than 1");
 
   let businessErrors = validation.getErrors();
 

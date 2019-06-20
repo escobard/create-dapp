@@ -1,5 +1,7 @@
 const Validation = require("../utils/validation");
 
+// TODO - update this logic with private address validation
+
 /** Utility to validate null request values
  * @dev split apart from ether address validation, to fail fast if null
  */
