@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/api/middlewares/ethereumSetup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/services/ethereum/Contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/ethereum/Contracts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/services/ethereum/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/ethereum/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/network.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/network.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/build/contracts/CreateDapp.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/build/contracts/Migrations.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/migrations/1_migrations.js" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/migrations/1_migrations.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,7 +38,7 @@
           <entry key="build" value="1" />
           <entry key="dev" value="8" />
           <entry key="env" value="1" />
-          <entry key="js" value="57" />
+          <entry key="js" value="59" />
           <entry key="json" value="23" />
           <entry key="md" value="3" />
           <entry key="prod" value="10" />
@@ -58,7 +53,7 @@
           <entry key=".env file" value="1" />
           <entry key="Dockerfile" value="19" />
           <entry key="JSON" value="23" />
-          <entry key="JavaScript" value="57" />
+          <entry key="JavaScript" value="59" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="Solidity file" value="6" />
@@ -69,7 +64,7 @@
         <counts>
           <entry key="build" value="41" />
           <entry key="dev" value="32" />
-          <entry key="js" value="3207" />
+          <entry key="js" value="3686" />
           <entry key="json" value="185" />
           <entry key="md" value="828" />
           <entry key="prod" value="101" />
@@ -83,7 +78,7 @@
         <counts>
           <entry key="Dockerfile" value="186" />
           <entry key="JSON" value="185" />
-          <entry key="JavaScript" value="3207" />
+          <entry key="JavaScript" value="3686" />
           <entry key="Markdown" value="828" />
           <entry key="PLAIN_TEXT" value="71" />
           <entry key="Solidity file" value="650" />
@@ -101,11 +96,20 @@
     <splitter split-orientation="horizontal" split-proportion="0.4850352">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/api/services/ethereum/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="44">
-                  <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+                <state relative-caret-position="308">
+                  <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/api/services/ethereum/Contracts.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
                 </state>
               </provider>
             </entry>
@@ -115,10 +119,10 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/api/services/ethereum/Contracts.js">
+            <entry file="file://$PROJECT_DIR$/api/middlewares/ethereumSetup.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+                <state relative-caret-position="286">
+                  <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -142,9 +146,13 @@
       <find>watch</find>
       <find>/config.js</find>
       <find>ganache</find>
+      <find>etherUtils</find>
+      <find>eUtils</find>
     </findStrings>
     <replaceStrings>
       <replace>ethereum</replace>
+      <replace>Contracts</replace>
+      <replace>contract</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -199,8 +207,9 @@
         <option value="$PROJECT_DIR$/api/utils/network.js" />
         <option value="$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol" />
         <option value="$PROJECT_DIR$/ethereum/migrations/1_migrations.js" />
-        <option value="$PROJECT_DIR$/api/services/ethereum/index.js" />
         <option value="$PROJECT_DIR$/api/services/ethereum/Contracts.js" />
+        <option value="$PROJECT_DIR$/api/services/ethereum/index.js" />
+        <option value="$PROJECT_DIR$/api/middlewares/ethereumSetup.js" />
       </list>
     </option>
   </component>
@@ -259,14 +268,13 @@
               <item name="create-dapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="create-dapp" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="middlewares" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="create-dapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="create-dapp" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -328,12 +336,12 @@
       <workItem from="1560049553498" duration="13739000" />
       <workItem from="1560303277782" duration="7265000" />
       <workItem from="1560904317313" duration="6759000" />
-      <workItem from="1561065204867" duration="8053000" />
+      <workItem from="1561065204867" duration="9265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68322000" />
+    <option name="totallyTimeSpent" value="69534000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -348,7 +356,7 @@
     <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10480694" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10480694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -362,7 +370,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32917318" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500394" side_tool="true" weight="0.21216848" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960598" visible="true" weight="0.21216848" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49960598" visible="true" weight="0.21216848" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -401,13 +409,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ui/src/components/Form/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Dockerfile.dev">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -689,15 +690,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/services/ethereum/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="308">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/services/ethereum/Contracts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        <state relative-caret-position="396">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/middlewares/ethereumSetup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,4 @@
-const Ethereum = require("./"),
-  createDappABI = require('../../constants/createDappAbi');
+const Ethereum = require("./");
 
 /**
  * Child class of Ethereum
@@ -8,22 +7,26 @@ const Ethereum = require("./"),
 
 class Contract extends Ethereum{
 
-  constructor(){
+  constructor(address, abi){
     super();
 
     this.contract ={
-      contract_pu: process.env.SHARE_ADDRESS,
-      contract_abi: ShareABI
+      contract_pa: address,
+      contract_abi: abi
     };
 
   }
 
+  /**
+   * Sets up the contract instance
+   */
+
   async setContract(){
 
-    let { contract: {contract_abi, contract_pu}} = this;
+    let { contract: {contract_abi, contract_pa}} = this;
 
     let web3 = await this.web3;
-    return await web3.eth.Contract(contract_abi, contract_pu);
+    return await web3.eth.Contract(contract_abi, contract_pa);
   }
 
 }

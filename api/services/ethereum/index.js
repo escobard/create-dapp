@@ -13,13 +13,15 @@ class Ethereum {
     this.accounts = {
       owner_pu: process.env.OWNER_PUBLIC,
       owner_pr: process.env.OWNER_PRIVATE,
-      charity_pu: process.env.CHARITY_PUBLIC,
-      lottery_pu: process.env.LOTTERY_PUBLIC
     };
 
     this.web3 = this.web3Provider();
   }
 
+  /**
+   * Connects to the web3 instance, and the local dev or prod ethereum network
+   * @dev fetchEtherNetwork() returns the ethereum/config.js URL which will be either ganache or rinkeby
+   */
   static async web3Provider() {
     return await new Web3(
       new Web3.providers.HttpProvider(
