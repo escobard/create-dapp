@@ -5,11 +5,11 @@ const fs = require("fs"),
 
 module.exports = function(deployer) {
   deployer.deploy(Migrations).then(() => {
-    return deployer.deploy(CreateDapp).then(() => {
+    return deployer.deploy(CreateDapp).then((instance) => {
       let config = {
         ethereum: {
           url: "http://localhost:8545",
-          ownerAddress: CreateDapp.Owner,
+          ownerAddress: instance.Owner,
           contractAddress: CreateDapp.address
         }
       };

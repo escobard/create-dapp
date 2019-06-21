@@ -5,7 +5,7 @@ const Ethereum = require("./");
  * @dev to be gradually improved over time with new route helpers
  */
 
-class Contract extends Ethereum{
+class Contract extends Ethereum {
 
   constructor(address, abi){
     super();
