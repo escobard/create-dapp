@@ -3,13 +3,13 @@ const router = require("express").Router(),
   getStructureByIdEtherValidation = require("../middlewares/getStructureByIdEtherValidation"),
   ethereumSetup = require("../middlewares/ethereumSetup");
 
-router.get(
+router.post(
   "/",
   getStructureByIdBaseValidation,
   ethereumSetup,
   getStructureByIdEtherValidation,
   (req, res) => {
-    console.log("/fetchPayment GET request: ", req.headers);
+    console.log("/fetchPayment POST request: ", req.headers);
     let {
       web3,
       share,
