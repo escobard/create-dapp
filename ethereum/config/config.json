@@ -1,6 +1,6 @@
 {
-	"ganache": {
+	"ethereum": {
 		"url": "http://localhost:8545",
-		"appAddress": "0xb911517534aAb308ce8BDA929cDc03E0142Ffed3"
+		"contractAddress": "0x6fD6e5197cA98957F6216d3Ef83BcD999B31252b"
 	}
 }

@@ -1,3 +1,4 @@
+// TODO - refactor to constants/formFields.js
 export const postFormFields = [
   {
     name: "stringType",
@@ -29,6 +30,8 @@ export const postFormFields = [
   }
 ];
 
+// TODO - too much going on here, split all of the logic into util functions, import to this file, export constants from /constants/routes.js
+
 let environment =
   process.env.NODE_ENV === "production" ? "heroku" : "development";
 
@@ -38,10 +41,12 @@ let apiRoot =
     ? "https://share-controller.herokuapp.com"
     : "http://localhost:4000";
 
-apiRoot = process.env.DOCKER === "dev" ? "http://localhost:117" : apiRoot;
+apiRoot = process.env.DOCKER === "dev" ? "http://localhost:1117" : apiRoot;
 apiRoot = process.env.DOCKER === "prod" ? "compute-engine-url" : apiRoot;
 
 const ganache = process.env.NODE_ENV !== 'test' && process.env.DOCKER ? require("../ethereum/config.json") : null;
+
+console.log(ganache)
 
 export const apiRoutes = {
   postForm: `${apiRoot + "/postForm"}`

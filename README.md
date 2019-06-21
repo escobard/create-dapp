@@ -1,11 +1,11 @@
 # create-dapp
 
-An npm package to fo generate full stack product boilerplates
+An npm package to generate full stack javascript product boilerplates.
 
 ## Product Technology
 
 This product follows the traditional MVC (Model View Controller) paradigm where:
-   - The Model = the postgre db (or mongo, should deicde) - is handled in the `/database` directory
+   - The Model = the Truffle ethereum layer 
    - The View = the React user interface - is handled in the `/ui` directory
    - The Controller = the Node restful api  - handled in the `/api` directory
 
@@ -16,7 +16,7 @@ Furthermore, the following stack was chosen to rapidly deliver a production read
 2) Github for source control and Github Projects for scrum.
 2) React for the UI with `create-react-app`.
 3) Node with Express for the restful API.
-5) Sequilize to handle DB logic.
+5) Index and smart contracts for data persistence.
 
 Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/share/blob/master/documentation/concept.md)
 
@@ -24,17 +24,35 @@ Expanded product concept and highlights can be found here: [documentation/concep
 
 Documentation has been fragmented into several different markdown files, to facilitate collaboration.
 
-### APP Usage
+## APP Usage
 
 Production version available here: https://share-ui.herokuapp.com/
 
-Follow the instructions within the messages to utilize, expanded instructions here: [documentation/usage.md](https://github.com/escobard/share/blob/master/documentation/usage.md)
+Expanded instructions here: [documentation/usage.md](https://github.com/escobard/share/blob/master/documentation/usage.md)
+
+### Docker
+
+It's recommended to use `docker-compose` to set up your development environment.
+
+The following `docker-compose` scripts are currently available: 
+
+#### Development
+
+`docker-compose -f dev.yaml up --build`
+
+#### Testing
+
+`docker-compose -f tests.yaml up --build`
+
+#### Truffle Deploy
+
+`docker-compose -f truffle-migrate.yaml up --build`
 
 ### UI
 
 UI documentation can be found here: [documentation/ui.md](https://github.com/escobard/share/blob/master/documentation/ui.md)
 
-UI local usage doc can be found here: [ui/README.md](https://github.com/escobard/share/blob/master/ui/README.md)
+UI NPM usage doc can be found here: [ui/README.md](https://github.com/escobard/share/blob/master/ui/README.md)
 
 ### API 
 
