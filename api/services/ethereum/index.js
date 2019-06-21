@@ -1,29 +1,20 @@
-/**
- * Builds a temporary in memory util to create an intermediate web3 provider
- *
- * @dev to be gradually improved over time with new route helpers
- * @param contract: address of the smart contract
- * @param
- */
-// TODO - clean up this file, move to /services directory
 const Web3 =require("web3"),
   ShareABI = require("../constants/share_abi");
 
+/**
+ * Parent class for ethereum services, connects to web3 provider
+ * @dev to be gradually improved over time with new route helpers
+ */
 class Ethereum {
 
   constructor() {
 
-    // TODO - refactor process.env variables with deconstruct
+    // TODO - analyze utility, should no longer be necessary
     this.accounts ={
       owner_pu: process.env.OWNER_PUBLIC,
       owner_pr: process.env.OWNER_PRIVATE,
       charity_pu: process.env.CHARITY_PUBLIC,
       lottery_pu: process.env.LOTTERY_PUBLIC
-    }
-
-    this.contract ={
-      contract_pu: process.env.SHARE_ADDRESS,
-      contract_abi: ShareABI
     }
 
     this.web3 = this.web3Provider();
@@ -58,13 +49,6 @@ class Ethereum {
 
   }
 
-  async setContract(){
-
-    let { contract: {contract_abi, contract_pu}} = this;
-
-    let web3 = await this.web3;
-    return await web3.eth.Contract(contract_abi, contract_pu);
-  }
   // TODO refactor rawTransaction util into this file
 }
 
