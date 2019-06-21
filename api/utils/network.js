@@ -20,6 +20,4 @@ const fetchContractAddress = () => ethereum.contractAddress;
 
 const fetchOwnerAddress = () => ethereum.ownerAddress;
 
-console.log(ethereum)
-
 module.exports = { setOrigin };

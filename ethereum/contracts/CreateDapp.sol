@@ -2,7 +2,7 @@ pragma solidity ^0.5.0;
 
 contract CreateDapp {
 
-    address private Owner;
+    address public Owner;
     address private Contract;
 
     // necessary conversion with solidity 0.5.0 to use address.transfer()

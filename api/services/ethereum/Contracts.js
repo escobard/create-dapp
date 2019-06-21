@@ -6,7 +6,7 @@ const Ethereum = require("./"),
  * @dev to be gradually improved over time with new route helpers
  */
 
-class Contracts extends Ethereum{
+class Contract extends Ethereum{
 
   constructor(){
     super();
@@ -16,7 +16,6 @@ class Contracts extends Ethereum{
       contract_abi: ShareABI
     };
 
-    this.web3 = this.web3Provider();
   }
 
   async setContract(){
@@ -29,4 +28,4 @@ class Contracts extends Ethereum{
 
 }
 
-module.exports = Contracts;
+module.exports = Contract;

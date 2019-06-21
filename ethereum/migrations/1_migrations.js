@@ -9,7 +9,7 @@ module.exports = function(deployer) {
       let config = {
         ethereum: {
           url: "http://localhost:8545",
-          ownerAddress: Migrations.owner,
+          ownerAddress: CreateDapp.Owner,
           contractAddress: CreateDapp.address
         }
       };
