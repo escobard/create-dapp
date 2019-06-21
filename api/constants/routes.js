@@ -3,7 +3,7 @@ const routes = {
   health: "/health",
   postForm: "/postForm",
   makePayment: "/makePayment",
-  fetchpayment: "/fetchPayment"
+  fetchPayment: "/fetchPayment"
 };
 
 module.exports = routes;

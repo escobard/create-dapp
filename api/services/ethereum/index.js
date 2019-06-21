@@ -1,7 +1,7 @@
 const Web3 = require("web3"),
   {
     fetchEtherNetwork,
-  } = require("../../constants/network");
+  } = require("../../utils/network");
 
 /**
  * Parent class for ethereum services, connects to web3 provider
