@@ -48,18 +48,13 @@ router.post(
         status: "Payment fetched!",
         payment
       };
+
+      return res.status(200).json(global.fetchPayment);
     } else {
       res
         .status(400)
         .json("Only the owner of the payment can fetch the payment data.");
     }
-
-    res.status(200).json({
-      healthy: true,
-      process: global.environment,
-      docker: process.env.DOCKER,
-      ethereum: fetchEtherNetwork
-    });
   }
 );
 
