@@ -32,6 +32,7 @@ function txBuilder({
   value,
   gasLimit,
   gasPrice,
+  gas,
   fromPriv
 }) {
   //get the private key
@@ -42,6 +43,7 @@ function txBuilder({
   const valueHex = web3.utils.toHex(value);
   const limitHex = web3.utils.toHex(gasLimit);
   const priceHex = web3.utils.toHex(gasPrice);
+  const gasHex = web3.utils.toHex(gas);
 
   //tx object
   let rawTx;
@@ -53,6 +55,7 @@ function txBuilder({
         nonce: nonceHex,
         gasPrice: priceHex,
         gasLimit: limitHex,
+        gas: gasHex,
         to: toAddress,
         from: fromPub,
         value: valueHex,
@@ -111,10 +114,14 @@ async function sendRawTransaction({
   const nonce = await web3.eth.getTransactionCount(public_address);
 
   //rinkeby gas limit and gas price can be checked on rinkeby.io
-  const gasLimit = "6004303";
+  // TODO - this is variable depending on if its the ganache or rinkeby network
+  const gasLimit = "6721975";
 
   //rinkeby current gas price is 1 gwei, setting to 10 will ensure priority mining
-  const gasPrice = "80000000000";
+  const gasPrice = "100000000000";
+
+  // needs to be confirmed with rinkeby
+  const gas = "750430"
 
   //optional logs for sanity checks
   //build transaction object -- see tx_builder.js for input parameters
@@ -123,11 +130,12 @@ async function sendRawTransaction({
     fromPub: public_address,
     fromPriv: private_address,
     toAddress: receiver,
-    nonce: nonce,
+    nonce,
     functionSignature: method.encodeABI(),
-    value: value,
-    gasLimit: gasLimit,
-    gasPrice: gasPrice
+    value,
+    gasLimit,
+    gasPrice,
+    gas,
   };
 
   // console.log("Building Transaction", txData);
