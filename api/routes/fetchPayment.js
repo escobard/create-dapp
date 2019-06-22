@@ -1,7 +1,8 @@
 const router = require("express").Router(),
   getStructureByIdBaseValidation = require("../middlewares/getStructureByIdBaseValidation"),
   getStructureByIdEtherValidation = require("../middlewares/getStructureByIdEtherValidation"),
-  ethereumSetup = require("../middlewares/ethereumSetup");
+  ethereumSetup = require("../middlewares/ethereumSetup"),
+  { fetchEtherNetwork } = require("../utils/network")
 
 router.post(
   "/",
@@ -12,14 +13,16 @@ router.post(
     console.log("/fetchPayment POST request: ", req.headers);
     let {
       web3,
-      share,
-      body: { user_pa, user_pk, id },
-      contract: { contract_pu }
+      contractInstance,
+      contractAddress,
+      body: { user_pa, user_pk, id }
     } = req;
 
     res.status(200).json({
       healthy: true,
-      process: global.environment
+      process: global.environment,
+      docker: process.env.DOCKER,
+      ethereum: fetchEtherNetwork
     });
   }
 );

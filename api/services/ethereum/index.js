@@ -22,10 +22,10 @@ class Ethereum {
    * Connects to the web3 instance, and the local dev or prod ethereum network
    * @dev fetchEtherNetwork() returns the ethereum/config.js URL which will be either ganache or rinkeby
    */
-  static async web3Provider() {
+  async web3Provider() {
     return await new Web3(
       new Web3.providers.HttpProvider(
-        fetchEtherNetwork()
+        fetchEtherNetwork
       )
     );
   }

@@ -7,25 +7,29 @@ const Validation = require("../utils/validation");
  */
 module.exports = async (req, res, next) => {
   let {
-    body: { address_pu, id },
+    body: { user_pa, user_pk, id },
     web3,
-    accounts: { owner_pu },
-    share
+    contractInstance,
+    contractAddress
   } = req;
 
   // setting address to lowercase, to avoid validation errors
 
   let validation = new Validation();
 
+  /* commented out for now, need to fix later
   let donationID = await share.methods.fetchDonationID.call({
     from: owner_pu
   });
+  */
 
-  await validation.isValidPublic(address_pu, web3, "Public address is invalid");
-  await validation.customValidation(
+  await validation.isValidPublic(user_pa, web3, "Public address is invalid");
+  await validation.isValidPair(user_pk, user_pa, ' Private Key is invalid');
+
+  /*await validation.customValidation(
     id >= donationID,
     " DonationID does not exist"
-  );
+  );*/
 
   let etherErrors = validation.getErrors();
 
@@ -36,28 +40,29 @@ module.exports = async (req, res, next) => {
       errors: etherErrors.join()
     });
   }
+  /*
 
   // handles ether business logic
   let donation = await share.methods.fetchDonation(id).call({ from: owner_pu });
-  console.log('DONATION', donation.donor === address_pu);
+  console.log('DONATION', donation.donor === user_pa);
 
 // adding 3 seperate validation cases, custom validation only handles a SINGLE boolean
   await validation.customValidation(
-    address_pu !== donation.donor,
+    user_pa !== donation.donor,
     "Public address provided must exist within fetched donation"
   );
 
   await validation.customValidation(
-    address_pu !== donation.donor,
+    user_pa !== donation.donor,
     " Public address provided must exist within fetched donation"
   );
 
 
   await validation.customValidation(
-    address_pu !== donation.charity,
+    user_pa !== donation.charity,
     " Public address provided must exist within fetched donation"
   );
-  console.log('ADDRESS / ID', address_pu, id)
+  console.log('ADDRESS / ID', user_pa, id)
   let etherBusinessErrors = validation.getErrors();
 
   // if only 2 errors are thrown, that means that 1/3 addresses is within the returned donation
@@ -68,6 +73,6 @@ module.exports = async (req, res, next) => {
       errors: "Public address provided must exist within fetched donation"
     });
   }
-
+  */
   next();
 };
