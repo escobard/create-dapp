@@ -58,8 +58,10 @@ router.post(
         paymentID,
         payment: prettyPayment
       };
+
       console.log(global.makePayment);
       return res.status(200).json(global.makePayment);
+
     } else {
       res.status(200).json(global.makePayment);
 
