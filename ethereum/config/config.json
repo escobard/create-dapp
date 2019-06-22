@@ -1,6 +1,6 @@
 {
 	"ethereum": {
 		"url": "http://localhost:8545",
-		"contractAddress": "0x1c2c32B7aDc47026c85deEe0E34F9Bc1b01E95Ea"
+		"contractAddress": "0x8B59F232D09d7c26830540BcBAed9210bfdEcf42"
 	}
 }

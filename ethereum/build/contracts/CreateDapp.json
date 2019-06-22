@@ -3853,10 +3853,16 @@
       "links": {},
       "address": "0x1c2c32B7aDc47026c85deEe0E34F9Bc1b01E95Ea",
       "transactionHash": "0x54b6b16c0f03424aa3c7f61e3c37b9ba22cab051921f62950ca86b172b870c10"
+    },
+    "1561231907661": {
+      "events": {},
+      "links": {},
+      "address": "0x8B59F232D09d7c26830540BcBAed9210bfdEcf42",
+      "transactionHash": "0xa36768fca9f4a62f2acc147d832cf9b3a9de8751083c15fde717941b3d9d0e4d"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-06-22T03:47:23.167Z",
+  "updatedAt": "2019-06-22T19:31:51.751Z",
   "devdoc": {
     "methods": {}
   },

@@ -4,7 +4,7 @@ services:
     image: trufflesuite/ganache-cli:latest
     command: "ganache-cli -h 0.0.0.0"
     ports:
-      - 8545:8545
+      - "8545:8545"
   truffle:
     container_name: truffle
     working_dir: /usr/create-dapp/ethereum
