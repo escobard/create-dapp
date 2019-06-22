@@ -8,7 +8,7 @@ module.exports = function(deployer) {
     return deployer.deploy(CreateDapp).then(async (instance) => {
       let config = {
         ethereum: {
-          url: "http://ganache:8545",
+          network: deployer.network,
           ownerAddress: await instance.Owner(),
           contractAddress: CreateDapp.address
         }

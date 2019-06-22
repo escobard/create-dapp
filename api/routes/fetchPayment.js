@@ -26,7 +26,9 @@ router.post(
 
     console.log(global.fetchPayment);
 
-    let paymentID = await share.methods.fetchDonationID.call({ from: user_pa });
+    let paymentID = await contractInstance.methods.paymentID.call({
+      from: user_pa
+    });
 
     // checks if contract has not store any payments
     if (paymentID === 1) {
@@ -43,18 +45,13 @@ router.post(
       .fetchPayment(id)
       .call({ from: user_pa });
 
-    if (payment.user === user_pa) {
-      global.fetchPayment = {
-        status: "Payment fetched!",
-        payment
-      };
+    global.fetchPayment = {
+      status: "Payment fetched!",
+      payment
+    };
 
-      return res.status(200).json(global.fetchPayment);
-    } else {
-      res
-        .status(400)
-        .json("Only the owner of the payment can fetch the payment data.");
-    }
+    console.log(global.fetchPayment);
+    return res.status(200).json(global.fetchPayment);
   }
 );
 

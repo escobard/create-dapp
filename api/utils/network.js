@@ -6,18 +6,21 @@ const setOrigin = app => {
   if (process.env.NODE_ENV === "production") {
     app.use(cors({ origin: "https://share-ui.herokuapp.com" }));
     global.environment = "prod";
-    global.ethereum = "rinkeby"
-  } else if(process.env.DOCKER === "dev") {
+    global.ethereum = "rinkeby";
+  } else if (process.env.DOCKER === "dev") {
     app.use(cors({ origin: "http://localhost:1337" }));
     global.environment = "dev";
     global.ethereum = "ganache";
-  }
-  else{
-    app.use(cors({ origin: "http://localhost:3000"}))
+  } else {
+    app.use(cors({ origin: "http://localhost:3000" }));
   }
 };
 
-const fetchEtherNetwork = 'http://ganache:8545' // ethereum.url;
+// needs to be improved for ether networks beyond ganache / rinkeby
+const fetchEtherNetwork =
+  ethereum.network === "development"
+    ? "http://ganache:8545"
+    : "https://rinkeby.infura.io/v3/47c181283cb345c19697f9403531914c";
 
 const fetchContractAddress = ethereum.contractAddress;
 
