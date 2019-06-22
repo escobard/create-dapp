@@ -15,7 +15,7 @@ const setOrigin = app => {
   }
 };
 
-const fetchEtherNetwork = ethereum.url;
+const fetchEtherNetwork = 'http://ganache:8545' // ethereum.url;
 
 const fetchContractAddress = ethereum.contractAddress;
 
