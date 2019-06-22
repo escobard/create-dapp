@@ -37,6 +37,22 @@ router.post(
       web3
     );
 
+    console.log("Payment send! Fetching ID...");
+
+    let paymentID = await contractInstance.methods.paymentID.call({
+      from: user_pa
+    });
+
+    let currentDonation = donationID - 1;
+
+    global.makeDonation = {
+      status: `Donation created! Your donationID is: ${currentDonation}`,
+      result: "created",
+      donationID: currentDonation
+    };
+
+    console.log(global.makeDonation);
+
     res.status(200).json({
       healthy: true,
       process: global.environment
