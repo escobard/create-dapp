@@ -75,20 +75,23 @@ function txBuilder({
  * Builds ether signed transaction
  *
  * @param method: smart contract method
- * @param senderPub: sender public address
- * @param senderPriv: sender private address
+ * @param public_address: sender public address
+ * @param private_address: sender private address
  * @param receiver: transaction receiver
  * @param amount: amount string in ether, converted to wei
+ * @param res: response object to throw errors
+ * @param web3: web3 instance necesary to call ether network
  */
 
-async function sendRawTransaction(
-  contractMethod,
-  senderPub,
-  senderPriv,
+async function sendRawTransaction({
+  method,
+  public_address,
+  private_address,
   receiver,
   amount,
-  res
-) {
+  res,
+  web3
+}) {
   /**
    * send Ether through a signed transaction function.
    *
@@ -105,7 +108,7 @@ async function sendRawTransaction(
   // the 'pending' flag here adds the most recent transaction
 
   // TODO - this fails on new accounts, need to create a handler for fail cases
-  const nonce = await web3.eth.getTransactionCount(senderPub);
+  const nonce = await web3.eth.getTransactionCount(public_address);
 
   //rinkeby gas limit and gas price can be checked on rinkeby.io
   const gasLimit = "6004303";
@@ -117,11 +120,11 @@ async function sendRawTransaction(
   //build transaction object -- see tx_builder.js for input parameters
   let txData = {
     method: "sendRawTransaction",
-    fromPub: senderPub,
-    fromPriv: senderPriv,
+    fromPub: public_address,
+    fromPriv: private_address,
     toAddress: receiver,
     nonce: nonce,
-    functionSignature: contractMethod.encodeABI(),
+    functionSignature: method.encodeABI(),
     value: value,
     gasLimit: gasLimit,
     gasPrice: gasPrice

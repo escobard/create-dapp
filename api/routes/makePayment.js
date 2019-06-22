@@ -27,15 +27,16 @@ router.post(
     res.status(200).json(global.makePayment);
 
     // creates raw transaction for makePayment()
-    await sendRawTransaction(
-      contractInstance.methods.makePayment(),
-      user_pa,
-      user_pk,
-      contractAddress,
+    let rawTransaction = {
+      method: contractInstance.methods.makePayment(),
+      public_address: user_pa,
+      private_address: user_pk,
+      receiver: contractAddress,
       amount,
       res,
       web3
-    );
+    }
+    await sendRawTransaction(rawTransaction);
 
     console.log("Payment send! Fetching ID...");
 
