@@ -10,7 +10,9 @@ router.post(
   ethereumSetup,
   postPayableTransactionEtherValidation,
   async (req, res) => {
+
     console.log("/makePayment POST request: ", req.headers);
+
     let {
       web3,
       contractInstance,
@@ -23,6 +25,7 @@ router.post(
       status: "payment Validated! Sending to Smart Contract...",
       result: "validated"
     };
+
     console.log(global.makePayment);
     res.status(200).json(global.makePayment);
 
