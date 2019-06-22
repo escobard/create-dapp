@@ -5,7 +5,7 @@ const Contract = require("../services/ethereum/Contracts"),
 module.exports = async (req, res, next) => {
 
   // init utils class
-  const contract = new Contract(CreateDappAbi, fetchContractAddress());
+  const contract = new Contract(fetchContractAddress, CreateDappAbi);
 
   // set web3
   req.web3 = await contract.web3;

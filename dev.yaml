@@ -2,9 +2,9 @@ version: '3'
 services:
   ganache:
     image: trufflesuite/ganache-cli:latest
-    command: "ganache-cli -h 0.0.0.0"
+    command: "ganache-cli"
     ports:
-      - 8545:8545
+      - "8545:8545"
   truffle:
     container_name: truffle
     working_dir: /usr/create-dapp/ethereum
@@ -30,6 +30,8 @@ services:
     build:
       context: ./ui
       dockerfile: Dockerfile.dev
+    links:
+      - ganache
     depends_on:
       - "ganache"
       - "truffle"
@@ -47,6 +49,8 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile.dev
+    links:
+      - ganache
     depends_on:
       - "ganache"
       - "truffle"
