@@ -1,6 +1,8 @@
+
 const Web3 = require("web3"),
   {
     fetchEtherNetwork,
+    fetchOwnerAddress
   } = require("../../utils/network");
 
 /**
@@ -11,8 +13,7 @@ class Ethereum {
   constructor() {
     // TODO - analyze utility, should no longer be necessary
     this.accounts = {
-      owner_pu: process.env.OWNER_PUBLIC,
-      owner_pr: process.env.OWNER_PRIVATE,
+      owner_pu: fetchOwnerAddress,
     };
 
     this.web3 = this.web3Provider();

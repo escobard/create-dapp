@@ -1,14 +1,4 @@
-require("dotenv").config();
-// TODO - clean up this file, move to /services directory
-let Web3 = require("web3"),
-  Tx = require("ethereumjs-tx");
-
-let web3 = new Web3(
-  new Web3.providers.HttpProvider(
-    "https://rinkeby.infura.io/v3/47c181283cb345c19697f9403531914c"
-  )
-);
-
+const Tx = require("ethereumjs-tx");
 /**
  * Build a raw transaction and sign offline before sending
  *
@@ -20,8 +10,12 @@ let web3 = new Web3(
  * @param value in wei (optional)
  * @param gasLimit as a stringed number in wei
  * @param gasPrice as a stringed number in wei
+ * @param gas as a stringed number in wei
  * @param fromPriv: address to sign transaction with
+ * @param web3 instance
  */
+
+let web3Instance;
 
 function txBuilder({
   method,
@@ -39,11 +33,11 @@ function txBuilder({
   let privateKey = new Buffer.from(fromPriv, "hex");
 
   //values to hex
-  const nonceHex = web3.utils.toHex(nonce);
-  const valueHex = web3.utils.toHex(value);
-  const limitHex = web3.utils.toHex(gasLimit);
-  const priceHex = web3.utils.toHex(gasPrice);
-  const gasHex = web3.utils.toHex(gas);
+  const nonceHex = web3Instance.utils.toHex(nonce);
+  const valueHex = web3Instance.utils.toHex(value);
+  const limitHex = web3Instance.utils.toHex(gasLimit);
+  const priceHex = web3Instance.utils.toHex(gasPrice);
+  const gasHex = web3Instance.utils.toHex(gas);
 
   //tx object
   let rawTx;
@@ -105,6 +99,9 @@ async function sendRawTransaction({
    * @param txData: data object to pass to txBuilder.
    */
 
+  // necessary for raw tx builder
+  web3Instance = web3;
+
   // converted to string
   const value = web3.utils.toWei(amount.toString(), "ether");
 
@@ -121,7 +118,7 @@ async function sendRawTransaction({
   const gasPrice = "100000000000";
 
   // needs to be confirmed with rinkeby
-  const gas = "750430"
+  const gas = "750430";
 
   //optional logs for sanity checks
   //build transaction object -- see tx_builder.js for input parameters
@@ -135,7 +132,7 @@ async function sendRawTransaction({
     value,
     gasLimit,
     gasPrice,
-    gas,
+    gas
   };
 
   // console.log("Building Transaction", txData);
