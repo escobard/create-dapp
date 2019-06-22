@@ -4,12 +4,12 @@ const Validation = require("../utils/validation");
  * @dev split apart from ether address validation, to fail fast if null
  */
 module.exports = async (req, res, next) => {
-  let { address_pu, address_pr, amount } = req.body;
+  let { user_pa, user_pk, amount } = req.body;
   let validation = new Validation();
 
   // null case values validation
-  validation.exists(address_pu, "Public address must exist");
-  validation.exists(address_pr, " Private address must exist");
+  validation.exists(user_pa, "Public address must exist");
+  validation.exists(user_pk, " Private address must exist");
   validation.exists(amount, " Amount must exist");
 
   // rejects request in case of null values
@@ -24,8 +24,8 @@ module.exports = async (req, res, next) => {
   }
 
   // data type validation
-  validation.isString(address_pu, "Public address must be a string");
-  validation.isString(address_pr, " Private address must be a string");
+  validation.isString(user_pa, "Public address must be a string");
+  validation.isString(user_pk, " Private address must be a string");
   validation.isNumber(amount, " Amount must be a number");
 
   let dataTypeErrors = validation.getErrors();
@@ -40,12 +40,12 @@ module.exports = async (req, res, next) => {
 
   // business logic validation
   validation.exactLength(
-    address_pu,
+    user_pa,
     42,
     "Public address must contain exactly 42 characters"
   );
   validation.exactLength(
-    address_pr,
+    user_pk,
     64,
     " Private address must contain exactly 64 characters"
   );

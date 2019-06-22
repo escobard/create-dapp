@@ -4,11 +4,11 @@ const Validation = require("../utils/validation");
  * @dev split apart from ether address validation, to fail fast if null
  */
 module.exports = async (req, res, next) => {
-  let {body: {address_pu, address_pr}, web3 } = req;
+  let {body: {user_pa, user_pk}, web3 } = req;
   let validation = new Validation();
 
-  await validation.isValidPublic(address_pu, web3, 'Public address is invalid');
-  await validation.isValidPair(address_pr, address_pu, ' Private Key is invalid');
+  await validation.isValidPublic(user_pa, web3, 'Public address is invalid');
+  await validation.isValidPair(user_pk, user_pa, ' Private Key is invalid');
 
   let etherErrors = validation.getErrors();
 

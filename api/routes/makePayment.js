@@ -1,13 +1,13 @@
 const router = require("express").Router(),
-  getStructureByIdBaseValidation = require("../middlewares/getStructureByIdBaseValidation"),
-  getStructureByIdEtherValidation = require("../middlewares/getStructureByIdEtherValidation"),
+  postPayableTransactionBaseValidation = require("../middlewares/postPayableTransactionBaseValidation"),
+  postPayableTransactionEtherValidation = require("../middlewares/postPayableTransactionEtherValidation"),
   ethereumSetup = require("../middlewares/ethereumSetup");
 
 router.post(
   "/",
-  getStructureByIdBaseValidation,
+  postPayableTransactionBaseValidation,
   ethereumSetup,
-  getStructureByIdEtherValidation,
+  postPayableTransactionEtherValidation,
   (req, res) => {
     console.log("/makePayment POST request: ", req.headers);
 

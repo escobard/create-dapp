@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/middlewares/ethereumSetup.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/middlewares/ethereumSetup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/middlewares/getStructureByIdEtherValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/middlewares/getStructureByIdEtherValidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/fetchPayment.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/fetchPayment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/ethereum/Contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/ethereum/Contracts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/ethereum/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/ethereum/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/network.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/network.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/middlewares/postPayableTransactionBaseValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/middlewares/postPayableTransactionBaseValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/middlewares/postPayableTransactionEtherValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/middlewares/postPayableTransactionEtherValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/makePayment.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/makePayment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethereum/build/contracts/CreateDapp.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/build/contracts/CreateDapp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethereum/build/contracts/Migrations.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/build/contracts/Migrations.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethereum/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/config/config.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,16 +23,16 @@
     <session id="-341427326">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -40,7 +41,7 @@
           <entry key="build" value="1" />
           <entry key="dev" value="8" />
           <entry key="env" value="1" />
-          <entry key="js" value="95" />
+          <entry key="js" value="102" />
           <entry key="json" value="23" />
           <entry key="md" value="3" />
           <entry key="prod" value="10" />
@@ -55,7 +56,7 @@
           <entry key=".env file" value="1" />
           <entry key="Dockerfile" value="19" />
           <entry key="JSON" value="23" />
-          <entry key="JavaScript" value="95" />
+          <entry key="JavaScript" value="102" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="Solidity file" value="8" />
@@ -98,11 +99,29 @@
     <splitter split-orientation="horizontal" split-proportion="0.4850352">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/api/middlewares/ethereumSetup.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="22">
                   <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/api/middlewares/postPayableTransactionBaseValidation.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="291">
+                  <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/api/middlewares/postPayableTransactionEtherValidation.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="220">
+                  <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
                 </state>
               </provider>
             </entry>
@@ -112,10 +131,10 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/api/utils/network.js">
+            <entry file="file://$PROJECT_DIR$/api/middlewares/getStructureByIdBaseValidation.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="264">
-                  <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+                <state relative-caret-position="176">
+                  <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -124,7 +143,7 @@
             <entry file="file://$PROJECT_DIR$/api/services/ethereum/Contracts.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="594">
-                  <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+                  <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
@@ -143,6 +162,8 @@
       <find>eUtils</find>
       <find>fetchOwnerAddress</find>
       <find>address_pu</find>
+      <find>getStructureByIdEtherValidation</find>
+      <find>address_pr</find>
     </findStrings>
     <replaceStrings>
       <replace>ethereum</replace>
@@ -150,6 +171,8 @@
       <replace>contract</replace>
       <replace>fetchEtherNetwork</replace>
       <replace>user_pa</replace>
+      <replace>postPayableTransactionEtherValidation</replace>
+      <replace>user_pk</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -190,8 +213,6 @@
         <option value="$PROJECT_DIR$/ethereum/migrations/1_initial_migration.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/api/middlewares/fetchStructureByIdValidation.js" />
-        <option value="$PROJECT_DIR$/api/middlewares/postPayableTransactionBaseValidation.js" />
-        <option value="$PROJECT_DIR$/api/middlewares/postPayableTransactionEtherValidation.js" />
         <option value="$PROJECT_DIR$/api/utils/validation.js" />
         <option value="$PROJECT_DIR$/api/utils/Ethereum.js" />
         <option value="$PROJECT_DIR$/api/utils/etherUtils/index.js" />
@@ -199,7 +220,6 @@
         <option value="$PROJECT_DIR$/ethereum/migrations/1_migrations.js" />
         <option value="$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol" />
         <option value="$PROJECT_DIR$/api/routes/health.js" />
-        <option value="$PROJECT_DIR$/api/routes/makePayment.js" />
         <option value="$PROJECT_DIR$/api/constants/routes.js" />
         <option value="$PROJECT_DIR$/api/routes/index.js" />
         <option value="$PROJECT_DIR$/api/middlewares/getStructureByIdBaseValidation.js" />
@@ -209,6 +229,9 @@
         <option value="$PROJECT_DIR$/api/services/ethereum/Contracts.js" />
         <option value="$PROJECT_DIR$/api/middlewares/ethereumSetup.js" />
         <option value="$PROJECT_DIR$/api/utils/network.js" />
+        <option value="$PROJECT_DIR$/api/routes/makePayment.js" />
+        <option value="$PROJECT_DIR$/api/middlewares/postPayableTransactionBaseValidation.js" />
+        <option value="$PROJECT_DIR$/api/middlewares/postPayableTransactionEtherValidation.js" />
       </list>
     </option>
   </component>
@@ -239,11 +262,11 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
     <dismissed value="$PROJECT_DIR$/ui/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="166" />
-    <option name="y" value="802" />
-    <option name="width" value="4320" />
-    <option name="height" value="2340" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="3840" />
+    <option name="y" value="485" />
+    <option name="width" value="1920" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -253,6 +276,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,7 +324,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -357,11 +380,12 @@
       <workItem from="1560303277782" duration="7265000" />
       <workItem from="1560904317313" duration="6759000" />
       <workItem from="1561065204867" duration="9629000" />
+      <workItem from="1561164795624" duration="860000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74420000" />
+    <option name="totallyTimeSpent" value="76212000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -373,10 +397,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <frame x="3840" y="485" width="1920" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10480694" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.141339" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -390,13 +414,13 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32917318" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500394" side_tool="true" weight="0.21216848" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49960598" visible="true" weight="0.21216848" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960598" weight="0.30022076" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10480694" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.141339" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -410,7 +434,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32917318" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500394" side_tool="true" weight="0.21216848" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960598" weight="0.21216848" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960598" visible="true" weight="0.30022076" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -644,13 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/makePayment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="48" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -679,31 +696,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/middlewares/getStructureByIdBaseValidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="42" column="30" lean-forward="true" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/validation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="786">
           <caret line="110" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/middlewares/postPayableTransactionBaseValidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="941">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/middlewares/postPayableTransactionEtherValidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -735,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/services/ethereum/Contracts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/middlewares/ethereumSetup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -751,8 +740,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/network.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        <state relative-caret-position="550">
+          <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/services/ethereum/Contracts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/makePayment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/middlewares/postPayableTransactionBaseValidation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/middlewares/getStructureByIdBaseValidation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/middlewares/postPayableTransactionEtherValidation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
         </state>
       </provider>
     </entry>
