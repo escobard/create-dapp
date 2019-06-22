@@ -30,7 +30,7 @@ router.post(
     if (global.ethereum === "ganache") {
       let amountToWei = web3.utils.toWei(amount.toString(), "ether");
 
-      await contractInstance.methods.makePayment.send({
+      contractInstance.methods.makePayment.send({
         from: user_pa,
         value: amountToWei
       });
@@ -50,14 +50,16 @@ router.post(
         amount: web3.utils.fromWei(payment.amount.toString(), "ether")
       };
 
+      paymentID = paymentID.toString();
+
       global.makePayment = {
         status: `Donation created!`,
         result: "created",
         paymentID,
-        prettyPayment
+        payment: prettyPayment
       };
-
-      res.status(200).json(global.makePayment);
+      console.log(global.makePayment);
+      return res.status(200).json(global.makePayment);
     } else {
       res.status(200).json(global.makePayment);
 
