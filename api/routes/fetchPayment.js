@@ -2,7 +2,7 @@ const router = require("express").Router(),
   getStructureByIdBaseValidation = require("../middlewares/getStructureByIdBaseValidation"),
   getStructureByIdEtherValidation = require("../middlewares/getStructureByIdEtherValidation"),
   ethereumSetup = require("../middlewares/ethereumSetup"),
-  { fetchEtherNetwork } = require("../utils/network")
+  { fetchEtherNetwork } = require("../utils/network");
 
 router.post(
   "/",
@@ -10,7 +10,6 @@ router.post(
   ethereumSetup,
   getStructureByIdEtherValidation,
   async (req, res) => {
-
     console.log("/fetchPayment POST request: ", req.headers);
 
     let {
@@ -27,7 +26,7 @@ router.post(
 
     console.log(global.fetchPayment);
 
-    let paymentID = await share.methods.fetchDonationID.call({from: owner_pu});
+    let paymentID = await share.methods.fetchDonationID.call({ from: user_pa });
 
     // checks if contract has not store any payments
     if (paymentID === 1) {
@@ -36,6 +35,23 @@ router.post(
         .json(
           "No payments have been created send a payment via /makePayment to test this route"
         );
+    }
+
+    console.log("Contract has payments! Fetching payment...");
+
+    const payment = await contractInstance.methods
+      .fetchPayment(id)
+      .call({ from: user_pa });
+
+    if (payment.user === user_pa) {
+      global.fetchPayment = {
+        status: "Payment fetched!",
+        payment
+      };
+    } else {
+      res
+        .status(400)
+        .json("Only the owner of the payment can fetch the payment data.");
     }
 
     res.status(200).json({
