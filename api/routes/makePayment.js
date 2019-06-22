@@ -10,7 +10,6 @@ router.post(
   ethereumSetup,
   postPayableTransactionEtherValidation,
   async (req, res) => {
-
     console.log("/makePayment POST request: ", req.headers);
 
     let {
@@ -27,19 +26,53 @@ router.post(
     };
 
     console.log(global.makePayment);
-    res.status(200).json(global.makePayment);
 
-    // creates raw transaction for makePayment()
-    let rawTransaction = {
-      method: contractInstance.methods.makePayment(),
-      public_address: user_pa,
-      private_address: user_pk,
-      receiver: contractAddress,
-      amount,
-      res,
-      web3
+    if (global.ethereum === "ganache") {
+      let amountToWei = web3.utils.toWei(amount.toString(), "ether");
+
+      await contractInstance.methods.makePayment.send({
+        from: user_pa,
+        value: amountToWei
+      });
+
+      let paymentID = await contractInstance.methods.paymentID.call({
+        from: user_pa
+      });
+
+      let payment = await contractInstance.methods
+        .fetchPayment(paymentID)
+        .call({
+          from: user_pa
+        });
+
+      const prettyPayment = {
+        user: payment.user,
+        amount: web3.utils.fromWei(payment.amount.toString(), "ether")
+      };
+
+      global.makePayment = {
+        status: `Donation created!`,
+        result: "created",
+        paymentID,
+        prettyPayment
+      };
+
+      res.status(200).json(global.makePayment);
+    } else {
+      res.status(200).json(global.makePayment);
+
+      // creates raw transaction for makePayment()
+      let rawTransaction = {
+        method: contractInstance.methods.makePayment(),
+        public_address: user_pa,
+        private_address: user_pk,
+        receiver: contractAddress,
+        amount,
+        res,
+        web3
+      };
+      await sendRawTransaction(rawTransaction);
     }
-    await sendRawTransaction(rawTransaction);
 
     console.log("Payment send! Fetching ID...");
 
@@ -47,20 +80,15 @@ router.post(
       from: user_pa
     });
 
-    let currentDonation = donationID - 1;
+    let currentPayment = paymentID - 1;
 
-    global.makeDonation = {
-      status: `Donation created! Your donationID is: ${currentDonation}`,
+    global.makePayment = {
+      status: `Donation created!`,
       result: "created",
-      donationID: currentDonation
+      currentPayment
     };
 
-    console.log(global.makeDonation);
-
-    res.status(200).json({
-      healthy: true,
-      process: global.environment
-    });
+    console.log(global.makePayment);
   }
 );
 

@@ -1,7 +1,7 @@
 {
 	"ethereum": {
 		"url": "http://ganache:8545",
-		"ownerAddress": "0x2B84eb6d5C1d2Dd3e13F3c1F0466AdF0DF16fA9A",
-		"contractAddress": "0xaDB6849BE5201F04DcbA27Cb745b356745055e26"
+		"ownerAddress": "0x162b01b4417D1984603C65D6d7A9eccc83EECdBD",
+		"contractAddress": "0xaBbFB003946764927e6700E57d6b37DaAF074859"
 	}
 }
