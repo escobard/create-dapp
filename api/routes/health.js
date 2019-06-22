@@ -1,4 +1,5 @@
-const router = require('express').Router();
+const router = require('express').Router(),
+  { fetchEtherNetwork, fetchContractAddress } = require("../utils/network")
 
 router.get('/', (req, res) => {
     console.log('/health GET request: ', req.headers)
@@ -7,6 +8,8 @@ router.get('/', (req, res) => {
         {
             healthy: true,
             process: global.environment,
+            ethereum: fetchEtherNetwork,
+            contract: fetchContractAddress
         });
 });
 

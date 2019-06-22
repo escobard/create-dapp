@@ -6,9 +6,12 @@ const setOrigin = app => {
   if (process.env.NODE_ENV === "production") {
     global.environment = "prod";
     app.use(cors({ origin: "https://share-ui.herokuapp.com" }));
-  } else {
+  } else if(process.env.DOCKER === "dev") {
     app.use(cors({ origin: "http://localhost:1337" }));
     global.environment = "dev";
+  }
+  else{
+    app.use(cors({ origin: "http://localhost:3000"}))
   }
 };
 
