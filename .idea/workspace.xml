@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/fetchPayment.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/fetchPayment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/network.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/network.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/build/contracts/CreateDapp.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/build/contracts/CreateDapp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/build/contracts/Migrations.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/build/contracts/Migrations.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/migrations/1_migrations.js" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/migrations/1_migrations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ethereum/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/ethereum/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/tests/routes/health.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/tests/routes/health.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ethereum/truffle.js" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/truffle.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -43,8 +39,8 @@
           <entry key="build" value="1" />
           <entry key="dev" value="8" />
           <entry key="env" value="1" />
-          <entry key="js" value="150" />
-          <entry key="json" value="26" />
+          <entry key="js" value="155" />
+          <entry key="json" value="28" />
           <entry key="md" value="3" />
           <entry key="prod" value="10" />
           <entry key="sol" value="12" />
@@ -57,8 +53,8 @@
         <counts>
           <entry key=".env file" value="1" />
           <entry key="Dockerfile" value="19" />
-          <entry key="JSON" value="26" />
-          <entry key="JavaScript" value="150" />
+          <entry key="JSON" value="28" />
+          <entry key="JavaScript" value="155" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="Solidity file" value="12" />
@@ -69,7 +65,7 @@
         <counts>
           <entry key="build" value="41" />
           <entry key="dev" value="32" />
-          <entry key="js" value="7763" />
+          <entry key="js" value="7801" />
           <entry key="json" value="185" />
           <entry key="md" value="828" />
           <entry key="prod" value="101" />
@@ -83,7 +79,7 @@
         <counts>
           <entry key="Dockerfile" value="186" />
           <entry key="JSON" value="185" />
-          <entry key="JavaScript" value="7763" />
+          <entry key="JavaScript" value="7801" />
           <entry key="Markdown" value="828" />
           <entry key="PLAIN_TEXT" value="71" />
           <entry key="Solidity file" value="651" />
@@ -101,7 +97,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/routes/fetchPayment.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="345">
@@ -128,13 +124,27 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/api/utils/network.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="103">
-                  <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+                <state relative-caret-position="499">
+                  <caret line="23" selection-start-line="23" selection-end-line="23" />
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/api/ethereum/config.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="132">
+                  <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/api/tests/routes/404.test.js">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
         </leaf>
@@ -142,6 +152,24 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/api/tests/routes/health.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="462">
+                  <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/api/routes/health.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="242">
+                  <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/api/routes/makePayment.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="440">
@@ -206,7 +234,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/create-dapp-dev-tests.yaml" />
         <option value="$PROJECT_DIR$/create-dapp-prod.yaml" />
         <option value="$PROJECT_DIR$/ui/src/App.js" />
         <option value="$PROJECT_DIR$/create-dapp-dev.yaml" />
@@ -230,7 +257,6 @@
         <option value="$PROJECT_DIR$/api/Dockerfile.dev" />
         <option value="$PROJECT_DIR$/ui/README.md" />
         <option value="$PROJECT_DIR$/ui/src/constants/index.js" />
-        <option value="$PROJECT_DIR$/api/ethereum/config.json" />
         <option value="$PROJECT_DIR$/ethereum/migrations/2_deploy_contracts.js" />
         <option value="$PROJECT_DIR$/ethereum/migrations/1_initial_migration.js" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -257,6 +283,8 @@
         <option value="$PROJECT_DIR$/api/routes/fetchPayment.js" />
         <option value="$PROJECT_DIR$/ethereum/migrations/1_migrations.js" />
         <option value="$PROJECT_DIR$/api/utils/network.js" />
+        <option value="$PROJECT_DIR$/api/ethereum/config.json" />
+        <option value="$PROJECT_DIR$/api/tests/routes/health.test.js" />
       </list>
     </option>
   </component>
@@ -270,6 +298,7 @@
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/api/node_modules" />
+    <handled-path value="$PROJECT_DIR$/ethereum/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
     <handled-path value="$PROJECT_DIR$/ui/node_modules" />
   </component>
@@ -317,18 +346,14 @@
               <item name="create-dapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="create-dapp" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="create-dapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="create-dapp" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="create-dapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="create-dapp" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -340,6 +365,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Documents/School/create-dapp/api/Dockerfile.prod" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Share/ui/node_modules/prettier" />
+    <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/api/node_modules/mocha" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -391,12 +417,12 @@
       <workItem from="1560904317313" duration="6759000" />
       <workItem from="1561065204867" duration="9629000" />
       <workItem from="1561164795624" duration="860000" />
-      <workItem from="1561166371343" duration="24125000" />
+      <workItem from="1561166371343" duration="24747000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100337000" />
+    <option name="totallyTimeSpent" value="100959000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,10 +490,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ethereum/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/config.json" />
     <entry file="file://$PROJECT_DIR$/ethereum/truffle-config.js" />
     <entry file="file://$PROJECT_DIR$/ethereum/Dockerfile.test" />
     <entry file="file://$PROJECT_DIR$/ui/Dockerfile.prod">
@@ -562,13 +584,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ethereum/migrations/2_deploy_contracts.js" />
-    <entry file="file://$PROJECT_DIR$/api/ethereum/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/src/utils/requests.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -593,13 +608,6 @@
             <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ethereum/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -663,13 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
           <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/health.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -763,13 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/fetchPayment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ethereum/truffle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
@@ -784,10 +778,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/fetchPayment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/network.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+        <state relative-caret-position="499">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethereum/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="1" lean-forward="true" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/ethereum/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/tests/routes/404.test.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/health.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/tests/routes/health.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
         </state>
       </provider>
     </entry>

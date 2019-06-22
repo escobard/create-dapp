@@ -20,7 +20,8 @@ describe("Testing health route", () => {
       .get("/health")
       .expect({
         healthy: true,
-        process: "dev"
+        ethereum: "http://ganache:8545",
+        contract: "0x3b933FE5445988945FfFB478a55Ab41d129c02D0"
       })
       .end((err, res) => {
         if (err) return done(err);
