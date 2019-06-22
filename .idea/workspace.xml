@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/network.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/network.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ethereum/build/contracts/CreateDapp.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/build/contracts/CreateDapp.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ethereum/build/contracts/Migrations.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/build/contracts/Migrations.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ethereum/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/config/config.json" afterDir="false" />
@@ -68,7 +65,7 @@
         <counts>
           <entry key="build" value="41" />
           <entry key="dev" value="32" />
-          <entry key="js" value="6084" />
+          <entry key="js" value="6096" />
           <entry key="json" value="185" />
           <entry key="md" value="828" />
           <entry key="prod" value="101" />
@@ -82,7 +79,7 @@
         <counts>
           <entry key="Dockerfile" value="186" />
           <entry key="JSON" value="185" />
-          <entry key="JavaScript" value="6084" />
+          <entry key="JavaScript" value="6096" />
           <entry key="Markdown" value="828" />
           <entry key="PLAIN_TEXT" value="71" />
           <entry key="Solidity file" value="651" />
@@ -130,8 +127,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ethereum/migrations/1_migrations.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="220">
-                  <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+                <state relative-caret-position="154">
+                  <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
                 </state>
               </provider>
             </entry>
@@ -388,12 +385,12 @@
       <workItem from="1560904317313" duration="6759000" />
       <workItem from="1561065204867" duration="9629000" />
       <workItem from="1561164795624" duration="860000" />
-      <workItem from="1561166371343" duration="15645000" />
+      <workItem from="1561166371343" duration="15706000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91857000" />
+    <option name="totallyTimeSpent" value="91918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -771,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ethereum/migrations/1_migrations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="154">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
         </state>
       </provider>
     </entry>
