@@ -139,11 +139,11 @@ async function sendRawTransaction({
     //optional logs for sanity checks
     console.log("Sending Signed Transaction...");
 
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       let transactionHash;
 
       //send tx that was signed offline by txbuilder
-     web3.eth
+     await web3.eth
         .sendSignedTransaction(
           "0x" + rawTx.toString("hex"),
           (error, txHash) => {
@@ -166,6 +166,18 @@ async function sendRawTransaction({
           );
         })
         .on("error", reject);
+    }).then(async (hash) =>{
+        let confirmedTransaction = false
+        for (let i = 1; confirmedTransaction = true; i++) {
+          console.log('HASH', typeof hash)
+          await web3.eth.getTransactionReceipt(hash, (err, transaction) =>{
+            console.log('TRANSACTION', transaction)
+            if (transaction != null){
+              confirmedTransaction = true;
+            }
+          })
+      }
+      return hash;
     });
   } catch (error) {
     console.error("Raw transaction failed", error.message);
