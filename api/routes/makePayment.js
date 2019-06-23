@@ -66,7 +66,6 @@ router.post(
 
           console.log(global.makePayment);
 
-          return;
         }, 2500);
       }, 2500)
 

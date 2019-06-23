@@ -44,8 +44,6 @@ contract CreateDapp {
     ){
         require(_paymentID <= paymentID - 1, 'Undefined payment.');
 
-        require(Payments[_paymentID].user == msg.sender, 'Unauthorized user.');
-
         return ( Payments[_paymentID].user, Payments[_paymentID].amount );
     }
 
