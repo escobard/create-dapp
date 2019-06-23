@@ -74,8 +74,8 @@ router.post(
       */
     } else {
       res.status(200).json(global.makePayment);
-
       // creates raw transaction for makePayment()
+
       let rawTransaction = {
         method: contractInstance.methods.makePayment(),
         public_address: user_pa,
@@ -85,6 +85,7 @@ router.post(
         res,
         web3
       };
+
       await sendRawTransaction(rawTransaction);
     }
 

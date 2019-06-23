@@ -26,7 +26,6 @@ function txBuilder({
   value,
   gasLimit,
   gasPrice,
-  gas,
   fromPriv
 }) {
   //get the private key
@@ -37,7 +36,6 @@ function txBuilder({
   const valueHex = web3Instance.utils.toHex(value);
   const limitHex = web3Instance.utils.toHex(gasLimit);
   const priceHex = web3Instance.utils.toHex(gasPrice);
-  const gasHex = web3Instance.utils.toHex(gas);
 
   //tx object
   let rawTx;
@@ -49,7 +47,6 @@ function txBuilder({
         nonce: nonceHex,
         gasPrice: priceHex,
         gasLimit: limitHex,
-        gas: gasHex,
         to: toAddress,
         from: fromPub,
         value: valueHex,
@@ -58,6 +55,7 @@ function txBuilder({
       break;
   }
   //new ethereumjs-tx
+  console.log('raw', rawTx)
   let tx = new Tx(rawTx);
   //sign transaction
   tx.sign(privateKey);
@@ -117,9 +115,6 @@ async function sendRawTransaction({
   //rinkeby current gas price is 1 gwei, setting to 10 will ensure priority mining
   const gasPrice = "100000000000";
 
-  // needs to be confirmed with rinkeby
-  const gas = "750430";
-
   //optional logs for sanity checks
   //build transaction object -- see tx_builder.js for input parameters
   let txData = {
@@ -131,8 +126,7 @@ async function sendRawTransaction({
     functionSignature: method.encodeABI(),
     value,
     gasLimit,
-    gasPrice,
-    gas
+    gasPrice
   };
 
   // console.log("Building Transaction", txData);

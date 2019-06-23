@@ -1,5 +1,8 @@
 const cors = require("cors"),
+  dotenv = require("dotenv"),
   { ethereum } = require("../ethereum/config");
+
+dotenv.config();
 
 const setOrigin = app => {
   // for prod - currently just heroku, future compute engine
@@ -33,7 +36,6 @@ const fetchContractAddress =
 
 const fetchOwnerAddress =
   process.env.DOCKER === "dev" ? ethereum.ownerAddress : process.env.OWNER;
-
 module.exports = {
   setOrigin,
   fetchEtherNetwork,
