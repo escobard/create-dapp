@@ -1,6 +1,5 @@
 const router = require("express").Router(),
   sendRawTransaction = require("../utils/rawTransaction"),
-  getTransactionReceipt = require("../utils/getTransactionReceipt"),
   postPayableTransactionBaseValidation = require("../middlewares/postPayableTransactionBaseValidation"),
   postPayableTransactionEtherValidation = require("../middlewares/postPayableTransactionEtherValidation"),
   ethereumSetup = require("../middlewares/ethereumSetup");
@@ -27,6 +26,8 @@ router.post(
     };
 
     console.log(global.makePayment);
+
+    let receipt;
 
     if (global.ethereum === "ganache") {
       res.status(200).json(global.makePayment);
@@ -87,16 +88,34 @@ router.post(
         web3
       };
 
-      await sendRawTransaction(rawTransaction);
+      receipt = await sendRawTransaction(rawTransaction);
     }
 
     console.log("Payment sent! Fetching ID...");
 
+
+    let successfulTransaction = false;
+    let transactionReceipt;
+
+    for (let i = 1; i <= 2; i++) {
+      setTimeout(async () => { transactionReceipt = await web3.eth.getTransactionReceipt(receipt) }, 3000);
+    }
+
+    console.log('TRANSACTION RECEIPT', transactionReceipt);
+
     let paymentID = await contractInstance.methods.paymentID.call({
       from: user_pa
     });
-    console.log('ID', paymentID)
 
+    let currentPayment = paymentID - 1;
+
+    global.makePayment = {
+      status: `Donation created!`,
+      result: "created",
+      currentPayment
+    };
+
+    console.log(global.makePayment);
   }
 );
 
