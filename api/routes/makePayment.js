@@ -28,7 +28,6 @@ router.post(
     console.log(global.makePayment);
 
     if (global.ethereum === "ganache") {
-
       res.status(200).json(global.makePayment);
 
       let amountToWei = web3.utils.toWei(amount.toString(), "ether");
@@ -37,41 +36,43 @@ router.post(
         from: user_pa,
         value: amountToWei
       });
-
-      let paymentID = await contractInstance.methods.paymentID.call({
-        from: user_pa
-      });
-
-      let payment = await contractInstance.methods
-        .fetchPayment(paymentID)
-        .call({
+      return setTimeout(async () =>{
+        let paymentID = await contractInstance.methods.paymentID.call({
           from: user_pa
         });
 
-      const prettyPayment = {
-        user: payment.user,
-        amount: web3.utils.fromWei(payment.amount.toString(), "ether")
-      };
+        let currentPayment = paymentID - 1;
 
-      paymentID = paymentID.toString();
+        let payment = await contractInstance.methods
+          .fetchPayment(currentPayment)
+          .call({
+            from: user_pa
+          });
 
+        const prettyPayment = {
+          user: payment.user,
+          amount: web3.utils.fromWei(payment.amount.toString(), "ether")
+        };
 
-      global.makePayment = {
-        status: `Donation ${paymentID} created!`,
-        result: "created",
-        paymentID,
-        payment: prettyPayment
-      };
+        currentPayment = currentPayment.toString();
 
-      console.log(global.makePayment);
+        setTimeout(() => {
+          global.makePayment = {
+            status: `Donation ${currentPayment} created!`,
+            result: "created",
+            currentPayment,
+            payment: prettyPayment
+          };
 
+          console.log(global.makePayment);
 
-      return
+          return;
+        }, 2500);
+      }, 2500)
 
       /*
       return res.status(200).json(global.makePayment);
       */
-
     } else {
       res.status(200).json(global.makePayment);
 
