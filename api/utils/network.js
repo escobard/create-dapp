@@ -2,7 +2,6 @@ const cors = require("cors"),
   { ethereum } = require("../ethereum/config");
 
 const setOrigin = app => {
-
   // for prod - currently just heroku, future compute engine
   if (process.env.NODE_ENV === "production") {
     app.use(cors({ origin: "https://create-dapp.herokuapp.com" }));
@@ -27,9 +26,13 @@ const fetchEtherNetwork =
     ? "http://ganache:8545"
     : "https://rinkeby.infura.io/v3/47c181283cb345c19697f9403531914c";
 
-const fetchContractAddress = ethereum.contractAddress;
+const fetchContractAddress =
+  process.env.DOCKER === "dev"
+    ? ethereum.contractAddress
+    : process.env.CONTRACT_ADDRESS;
 
-const fetchOwnerAddress = ethereum.ownerAddress;
+const fetchOwnerAddress =
+  process.env.DOCKER === "dev" ? ethereum.ownerAddress : process.env.OWNER;
 
 module.exports = {
   setOrigin,
