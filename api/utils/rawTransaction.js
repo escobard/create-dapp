@@ -55,7 +55,7 @@ function txBuilder({
       break;
   }
   //new ethereumjs-tx
-  console.log('raw', rawTx)
+
   let tx = new Tx(rawTx);
   //sign transaction
   tx.sign(privateKey);
@@ -101,7 +101,7 @@ async function sendRawTransaction({
   web3Instance = web3;
 
   // converted to string
-  const value = web3.utils.toWei(amount.toString(), "ether");
+  const value = await web3.utils.toWei(amount.toString(), "ether");
 
   // the 'pending' flag here adds the most recent transaction
 
@@ -139,13 +139,34 @@ async function sendRawTransaction({
     //optional logs for sanity checks
     console.log("Sending Signed Transaction...");
 
-    //send tx that was signed offline by txbuilder
-    let transaction = await web3.eth.sendSignedTransaction(
-      "0x" + rawTx.toString("hex")
-    );
+    return new Promise((resolve, reject) => {
+      let transactionHash;
 
-    console.log("Raw transaction successful:", transaction.transactionHash);
-    return transaction;
+      //send tx that was signed offline by txbuilder
+     web3.eth
+        .sendSignedTransaction(
+          "0x" + rawTx.toString("hex"),
+          (error, txHash) => {
+            console.log("sendSignedTransaction error, txHash", error, txHash);
+
+            if (error) {
+              reject(error);
+              return;
+            }
+
+            transactionHash = txHash;
+            resolve(txHash);
+          }
+        )
+        .on("confirmation", (number, receipt) => {
+          console.log(
+            "sendSignedTransaction confirmation number, receipt",
+            number,
+            receipt
+          );
+        })
+        .on("error", reject);
+    });
   } catch (error) {
     console.error("Raw transaction failed", error.message);
 
