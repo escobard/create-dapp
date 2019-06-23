@@ -59,4 +59,4 @@ services:
     - ./ethereum/config:/usr/create-dapp/api/ethereum
     - /usr/create-dapp/api/node_modules
     command: |
-      sh -c "npm run dev"
+      sh -c "npm run dev-docker"
