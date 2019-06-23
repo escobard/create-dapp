@@ -167,11 +167,13 @@ async function sendRawTransaction({
         })
         .on("error", reject);
     }).then(async (hash) =>{
+
+      // this loop is necessary to confirm raw transaction success
         let confirmedTransaction = -1;
         for (let i = 0; i >= confirmedTransaction; i++) {
-          console.log('HASH', typeof hash)
-          const results = await web3.eth.getTransactionReceipt(hash)
-          console.log('TsRANSACTION', results)
+          const results = await web3.eth.getTransactionReceipt(hash);
+
+          // only resolve once transaction has been mined
           if (results != null){
             console.log('confirmed bosol', confirmedTransaction)
             confirmedTransaction = i;

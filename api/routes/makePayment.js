@@ -87,47 +87,9 @@ router.post(
         res,
         web3
       };
+
+      await sendRawTransaction(rawTransaction)
     }
-
-    console.log("Payment sent! Fetching ID...");
-
-    // let receipt = await sendRawTransaction(rawTransaction);
-
-    // console.log('RECEIPT', receipt)
-
-    let successfulTransaction = false;
-
-    async function refreshData(hash)
-    {
-      console.log(typeof hash, hash)
-      let receipt = await web3.eth.getTransactionReceipt(hash);
-      console.log(receipt)
-
-      setTimeout(refreshData, 1000);
-    }
-
-    new Promise(async (resolve, reject) => {
-      resolve(sendRawTransaction(rawTransaction))
-    }).then(async (hash) =>{
-      /*
-      if (typeof hash === 'string'){
-          refreshData(hash)
-      }*/
-
-    });
-
-    /*
-    let result = await sendRawTransaction(rawTransaction);
-    console.log('RESULT', typeof result)
-    if (typeof result === 'string'){
-      let transactionReceipt = await web3.eth.getTransactionReceipt(result);
-    }*/
-
-    for (let i = 1; i <= 30; i++) {
-      // setTimeout(async () => { transactionReceipt = await web3.eth.getTransactionReceipt(receipt) }, 3000);
-    }
-
-    //console.log('TRANSACTION RECEIPT', transactionReceipt);
 
     let paymentID = await contractInstance.methods.paymentID.call({
       from: user_pa
