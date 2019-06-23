@@ -160,7 +160,7 @@ async function sendRawTransaction({
         )
         .on("confirmation", (number, receipt) => {
           console.log(
-            "sendSignesdTranssaction confirmation number, receipt",
+            "sendSignesdTransaction confirmation number, receipt",
             number,
             receipt
           );
@@ -175,7 +175,7 @@ async function sendRawTransaction({
 
           // only resolve once transaction has been mined
           if (results != null){
-            console.log('confirmed bosol', confirmedTransaction)
+            console.log('confirmed receipt', confirmedTransaction)
             confirmedTransaction = i;
             return;
           }

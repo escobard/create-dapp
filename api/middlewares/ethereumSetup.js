@@ -13,6 +13,5 @@ module.exports = async (req, res, next) => {
   // set contracts
   req.contractInstance = await contract.setContract();
   req.contractAddress = contract.contract.contract_pa;
-
   next();
 };
