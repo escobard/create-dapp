@@ -61,7 +61,7 @@ console.log(ganache)
 export const apiRoutes = {
   makePayment: `${apiRoot + "/makePayment"}`,
   fetchPayment: `${apiRoot + "/fetchPayment"}`,
-  makeDonationStatus: `${apiRoot + "/makeDonationStatus"}`,
+  makePaymentStatus: `${apiRoot + "/makePaymentStatus"}`,
 };
 
 export const headers = { "Access-Control-Allow-Origin": "*" };

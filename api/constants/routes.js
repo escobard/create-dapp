@@ -3,6 +3,7 @@ const routes = {
   health: "/health",
   postForm: "/postForm",
   makePayment: "/makePayment",
+  makePaymentStatus: "/makePaymentStatus",
   fetchPayment: "/fetchPayment"
 };
 

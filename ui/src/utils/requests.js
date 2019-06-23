@@ -2,14 +2,14 @@ import axios from "axios";
 import { apiRoutes, headers } from "../constants";
 
 /** Sends GET request to API to check donationStatus
- * @dev refer to the /makeDonationStatus route within the API request handling logic
- * @name makeDonationStatus
+ * @dev refer to the /makePaymentStatus route within the API request handling logic
+ * @name makePaymentStatus
  * @returns resolved promise || rejected promise
  **/
 
-export const makeDonationStatus = async () => {
+export const makePaymentStatus = async () => {
   try {
-    return await axios.get(apiRoutes.makeDonationStatus, { headers });
+    return await axios.get(apiRoutes.makePaymentStatus, { headers });
   } catch (error) {
     return cleanError(error);
   }

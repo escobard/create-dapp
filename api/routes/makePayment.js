@@ -57,13 +57,17 @@ router.post(
 
 
       global.makePayment = {
-        status: `Donation created!`,
+        status: `Donation ${paymentID} created!`,
         result: "created",
         paymentID,
         payment: prettyPayment
       };
 
       console.log(global.makePayment);
+
+
+      return
+
       /*
       return res.status(200).json(global.makePayment);
       */
