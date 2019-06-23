@@ -5,7 +5,7 @@ const setOrigin = app => {
 
   // for prod - currently just heroku, future compute engine
   if (process.env.NODE_ENV === "production") {
-    app.use(cors({ origin: "https://share-ui.herokuapp.com" }));
+    app.use(cors({ origin: "https://create-dapp.herokuapp.com" }));
     global.environment = "prod";
     global.ethereum = "rinkeby";
   }
