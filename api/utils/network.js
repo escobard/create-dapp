@@ -27,7 +27,7 @@ const setOrigin = app => {
 const fetchEtherNetwork =
   process.env.DOCKER === "dev"
     ? "http://ganache:8545"
-    : "https://rinkeby.infura.io/v3/47c181283cb345c19697f9403531914c";
+    : "https://rinkeby.infura.io/v3/a07ed258a1924109a285a22a3778d0bb";
 
 const fetchContractAddress =
   process.env.DOCKER === "dev"

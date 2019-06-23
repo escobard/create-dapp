@@ -18,6 +18,8 @@ module.exports = async (req, res, next) => {
 
     let paymentID = await contractInstance.methods.paymentID.call({
       from: user_pa
+    }, (error, result) =>{
+      console.log('RESULT', result)
     });
 
     let payment = await contractInstance.methods
@@ -34,7 +36,7 @@ module.exports = async (req, res, next) => {
     );
 
     console.log(user_pa)
-    console.log(user_pa !== payment.user.toLowerCase())
+    console.log(await contractInstance.methods.paymentID.call())
 
     await validation.customValidation(
       user_pa !== payment.user.toLowerCase(),
