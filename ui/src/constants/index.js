@@ -48,7 +48,7 @@ let environment =
 // TODO - to be updated with new heroku env for digipdfs
 let apiRoot =
   environment === "heroku"
-    ? "https://share-controller.herokuapp.com"
+    ? "https://create-dapp-controller.herokuapp.com"
     : "http://localhost:4000";
 
 apiRoot = process.env.DOCKER === "dev" ? "http://localhost:1117" : apiRoot;
