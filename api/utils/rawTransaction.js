@@ -160,24 +160,24 @@ async function sendRawTransaction({
         )
         .on("confirmation", (number, receipt) => {
           console.log(
-            "sendSignedTransaction confirmation number, receipt",
+            "sendSignesdTranssaction confirmation number, receipt",
             number,
             receipt
           );
         })
         .on("error", reject);
     }).then(async (hash) =>{
-        let confirmedTransaction = false
-        for (let i = 1; confirmedTransaction = true; i++) {
+        let confirmedTransaction = -1;
+        for (let i = 0; i >= confirmedTransaction; i++) {
           console.log('HASH', typeof hash)
-          await web3.eth.getTransactionReceipt(hash, (err, transaction) =>{
-            console.log('TRANSACTION', transaction)
-            if (transaction != null){
-              confirmedTransaction = true;
-            }
-          })
+          const results = await web3.eth.getTransactionReceipt(hash)
+          console.log('TsRANSACTION', results)
+          if (results != null){
+            console.log('confirmed bosol', confirmedTransaction)
+            confirmedTransaction = i;
+            return;
+          }
       }
-      return hash;
     });
   } catch (error) {
     console.error("Raw transaction failed", error.message);
