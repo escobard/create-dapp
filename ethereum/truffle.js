@@ -19,7 +19,7 @@ module.exports = {
 
       provider: () =>{
         // TODO - fix hardcode
-        return new HDWalletProvider("blast ankle swift novel silk liberty blue garage loan robot enjoy energy", 'https://rinkeby.infura.io/v3/47c181283cb345c19697f9403531914c')
+        return new HDWalletProvider("blast ankle swift novel silk liberty blue garage loan robot enjoy energy", 'https://rinkeby.infura.io/v3/a07ed258a1924109a285a22a3778d0bb')
       },
       network_id: 4
     }
