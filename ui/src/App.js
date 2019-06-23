@@ -2,70 +2,202 @@ import React, { Component } from "react";
 
 import Navigation from "./components/Navigation";
 import Form from "./components/Form";
-import Footer from "./components/Footer";
-
-import { postFormFields } from "./constants";
-import { postForm } from "./utils/requests";
+import DonationTable from "./components/DonationTable";
 
 import "./styles/global.scss";
 
-class App extends Component {
+import {
+  makePaymentFields,
+  fetchedPaymentFields,
+} from "./constants";
 
+import {fetchPayment, makePayment, makePaymentStatus} from "./utils/requests";
+import Footer from "./components/Footer";
+
+class App extends Component {
   state = {
     messageErrors: [],
-    postFormTitle: "Post Form",
-    postFormMessage:
-      "Follow the placeholder instructions to validate data on the UI and API side",
-    postFormStatus: null
+    makePaymentTitle: "Make Donation form instructions",
+    makePaymentMessage:
+      "Enter a valid public key in the Address Public field, the public address' private key in the Private Key field, and an ether value smaller than 1 in the Amount field.",
+    makePaymentStatus: null,
+    fetchedPaymentTitle: "Fetch Donation form instructions",
+    fetchedPaymentMessage:
+      "Enter a valid donor public key in the Address Public field and a valid currentPayment in the currentPayment field.",
+    fetchedPaymentStatus: null,
+    currentPayment: false,
+    donorAddress: false,
+    fetchedPayment: false,
+    formMessage: "",
+    time: 0,
+    isOn: false,
+    start: 0
   };
 
-  /** Submits the POST request to the API
-   * @name postForm
-   * @dev this requests tests basic validation between UI and API
-   * @param {string} stringType, contains random string value
-   * @param {string} stringLength, contains random string value with a length greater than 10
-   * @param {string} numberType, contains random string value
-   * @param {string} numberMax, contains number greater than 10
-   * @returns /postForm route response, or validation errors
+  /** Triggers logic to start the timer
+   * @name startTimer
+   * @dev every second checkStatus request is triggered, to check donationStatus from API
    **/
 
-  postForm = async (stringType, stringLength, numberType, numberMax) => {
+  startTimer = async () => {
+    this.setState({
+      isOn: true,
+      time: this.state.time,
+      start: Date.now() - this.state.time
+    });
+
+    this.timer = setInterval(async () => await this.checkStatus(), 1000);
+  };
+
+  /** Triggers logic to stop the timer
+   * @name stopTimer
+   **/
+
+  stopTimer = () => {
+    this.setState({ isOn: false });
+    clearInterval(this.timer);
+  };
+
+  /** Triggers logic to stop the timer
+   * @name resetTimer
+   **/
+
+  resetTimer = () => {
+    this.setState({ time: 0, isOn: false });
+  };
+
+  /** Sends GET request to API to check donationStatus
+   * @name checkStatus
+   * @dev refer to the /makePaymentStatus route within the API request handling logic
+   * @returns this.resetTimer || this.setState || err
+   **/
+
+  checkStatus = async () => {
+    let response = await makePaymentStatus();
+    console.log('PAYMENT STATUS', response)
+    // ends the timer if payment has been created.
+    if (response.data.result === "created") {
+      this.stopTimer();
+
+      let {
+        data: { result, status, currentPayment }
+      } = response;
+
+      this.setState({
+        donationStatus: result,
+        currentPayment: currentPayment,
+        makePaymentTitle: "makePayment() success",
+        makePaymentMessage:
+          `Time spent creating payment: ${this.state.time} seconds. ` + status,
+        makePaymentStatus: "green"
+      });
+      return this.resetTimer();
+    } else {
+      return this.setState({
+        time: this.state.time + 1,
+        donationStatus: response.data.result,
+        makePaymentTitle: "makePayment() started",
+        makePaymentMessage:
+          "Donation Validated! " +
+          `Time spent creating payment: ${this.state.time} seconds. `,
+        makePaymentStatus: "blue"
+      });
+    }
+  };
+
+  /** Submits the payment POST request to the API
+   * @name makePayment
+   * @dev this requests triggers the timer, and checkStatus logic
+   * @param {string} user_pa, contains public address form field value
+   * @param {string} private_key, contains private address form field value
+   * @param {string} amount, contains amount form field value
+   * @returns /makePayment route response, or validation errors
+   **/
+
+  makePayment = async (user_pa, private_key, amount) => {
     let { messageErrors } = this.state;
 
-    // turns both strings into numbers
-    numberType = parseInt(numberType);
-    numberMax = parseInt(numberMax);
+    amount = parseFloat(amount);
 
     // triggers validation logic
-    this.validatePostForm(stringType, stringLength, numberType, numberMax);
+    this.validateMakeDonation(user_pa, private_key, amount);
 
     // only runs request, if no validation errors are present
     if (messageErrors.length === 0) {
+
       const request = {
-        stringType,
-        stringLength,
-        numberType,
-        numberMax
-      };
+        user_pa: user_pa,
+        user_pk: private_key,
+        amount: amount
+      }
 
-      let response = await postForm(request);
-
+      let response = await makePayment(request);
+      console.log('RESPONSE', response)
       // checks for API promise rejections
-      if (!response.status) {
+      if(!response.status){
         return this.setState({
-          postFormTitle: "postForm() error(s)",
-          postFormMessage: response,
-          postFormStatus: "red"
+          makePaymentTitle: "makePayment() error(s)",
+          makePaymentMessage: response,
+          makePaymentStatus: "red"
         });
-      } else if (response.data.result === "validated") {
-        const {
-          data: { status }
-        } = response;
+      }
+      else if(response.data.result === 'validated'){
+        const { data: { status } } = response;
 
         this.setState({
-          postFormTitle: "postForm() validated!",
-          postFormMessage: status,
-          postFormStatus: "green"
+          donorAddress: user_pa,
+          makePaymentTitle: "makePayment() started",
+          makePaymentMessage: status,
+          makePaymentStatus: "blue"
+        });
+
+        // starts logic to check for donationStatus
+        return this.startTimer();
+      }
+    }
+  };
+
+  /** Submits the fetch payment POST request to the API
+   * @devs this function returns the fetched payment object from ethereum, via the API
+   * @param {string} user_pa, contains public address form field value
+   * @param {string} currentPayment, contains amount form field value
+   * @returns /fetchPayment route response, or validation errors
+   **/
+
+  fetchPayment = async (user_pa, currentPayment) => {
+    let { messageErrors } = this.state;
+
+    currentPayment = parseInt(currentPayment);
+
+    this.validateFetchDonation(user_pa, currentPayment);
+
+    if (messageErrors.length === 0) {
+
+      const request = { user_pa: user_pa, id: currentPayment };
+
+      let response = await fetchPayment(request);
+
+      // checks for API promise rejections
+      if (!response.status){
+        return this.setState({
+          fetchedPaymentTitle: "fetchPayment error(s)",
+          fetchedPaymentMessage: response,
+          fetchedPaymentStatus: "red"
+        });
+      }
+      else if(response.data.result === "fetched"){
+        const { data: { payment } } = response;
+
+        // payment object from ethereum is turned into an array to work with react
+        let donationArray = Object.keys(payment).map(key => {
+          return [key, payment[key]];
+        });
+
+        return this.setState({
+          fetchedPayment: donationArray,
+          fetchedPaymentTitle: "fetchPayment() success",
+          fetchedPaymentMessage: `Donation ${payment.id} fetched, find your payment data below.`,
+          fetchedPaymentStatus: "green"
         });
       }
     }
@@ -94,71 +226,102 @@ class App extends Component {
     });
   };
 
-  /** Validates postForm values
-   * @name validatePostForm
-   * @dev used to reduce clutter in makeDonation
-   * @param {string} stringType, contains random string value
-   * @param {string} stringLength, contains random string value with a length greater than 10
-   * @param {string} numberType, contains random string value
-   * @param {string} numberMax, contains number greater than 10
+  /** Validates makePayment form values
+   * @name validateMakeDonation
+   * @dev used to reduce clutter in makePayment
+   * @param {string} user_pa, contains public address form field value
+   * @param {string} private_key, contains private address form field value
+   * @param {string} amount, contains amount form field value
    **/
 
-  validatePostForm = (stringType, stringLength, numberType, numberMax) => {
+  validateMakeDonation = (user_pa, private_key, amount) => {
     let { messageErrors } = this.state;
 
     this.validateField(
-      stringType,
-      stringType.length === 0,
-      "String Type cannot be empty"
+      user_pa,
+      user_pa.length !== 42,
+      "Address Public must be valid public key"
     );
 
     this.validateField(
-      stringLength,
-      stringLength.length < 10,
-      "String Length must be greater than 10"
+      private_key,
+      private_key.length !== 64,
+      " Address Private must be valid private key"
     );
 
-    this.validateField(
-      numberType,
-      isNaN(numberType),
-      "Number Type must be a number"
-    );
-    this.validateField(
-      numberMax,
-      isNaN(numberMax),
-      "Number Max must be a number"
-    );
+    this.validateField(amount, isNaN(amount), " Amount must be a number");
 
     this.validateField(
-      numberMax,
-      numberMax < 10,
-      "Number Max must be greater than 10"
+      amount,
+      amount > 1,
+      " Amount cannot be more than 1 ether"
     );
 
     // sets messagesState
     if (messageErrors.length > 0) {
       this.setState({
-        postFormStatus: "red",
-        postFormTitle: "postForm() error(s)",
-        postFormMessage: `Contains the following error(s): ${messageErrors.join(
-          ", "
-        )}.`
+        makePaymentStatus: "red",
+        makePaymentTitle: "makePayment() error(s)",
+        makePaymentMessage: `Contains the following error(s): ${messageErrors.join()}.`
       });
       this.emptyErrors();
     } else {
       this.setState({
-        postFormStatus: "green",
-        postFormTitle: "postForm() validated",
-        postFormMessage: `Making donation...`
+        makePaymentStatus: "green",
+        makePaymentTitle: "makePayment() validated",
+        makePaymentMessage: `Making payment...`
+      });
+    }
+  };
+
+  /** Validates validateFetchDonation form values
+   * @name validateFetchDonation
+   * @dev used to reduce clutter in makePayment
+   * @param {string} user_pa, contains public address form field value
+   * @param {string} currentPayment, contains amount form field value
+   **/
+
+  validateFetchDonation = (user_pa, currentPayment) => {
+    let { messageErrors } = this.state;
+
+    this.validateField(
+      user_pa,
+      user_pa.length !== 42,
+      "Address Public must be valid public key"
+    );
+
+    this.validateField(
+      currentPayment,
+      isNaN(currentPayment),
+      " Amount must be a number"
+    );
+
+    if (messageErrors.length > 0) {
+      this.setState({
+        fetchedPaymentStatus: "red",
+        fetchedPaymentTitle: "fetchPayment() error(s)",
+        fetchedPaymentMessage: `Contains the following error(s): ${messageErrors.join()}.`
+      });
+      this.emptyErrors();
+      return;
+    } else {
+      this.setState({
+        fetchedPaymentStatus: "blue",
+        fetchedPaymentTitle: "fetchPayment() started",
+        fetchedPaymentMessage: `Fetching payment...`
       });
     }
   };
 
   render() {
     let {
-      postFormTitle,
-      postFormMessage,
-      postFormStatus
+      makePaymentTitle,
+      makePaymentMessage,
+      makePaymentStatus,
+      fetchedPaymentTitle,
+      fetchedPaymentMessage,
+      fetchedPaymentStatus,
+      fetchedPayment
     } = this.state;
 
     return (
@@ -166,15 +329,33 @@ class App extends Component {
         <Navigation />
         <section className="float">
           <Form
-            postForm={this.postForm}
-            fields={postFormFields}
-            messageHeader={postFormTitle}
-            messageValue={postFormMessage}
-            messageStatus={postFormStatus}
+            makePayment={this.makePayment}
+            fields={makePaymentFields}
+            messageHeader={makePaymentTitle}
+            messageValue={makePaymentMessage}
+            messageStatus={makePaymentStatus}
+            setMessage={this.setMessage}
           />
         </section>
 
-        <Footer />
+        <section className="float">
+          <Form
+            fetchPayment={this.fetchPayment}
+            fields={fetchedPaymentFields}
+            messageHeader={fetchedPaymentTitle}
+            messageValue={fetchedPaymentMessage}
+            messageStatus={fetchedPaymentStatus}
+            setMessage={this.setMessage}
+          />
+        </section>
+
+        {fetchedPayment ? (
+          <section className="float">
+            <DonationTable paymentData={fetchedPayment} />
+          </section>
+        ) : null}
+
+        <Footer/>
       </main>
     );
   }

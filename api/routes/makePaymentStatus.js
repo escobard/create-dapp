@@ -24,6 +24,7 @@ router.get("/", (req, res) => {
 
   // checks if donation has been created
   if (global.makePayment.result === "created") {
+    console.log('makePayment created:', global.makePayment)
     res.status(200).json(global.makePayment);
 
     // deletes to indicate no donation currently being created

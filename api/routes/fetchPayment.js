@@ -45,9 +45,15 @@ router.post(
       .fetchPayment(id)
       .call({ from: user_pa });
 
+    const prettyPayment = {
+      user: payment.user,
+      amount: web3.utils.fromWei(payment.amount.toString(), "ether")
+    };
+
     global.fetchPayment = {
       status: "Payment fetched!",
-      payment
+      result: "fetched",
+      payment: prettyPayment
     };
 
     console.log(global.fetchPayment);

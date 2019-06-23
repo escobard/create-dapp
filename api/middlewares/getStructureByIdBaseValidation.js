@@ -7,12 +7,11 @@ const Validation = require("../utils/validation");
  */
 module.exports = async (req, res, next) => {
   try{
-    let { user_pa, user_pk, id } = req.body;
+    let { user_pa, id } = req.body;
     let validation = new Validation();
 
     // null case values validation
     validation.exists(user_pa, "Public address must exist");
-    validation.exists(user_pa, "Private key must exist");
     validation.exists(id, " ID must exist");
 
     // rejects request in case of null values
@@ -28,7 +27,6 @@ module.exports = async (req, res, next) => {
 
     // data type validation
     validation.isString(user_pa, "Public address must be a string");
-    validation.isString(user_pk, "Private key must be a string");
     validation.isNumber(id, " ID must be a number");
 
     let dataTypeErrors = validation.getErrors();
@@ -46,11 +44,6 @@ module.exports = async (req, res, next) => {
       user_pa,
       42,
       "Public address must contain exactly 42 characters"
-    );
-    validation.exactLength(
-      user_pk,
-      64,
-      "Private key must contain exactly 64 characters"
     );
     validation.customValidation(id === 0, " Donation ID must be greater than 0");
 

@@ -9,5 +9,6 @@ module.exports = app => {
 
   // ether routes
   app.use(routes.makePayment, require("../routes/makePayment"));
+  app.use(routes.makePaymentStatus, require("../routes/makePaymentStatus"));
   app.use(routes.fetchPayment, require("../routes/fetchPayment"));
 };

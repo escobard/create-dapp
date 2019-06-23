@@ -8,7 +8,7 @@ const Validation = require("../utils/validation");
 module.exports = async (req, res, next) => {
   try {
     let {
-      body: { user_pa, user_pk, id },
+      body: { user_pa, id },
       web3,
       contractInstance
     } = req;
@@ -20,12 +20,25 @@ module.exports = async (req, res, next) => {
       from: user_pa
     });
 
+    let payment = await contractInstance.methods
+      .fetchPayment(id)
+      .call({
+        from: user_pa
+      });
+
     await validation.isValidPublic(user_pa, web3, "Public address is invalid");
-    await validation.isValidPair(user_pk, user_pa, " Private Key is invalid");
 
     await validation.customValidation(
       id >= paymentID,
       " DonationID does not exist"
+    );
+
+    console.log(user_pa)
+    console.log(payment.user)
+
+    await validation.customValidation(
+      user_pa === payment.user.toLowerCase(),
+      " Unauthorized user"
     );
 
     let etherErrors = validation.getErrors();
