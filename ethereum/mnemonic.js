@@ -1,3 +1,5 @@
 const mnemonic = process.env.MNEMONIC;
 
-module.exports = mnemonic;
+const owner = process.env.OWNER;
+
+module.exports = { mnemonic, owner };

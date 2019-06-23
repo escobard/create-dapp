@@ -1,7 +1,7 @@
-const mnemonic = require("./mnemonic.js");
+const { mnemonic, owner } = require("./mnemonic.js");
 
 let HDWalletProvider = require('truffle-hdwallet-provider');
-
+console.log(process.MNEMONIC);
 module.exports = {
   networks:{
     development:{
@@ -16,13 +16,12 @@ module.exports = {
         version: "0.5.0"
       },
     rinkeby:{
+
       provider: () =>{
-        // this comes from the infura dashboar, unique per infura project
-        return new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/47c181283cb345c19697f9403531914c')
+        // TODO - fix hardcode
+        return new HDWalletProvider("blast ankle swift novel silk liberty blue garage loan robot enjoy energy", 'https://rinkeby.infura.io/v3/47c181283cb345c19697f9403531914c')
       },
-      network_id: 4,
-      gas: 4612388,
-      gasLimit: 2100000000000
+      network_id: 4
     }
   }
 };
