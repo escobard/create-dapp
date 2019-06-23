@@ -28,6 +28,9 @@ router.post(
     console.log(global.makePayment);
 
     if (global.ethereum === "ganache") {
+
+      res.status(200).json(global.makePayment);
+
       let amountToWei = web3.utils.toWei(amount.toString(), "ether");
 
       contractInstance.methods.makePayment.send({
@@ -52,6 +55,7 @@ router.post(
 
       paymentID = paymentID.toString();
 
+
       global.makePayment = {
         status: `Donation created!`,
         result: "created",
@@ -60,7 +64,9 @@ router.post(
       };
 
       console.log(global.makePayment);
+      /*
       return res.status(200).json(global.makePayment);
+      */
 
     } else {
       res.status(200).json(global.makePayment);

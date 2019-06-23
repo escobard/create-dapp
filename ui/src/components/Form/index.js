@@ -35,16 +35,16 @@ class DynamicForm extends Component {
    **/
 
   submitForm = () => {
-    let { makeDonation, fetchDonation } = this.props;
+    let { makePayment, fetchPayment } = this.props;
     let { value0, value1, value2 } = this.state;
 
-    if (makeDonation) {
-      makeDonation(value0, value1, value2);
+    if (makePayment) {
+      makePayment(value0, value1, value2);
     }
 
-    if (fetchDonation) {
+    if (fetchPayment) {
 
-      fetchDonation(value0, value1);
+      fetchPayment(value0, value1);
     }
   };
 

@@ -108,26 +108,26 @@ class App extends Component {
   /** Submits the donation POST request to the API
    * @name makePayment
    * @dev this requests triggers the timer, and checkStatus logic
-   * @param {string} address_pu, contains public address form field value
+   * @param {string} user_pa, contains public address form field value
    * @param {string} private_key, contains private address form field value
    * @param {string} amount, contains amount form field value
    * @returns /makePayment route response, or validation errors
    **/
 
-  makePayment = async (address_pu, private_key, amount) => {
+  makePayment = async (user_pa, private_key, amount) => {
     let { messageErrors } = this.state;
 
     amount = parseFloat(amount);
 
     // triggers validation logic
-    this.validateMakeDonation(address_pu, private_key, amount);
+    this.validateMakeDonation(user_pa, private_key, amount);
 
     // only runs request, if no validation errors are present
     if (messageErrors.length === 0) {
 
       const request = {
-        address_pu: address_pu,
-        address_pr: private_key,
+        user_pa: user_pa,
+        user_pk: private_key,
         amount: amount
       }
 
@@ -145,7 +145,7 @@ class App extends Component {
         const { data: { status } } = response;
 
         this.setState({
-          donorAddress: address_pu,
+          donorAddress: user_pa,
           makeDonationTitle: "makePayment() started",
           makeDonationMessage: status,
           makeDonationStatus: "blue"
@@ -159,21 +159,21 @@ class App extends Component {
 
   /** Submits the fetch donation POST request to the API
    * @devs this function returns the fetched donation object from ethereum, via the API
-   * @param {string} address_pu, contains public address form field value
+   * @param {string} user_pa, contains public address form field value
    * @param {string} donationID, contains amount form field value
    * @returns /fetchPayment route response, or validation errors
    **/
 
-  fetchPayment = async (address_pu, donationID) => {
+  fetchPayment = async (user_pa, donationID) => {
     let { messageErrors } = this.state;
 
     donationID = parseInt(donationID);
 
-    this.validateFetchDonation(address_pu, donationID);
+    this.validateFetchDonation(user_pa, donationID);
 
     if (messageErrors.length === 0) {
 
-      const request = { address_pu: address_pu, id: donationID };
+      const request = { user_pa: user_pa, id: donationID };
 
       let response = await fetchPayment(request);
 
@@ -229,17 +229,17 @@ class App extends Component {
   /** Validates makePayment form values
    * @name validateMakeDonation
    * @dev used to reduce clutter in makePayment
-   * @param {string} address_pu, contains public address form field value
+   * @param {string} user_pa, contains public address form field value
    * @param {string} private_key, contains private address form field value
    * @param {string} amount, contains amount form field value
    **/
 
-  validateMakeDonation = (address_pu, private_key, amount) => {
+  validateMakeDonation = (user_pa, private_key, amount) => {
     let { messageErrors } = this.state;
 
     this.validateField(
-      address_pu,
-      address_pu.length !== 42,
+      user_pa,
+      user_pa.length !== 42,
       "Address Public must be valid public key"
     );
 
@@ -277,16 +277,16 @@ class App extends Component {
   /** Validates validateFetchDonation form values
    * @name validateFetchDonation
    * @dev used to reduce clutter in makePayment
-   * @param {string} address_pu, contains public address form field value
+   * @param {string} user_pa, contains public address form field value
    * @param {string} donationID, contains amount form field value
    **/
 
-  validateFetchDonation = (address_pu, donationID) => {
+  validateFetchDonation = (user_pa, donationID) => {
     let { messageErrors } = this.state;
 
     this.validateField(
-      address_pu,
-      address_pu.length !== 42,
+      user_pa,
+      user_pa.length !== 42,
       "Address Public must be valid public key"
     );
 
