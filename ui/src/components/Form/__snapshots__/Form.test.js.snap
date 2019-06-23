@@ -13,37 +13,28 @@ exports[`Form snapshot renders should render makeDonation form and fields correc
         as={[Function]}
         control={[Function]}
         key="0"
-        label="String Type"
-        name="stringType"
+        label="Address Public"
+        name="addressPub"
         onChange={[Function]}
-        placeholder="Enter a random string"
+        placeholder="Donor's public address"
       />
       <FormInput
         as={[Function]}
         control={[Function]}
         key="1"
-        label="String Length"
-        name="stringLength"
+        label="Private Key"
+        name="privKey"
         onChange={[Function]}
-        placeholder="Enter a random string, must have char length greater than 10"
+        placeholder="Donor's private address - only used to SIGN raw transactions within API, not stored or cached"
       />
       <FormInput
         as={[Function]}
         control={[Function]}
         key="2"
-        label="Number Type"
-        name="numberType"
+        label="Amount"
+        name="amount"
         onChange={[Function]}
-        placeholder="Enter a random number, must have char length greater than 10"
-      />
-      <FormInput
-        as={[Function]}
-        control={[Function]}
-        key="3"
-        label="Number Max"
-        name="numberMax"
-        onChange={[Function]}
-        placeholder="Enter a random number, must be greater than 10"
+        placeholder="Donation amount in ether"
       />
     </FormGroup>
     <FormField
