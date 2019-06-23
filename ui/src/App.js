@@ -7,8 +7,8 @@ import DonationTable from "./components/DonationTable";
 import "./styles/global.scss";
 
 import {
-  makeDonationFields,
-  fetchDonationFields,
+  makePaymentFields,
+  fetchedPaymentFields,
 } from "./constants";
 
 import {fetchPayment, makePayment, makePaymentStatus} from "./utils/requests";
@@ -17,17 +17,17 @@ import Footer from "./components/Footer";
 class App extends Component {
   state = {
     messageErrors: [],
-    makeDonationTitle: "Make Donation form instructions",
-    makeDonationMessage:
+    makePaymentTitle: "Make Donation form instructions",
+    makePaymentMessage:
       "Enter a valid public key in the Address Public field, the public address' private key in the Private Key field, and an ether value smaller than 1 in the Amount field.",
     makePaymentStatus: null,
-    fetchDonationTitle: "Fetch Donation form instructions",
-    fetchDonationMessage:
+    fetchedPaymentTitle: "Fetch Donation form instructions",
+    fetchedPaymentMessage:
       "Enter a valid donor public key in the Address Public field and a valid currentPayment in the currentPayment field.",
-    fetchDonationStatus: null,
+    fetchedPaymentStatus: null,
     currentPayment: false,
     donorAddress: false,
-    fetchedDonation: false,
+    fetchedPayment: false,
     formMessage: "",
     time: 0,
     isOn: false,
@@ -75,7 +75,7 @@ class App extends Component {
   checkStatus = async () => {
     let response = await makePaymentStatus();
     console.log('PAYMENT STATUS', response)
-    // ends the timer if donation has been created.
+    // ends the timer if payment has been created.
     if (response.data.result === "created") {
       this.stopTimer();
 
@@ -86,9 +86,9 @@ class App extends Component {
       this.setState({
         donationStatus: result,
         currentPayment: currentPayment,
-        makeDonationTitle: "makePayment() success",
-        makeDonationMessage:
-          `Time spent creating donation: ${this.state.time} seconds. ` + status,
+        makePaymentTitle: "makePayment() success",
+        makePaymentMessage:
+          `Time spent creating payment: ${this.state.time} seconds. ` + status,
         makePaymentStatus: "green"
       });
       return this.resetTimer();
@@ -96,16 +96,16 @@ class App extends Component {
       return this.setState({
         time: this.state.time + 1,
         donationStatus: response.data.result,
-        makeDonationTitle: "makePayment() started",
-        makeDonationMessage:
+        makePaymentTitle: "makePayment() started",
+        makePaymentMessage:
           "Donation Validated! " +
-          `Time spent creating donation: ${this.state.time} seconds. `,
+          `Time spent creating payment: ${this.state.time} seconds. `,
         makePaymentStatus: "blue"
       });
     }
   };
 
-  /** Submits the donation POST request to the API
+  /** Submits the payment POST request to the API
    * @name makePayment
    * @dev this requests triggers the timer, and checkStatus logic
    * @param {string} user_pa, contains public address form field value
@@ -136,8 +136,8 @@ class App extends Component {
       // checks for API promise rejections
       if(!response.status){
         return this.setState({
-          makeDonationTitle: "makePayment() error(s)",
-          makeDonationMessage: response,
+          makePaymentTitle: "makePayment() error(s)",
+          makePaymentMessage: response,
           makePaymentStatus: "red"
         });
       }
@@ -146,8 +146,8 @@ class App extends Component {
 
         this.setState({
           donorAddress: user_pa,
-          makeDonationTitle: "makePayment() started",
-          makeDonationMessage: status,
+          makePaymentTitle: "makePayment() started",
+          makePaymentMessage: status,
           makePaymentStatus: "blue"
         });
 
@@ -157,8 +157,8 @@ class App extends Component {
     }
   };
 
-  /** Submits the fetch donation POST request to the API
-   * @devs this function returns the fetched donation object from ethereum, via the API
+  /** Submits the fetch payment POST request to the API
+   * @devs this function returns the fetched payment object from ethereum, via the API
    * @param {string} user_pa, contains public address form field value
    * @param {string} currentPayment, contains amount form field value
    * @returns /fetchPayment route response, or validation errors
@@ -180,24 +180,24 @@ class App extends Component {
       // checks for API promise rejections
       if (!response.status){
         return this.setState({
-          fetchDonationTitle: "fetchPayment error(s)",
-          fetchDonationMessage: response,
-          fetchDonationStatus: "red"
+          fetchedPaymentTitle: "fetchPayment error(s)",
+          fetchedPaymentMessage: response,
+          fetchedPaymentStatus: "red"
         });
       }
       else if(response.data.result === "fetched"){
-        const { data: { donation } } = response;
+        const { data: { payment } } = response;
 
-        // donation object from ethereum is turned into an array to work with react
-        let donationArray = Object.keys(donation).map(key => {
-          return [key, donation[key]];
+        // payment object from ethereum is turned into an array to work with react
+        let donationArray = Object.keys(payment).map(key => {
+          return [key, payment[key]];
         });
 
         return this.setState({
-          fetchedDonation: donationArray,
-          fetchDonationTitle: "fetchPayment() success",
-          fetchDonationMessage: `Donation ${donation.id} fetched, find your donation data below.`,
-          fetchDonationStatus: "green"
+          fetchedPayment: donationArray,
+          fetchedPaymentTitle: "fetchPayment() success",
+          fetchedPaymentMessage: `Donation ${payment.id} fetched, find your payment data below.`,
+          fetchedPaymentStatus: "green"
         });
       }
     }
@@ -261,15 +261,15 @@ class App extends Component {
     if (messageErrors.length > 0) {
       this.setState({
         makePaymentStatus: "red",
-        makeDonationTitle: "makePayment() error(s)",
-        makeDonationMessage: `Contains the following error(s): ${messageErrors.join()}.`
+        makePaymentTitle: "makePayment() error(s)",
+        makePaymentMessage: `Contains the following error(s): ${messageErrors.join()}.`
       });
       this.emptyErrors();
     } else {
       this.setState({
         makePaymentStatus: "green",
-        makeDonationTitle: "makePayment() validated",
-        makeDonationMessage: `Making donation...`
+        makePaymentTitle: "makePayment() validated",
+        makePaymentMessage: `Making payment...`
       });
     }
   };
@@ -298,30 +298,30 @@ class App extends Component {
 
     if (messageErrors.length > 0) {
       this.setState({
-        fetchDonationStatus: "red",
-        fetchDonationTitle: "fetchPayment() error(s)",
-        fetchDonationMessage: `Contains the following error(s): ${messageErrors.join()}.`
+        fetchedPaymentStatus: "red",
+        fetchedPaymentTitle: "fetchPayment() error(s)",
+        fetchedPaymentMessage: `Contains the following error(s): ${messageErrors.join()}.`
       });
       this.emptyErrors();
       return;
     } else {
       this.setState({
-        fetchDonationStatus: "blue",
-        fetchDonationTitle: "fetchPayment() started",
-        fetchDonationMessage: `Fetching donation...`
+        fetchedPaymentStatus: "blue",
+        fetchedPaymentTitle: "fetchPayment() started",
+        fetchedPaymentMessage: `Fetching payment...`
       });
     }
   };
 
   render() {
     let {
-      makeDonationTitle,
-      makeDonationMessage,
+      makePaymentTitle,
+      makePaymentMessage,
       makePaymentStatus,
-      fetchDonationTitle,
-      fetchDonationMessage,
-      fetchDonationStatus,
-      fetchedDonation
+      fetchedPaymentTitle,
+      fetchedPaymentMessage,
+      fetchedPaymentStatus,
+      fetchedPayment
     } = this.state;
 
     return (
@@ -330,9 +330,9 @@ class App extends Component {
         <section className="float">
           <Form
             makePayment={this.makePayment}
-            fields={makeDonationFields}
-            messageHeader={makeDonationTitle}
-            messageValue={makeDonationMessage}
+            fields={makePaymentFields}
+            messageHeader={makePaymentTitle}
+            messageValue={makePaymentMessage}
             messageStatus={makePaymentStatus}
             setMessage={this.setMessage}
           />
@@ -341,17 +341,17 @@ class App extends Component {
         <section className="float">
           <Form
             fetchPayment={this.fetchPayment}
-            fields={fetchDonationFields}
-            messageHeader={fetchDonationTitle}
-            messageValue={fetchDonationMessage}
-            messageStatus={fetchDonationStatus}
+            fields={fetchedPaymentFields}
+            messageHeader={fetchedPaymentTitle}
+            messageValue={fetchedPaymentMessage}
+            messageStatus={fetchedPaymentStatus}
             setMessage={this.setMessage}
           />
         </section>
 
-        {fetchedDonation ? (
+        {fetchedPayment ? (
           <section className="float">
-            <DonationTable donationData={fetchedDonation} />
+            <DonationTable paymentData={fetchedPayment} />
           </section>
         ) : null}
 

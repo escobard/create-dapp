@@ -1,4 +1,4 @@
-export const makeDonationFields = [
+export const makePaymentFields = [
   {
     name: "addressPub",
     label: "Address Public",
@@ -23,7 +23,7 @@ export const makeDonationFields = [
   }
 ];
 
-export const fetchDonationFields = [
+export const fetchedPaymentFields = [
   {
     name: "address",
     label: "Address Public",

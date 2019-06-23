@@ -7,13 +7,13 @@ import "./styles.scss"
 class DonationTable extends Component {
 
   displayDonation = fetchedDonation => {
-
+    console.log('FETCHED DONNATIOn', fetchedDonation)
     let mapArray = () => {
-      return fetchedDonation.map((donation, key) => {
+      return fetchedDonation.map((payment, key) => {
         return (
           <Table.Row key={key}>
-            <Table.Cell width={8}>{donation[0]}</Table.Cell>
-            <Table.Cell width={8}>{donation[1]}</Table.Cell>
+            <Table.Cell width={8}>{payment[0]}</Table.Cell>
+            <Table.Cell width={8}>{payment[1]}</Table.Cell>
           </Table.Row>
         );
       });
@@ -38,7 +38,7 @@ class DonationTable extends Component {
   render() {
     return (
       <Fragment>
-        {this.displayDonation(this.props.donationData)}
+        {this.displayDonation(this.props.paymentData)}
       </Fragment>
     );
   }
