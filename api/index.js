@@ -3,8 +3,9 @@ const express = require("express"),
   app = express(),
   { setOrigin } = require("./utils/network"),
   routes = require("./constants/routes"),
-  port = routes.port;
-
+  port = routes.port,
+  dotenv = require('dotenv');
+dotenv.config();
 app.use(bodyParser.json());
 
 setOrigin(app);
@@ -12,6 +13,7 @@ require("./routes")(app);
 
 let server = app.listen(port, () =>
   console.log(`Example app listening on port ${port}!`)
+
 );
 
 module.exports = server;

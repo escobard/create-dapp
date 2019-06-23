@@ -26,7 +26,7 @@ class Contract extends Ethereum {
     let { contract: {contract_abi, contract_pa}} = this;
 
     let web3 = await this.web3;
-    return await web3.eth.Contract(contract_abi, contract_pa);
+    return await web3.eth.Contract(contract_abi, contract_pa, {transactionConfirmationBlocks: 3});
   }
 
 }

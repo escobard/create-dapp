@@ -26,7 +26,6 @@ function txBuilder({
   value,
   gasLimit,
   gasPrice,
-  gas,
   fromPriv
 }) {
   //get the private key
@@ -37,7 +36,6 @@ function txBuilder({
   const valueHex = web3Instance.utils.toHex(value);
   const limitHex = web3Instance.utils.toHex(gasLimit);
   const priceHex = web3Instance.utils.toHex(gasPrice);
-  const gasHex = web3Instance.utils.toHex(gas);
 
   //tx object
   let rawTx;
@@ -49,7 +47,6 @@ function txBuilder({
         nonce: nonceHex,
         gasPrice: priceHex,
         gasLimit: limitHex,
-        gas: gasHex,
         to: toAddress,
         from: fromPub,
         value: valueHex,
@@ -58,6 +55,7 @@ function txBuilder({
       break;
   }
   //new ethereumjs-tx
+
   let tx = new Tx(rawTx);
   //sign transaction
   tx.sign(privateKey);
@@ -103,7 +101,7 @@ async function sendRawTransaction({
   web3Instance = web3;
 
   // converted to string
-  const value = web3.utils.toWei(amount.toString(), "ether");
+  const value = await web3.utils.toWei(amount.toString(), "ether");
 
   // the 'pending' flag here adds the most recent transaction
 
@@ -117,9 +115,6 @@ async function sendRawTransaction({
   //rinkeby current gas price is 1 gwei, setting to 10 will ensure priority mining
   const gasPrice = "100000000000";
 
-  // needs to be confirmed with rinkeby
-  const gas = "750430";
-
   //optional logs for sanity checks
   //build transaction object -- see tx_builder.js for input parameters
   let txData = {
@@ -131,8 +126,7 @@ async function sendRawTransaction({
     functionSignature: method.encodeABI(),
     value,
     gasLimit,
-    gasPrice,
-    gas
+    gasPrice
   };
 
   // console.log("Building Transaction", txData);
@@ -145,13 +139,48 @@ async function sendRawTransaction({
     //optional logs for sanity checks
     console.log("Sending Signed Transaction...");
 
-    //send tx that was signed offline by txbuilder
-    let transaction = await web3.eth.sendSignedTransaction(
-      "0x" + rawTx.toString("hex")
-    );
+    return new Promise(async (resolve, reject) => {
+      let transactionHash;
 
-    console.log("Raw transaction successful:", transaction.transactionHash);
-    return transaction;
+      //send tx that was signed offline by txbuilder
+     await web3.eth
+        .sendSignedTransaction(
+          "0x" + rawTx.toString("hex"),
+          (error, txHash) => {
+            console.log("sendSignedTransaction error, txHash", error, txHash);
+
+            if (error) {
+              reject(error);
+              return;
+            }
+
+            transactionHash = txHash;
+            resolve(txHash);
+          }
+        )
+        .on("confirmation", (number, receipt) => {
+          console.log(
+            "sendSignesdTransaction confirmation number, receipt",
+            number,
+            receipt
+          );
+        })
+        .on("error", reject);
+    }).then(async (hash) =>{
+
+      // this loop is necessary to confirm raw transaction success
+        let confirmedTransaction = -1;
+        for (let i = 0; i >= confirmedTransaction; i++) {
+          const results = await web3.eth.getTransactionReceipt(hash);
+
+          // only resolve once transaction has been mined
+          if (results != null){
+            console.log('confirmed receipt', confirmedTransaction)
+            confirmedTransaction = i;
+            return;
+          }
+      }
+    });
   } catch (error) {
     console.error("Raw transaction failed", error.message);
 
