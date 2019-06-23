@@ -1,5 +1,6 @@
 const router = require("express").Router(),
   sendRawTransaction = require("../utils/rawTransaction"),
+  getTransactionReceipt = require("../utils/getTransactionReceipt"),
   postPayableTransactionBaseValidation = require("../middlewares/postPayableTransactionBaseValidation"),
   postPayableTransactionEtherValidation = require("../middlewares/postPayableTransactionEtherValidation"),
   ethereumSetup = require("../middlewares/ethereumSetup");
@@ -77,7 +78,7 @@ router.post(
       // creates raw transaction for makePayment()
 
       let rawTransaction = {
-        method: contractInstance.methods.makePayment(),
+        method: await contractInstance.methods.makePayment(),
         public_address: user_pa,
         private_address: user_pk,
         receiver: contractAddress,
@@ -89,21 +90,13 @@ router.post(
       await sendRawTransaction(rawTransaction);
     }
 
-    console.log("Payment send! Fetching ID...");
+    console.log("Payment sent! Fetching ID...");
 
     let paymentID = await contractInstance.methods.paymentID.call({
       from: user_pa
     });
+    console.log('ID', paymentID)
 
-    let currentPayment = paymentID - 1;
-
-    global.makePayment = {
-      status: `Donation created!`,
-      result: "created",
-      currentPayment
-    };
-
-    console.log(global.makePayment);
   }
 );
 
