@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "DOCKER=dev nodemon -L index.js",
-    "prod": "DOCKER=prod node index.js",
+    "dev": "nodemon -L index.js",
+    "dev-docker": "DOCKER=dev nodemon -L index.js",
+    "prod": "node index.js",
+    "prod-docker": "DOCKER=prod node index.js",
     "test": "nyc mocha tests/routes/*.js"
   },
   "engines": {
