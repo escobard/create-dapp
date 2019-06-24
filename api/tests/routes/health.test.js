@@ -21,7 +21,7 @@ describe("Testing health route", () => {
       .expect({
         healthy: true,
         ethereum: "https://rinkeby.infura.io/v3/a07ed258a1924109a285a22a3778d0bb",
-        contract: "0x4790fb7A3B2ceedeEE687b96e62daCBc32D12a16"
+        contract: "0xC2455714dDC58d9899bdDA1eB1eB58bE5ae174bD"
       })
       .end((err, res) => {
         if (err) return done(err);
