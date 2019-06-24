@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
             healthy: true,
             process: global.environment,
             ethereum: fetchEtherNetwork,
-            contract: fetchContractAddress
         });
 });
 

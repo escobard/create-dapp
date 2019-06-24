@@ -16,18 +16,17 @@ module.exports = async (req, res, next) => {
     // setting address to lowercase, to avoid validation errors
     let validation = new Validation();
 
+
     let paymentID = await contractInstance.methods.paymentID.call({
       from: user_pa
-    }, (error, result) =>{
-      console.log('RESULT', result)
-    });
+    })
 
     let payment = await contractInstance.methods
       .fetchPayment(id)
       .call({
         from: user_pa
       });
-
+      console.log('PAYMENTID', payment)
     await validation.isValidPublic(user_pa, web3, "Public address is invalid");
 
     await validation.customValidation(
