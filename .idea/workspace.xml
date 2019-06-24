@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/middlewares/getStructureByIdEtherValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/middlewares/getStructureByIdEtherValidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/config/config.json" afterDir="false" />
-    </list>
+    <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -277,9 +273,7 @@
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/api/node_modules" />
-    <handled-path value="$PROJECT_DIR$/ethereum/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
-    <handled-path value="$PROJECT_DIR$/ui/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -453,12 +447,12 @@
       <workItem from="1561166371343" duration="24747000" />
       <workItem from="1561317700763" duration="10469000" />
       <workItem from="1561331099005" duration="2380000" />
-      <workItem from="1561334443439" duration="884000" />
+      <workItem from="1561334443439" duration="1213000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134697000" />
+    <option name="totallyTimeSpent" value="135026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -473,7 +467,7 @@
     <frame x="3832" y="477" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1886196" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1886196" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -487,7 +481,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32917318" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500394" side_tool="true" weight="0.21149674" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960598" visible="true" weight="0.35249457" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49960598" visible="true" weight="0.35249457" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
