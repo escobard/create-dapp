@@ -47,7 +47,7 @@ router.post(
       from: user_pa
     });
 
-    let currentPayment = paymentID - 1;
+    let currentPayment = paymentID - 2;
 
     global.makePayment = {
       status: `Donation ${paymentID} created!`,

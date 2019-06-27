@@ -26,7 +26,7 @@ class Ethereum {
   async web3Provider() {
     return await new Web3(
       new Web3.providers.HttpProvider(
-        "https://rinkeby.infura.io/v3/a07ed258a1924109a285a22a3778d0bb"
+        fetchEtherNetwork
       )
     );
   }
