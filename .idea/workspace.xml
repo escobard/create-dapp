@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc6d6e65-05c6-4583-a814-697f01d3d4e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/constants/createDappAbi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/constants/createDappAbi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/middlewares/getStructureByIdEtherValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/middlewares/getStructureByIdEtherValidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/makePayment.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/makePayment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/services/ethereum/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/ethereum/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/network.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/network.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/contracts/CreateDapp.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/contracts/Migrations.sol" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/contracts/Migrations.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/mnemonic.js" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/mnemonic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/test/CreateDappTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/test/CreateDappTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum/truffle.js" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum/truffle.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,7 +36,7 @@
           <entry key="Dockerfile" value="1" />
           <entry key="build" value="1" />
           <entry key="dev" value="9" />
-          <entry key="env" value="6" />
+          <entry key="env" value="7" />
           <entry key="js" value="246" />
           <entry key="json" value="33" />
           <entry key="md" value="3" />
@@ -62,7 +50,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="6" />
+          <entry key=".env file" value="7" />
           <entry key="Dockerfile" value="20" />
           <entry key="JSON" value="33" />
           <entry key="JavaScript" value="246" />
@@ -77,7 +65,7 @@
           <entry key="build" value="41" />
           <entry key="dev" value="32" />
           <entry key="env" value="34" />
-          <entry key="js" value="12412" />
+          <entry key="js" value="12417" />
           <entry key="json" value="185" />
           <entry key="md" value="828" />
           <entry key="prod" value="101" />
@@ -92,7 +80,7 @@
           <entry key=".env file" value="34" />
           <entry key="Dockerfile" value="186" />
           <entry key="JSON" value="185" />
-          <entry key="JavaScript" value="12412" />
+          <entry key="JavaScript" value="12417" />
           <entry key="Markdown" value="828" />
           <entry key="PLAIN_TEXT" value="87" />
           <entry key="Solidity file" value="699" />
@@ -113,8 +101,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/services/ethereum/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="559">
-                  <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+                <state relative-caret-position="625">
+                  <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -150,11 +138,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/api/constants/createDappAbi.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="712">
                   <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/api/.env">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="60" selection-start-column="18" selection-end-column="60" />
                 </state>
               </provider>
             </entry>
@@ -272,8 +269,8 @@
         <option value="$PROJECT_DIR$/api/.env" />
         <option value="$PROJECT_DIR$/api/tests/routes/health.test.js" />
         <option value="$PROJECT_DIR$/api/routes/health.js" />
-        <option value="$PROJECT_DIR$/api/services/ethereum/index.js" />
         <option value="$PROJECT_DIR$/api/constants/createDappAbi.js" />
+        <option value="$PROJECT_DIR$/api/services/ethereum/index.js" />
       </list>
     </option>
   </component>
@@ -451,12 +448,12 @@
       <workItem from="1561317700763" duration="10469000" />
       <workItem from="1561331099005" duration="2380000" />
       <workItem from="1561334443439" duration="2896000" />
-      <workItem from="1561592153837" duration="1211000" />
+      <workItem from="1561592153837" duration="1951000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137920000" />
+    <option name="totallyTimeSpent" value="138660000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -810,20 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/services/ethereum/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/tests/routes/health.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -856,6 +839,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="712">
           <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="60" selection-start-column="18" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/services/ethereum/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
         </state>
       </provider>
     </entry>
