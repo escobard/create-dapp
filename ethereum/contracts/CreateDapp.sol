@@ -38,6 +38,10 @@ contract CreateDapp {
         PayContract.send(msg.value);
     }
 
+    function fetchPaymentID() public view returns (uint){
+        return paymentID;
+    }
+
     function fetchPayment(uint _paymentID) public view returns (
         address user,
         uint amount
