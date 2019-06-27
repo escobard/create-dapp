@@ -34,11 +34,11 @@ module.exports = async (req, res, next) => {
       " DonationID does not exist"
     );
 
-    console.log(user_pa)
+    console.log(user_pa, payment.user)
     console.log(await contractInstance.methods.paymentID.call())
 
     await validation.customValidation(
-      user_pa !== payment.user.toLowerCase(),
+      user_pa !== payment.user,
       " Unauthorized user"
     );
 

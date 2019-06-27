@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.5.8;
 
 contract CreateDapp {
 
@@ -11,7 +11,7 @@ contract CreateDapp {
     address payable PayContract;
     address payable PayOwner;
     bool private initialized = false;
-    uint public paymentID = 1;
+    uint256 public paymentID = 1;
     
     mapping(uint => Payment) public Payments;
 
@@ -38,7 +38,7 @@ contract CreateDapp {
         PayContract.send(msg.value);
     }
 
-    function fetchPaymentID() public view returns (uint){
+    function fetchPaymentID() public view returns (uint256){
         return paymentID;
     }
 

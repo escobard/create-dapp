@@ -59,7 +59,7 @@ class Validation{
    */
 
   customValidation(condition, error){
-    if (condition){
+    if (condition === true){
       this.setError(error)
     }
   }

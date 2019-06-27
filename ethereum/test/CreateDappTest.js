@@ -23,7 +23,7 @@ contract("CreateDapp", accounts => {
 
     it("owner can make payment", async () => {
       await this.contract.makePayment({ from: owner, value: amount });
-      let paymentID = await this.contract.fetchPaymentID();
+      let paymentID = await this.contract.fetchPaymentID({from: user});
 
       assert.equal(paymentID, 2);
     });

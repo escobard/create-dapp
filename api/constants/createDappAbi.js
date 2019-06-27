@@ -67,6 +67,20 @@ const abi = [
   },
   {
     constant: true,
+    inputs: [],
+    name: "fetchPaymentID",
+    outputs: [
+      {
+        name: "",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    constant: true,
     inputs: [
       {
         name: "_paymentID",
