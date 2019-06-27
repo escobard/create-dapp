@@ -36,6 +36,7 @@ const fetchContractAddress =
 
 const fetchOwnerAddress =
   process.env.DOCKER === "dev" ? ethereum.ownerAddress : process.env.OWNER;
+  
 module.exports = {
   setOrigin,
   fetchEtherNetwork,

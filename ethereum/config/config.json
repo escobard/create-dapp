@@ -1,7 +1,7 @@
 {
 	"ethereum": {
-		"network": "rinkeby-fork",
+		"network": "rinkeby",
 		"ownerAddress": "0xCb82438B0443593191ec05D07Bb9dBf6Eb73594C",
-		"contractAddress": "0xC2455714dDC58d9899bdDA1eB1eB58bE5ae174bD"
+		"contractAddress": "0xbdEC60d2c08FdC45e2adF06BF3EDd25f90f124bd"
 	}
 }

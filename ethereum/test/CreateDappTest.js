@@ -23,14 +23,14 @@ contract("CreateDapp", accounts => {
 
     it("owner can make payment", async () => {
       await this.contract.makePayment({ from: owner, value: amount });
-      let paymentID = await this.contract.paymentID();
+      let paymentID = await this.contract.fetchPaymentID({from: user});
 
       assert.equal(paymentID, 2);
     });
 
     it("user can make payment", async () => {
       await this.contract.makePayment({ from: user, value: amount });
-      let paymentID = await this.contract.paymentID();
+      let paymentID = await this.contract.fetchPaymentID();
 
       assert.equal(paymentID, 2);
     });
@@ -77,7 +77,7 @@ contract("CreateDapp", accounts => {
       contractBalance = await web3.eth.getBalance(this.contract.address);
     });
 
-    it("only owner can fetch payments", async () => {
+    it("only owner can empty balance", async () => {
       await truffleAssert.reverts(
         this.contract.emptyBalance({ from: user }),
         'Unauthorized sender.'
