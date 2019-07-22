@@ -4,9 +4,23 @@
 
 The devops `layer` was constructed for the purpose of supporting `continuous deployment and integration`. 
 
-Docker will be introduced as part of `Phase 4`, along with deployment to Docker and AWS.
+### Docker
 
-Instructions on deployment to Heroku and GCP can be found below.
+It's recommended to use `docker-compose` to quickly setup a local development environment.
+
+The following `docker-compose` scripts are available: 
+
+#### Development
+
+`docker-compose -f dev.yaml up --build`
+
+#### Testing
+
+`docker-compose -f tests.yaml up --build`
+
+#### Truffle Deploy
+
+`docker-compose -f truffle-migrate.yaml up --build`
 
 ### Heroku
 
@@ -21,7 +35,7 @@ git push heroku master
 heroku open
 ```
 
-If successful, changes should appear here: [https://share-ui.herokuapp.com/](https://share-ui.herokuapp.com/)
+If successful, changes should appear here: [https://create-dapp.herokuapp.com/](https://create-dapp.herokuapp.com/)
 
 More on how it works here: [https://github.com/mars/create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack)
 
@@ -39,7 +53,7 @@ git push heroku master
 heroku openn
 ```
 
-If successful, changes should appear here: [https://share-controller.herokuapp.com/](https://share-controller.herokuapp.com/)
+If successful, changes should appear here: [https://create-dapp-controller.herokuapp.com/](https://create-dapp-controller.herokuapp.com/)
 
 Issue tracking the initial deployment here: [https://github.com/escobard/share/issues/27](https://github.com/escobard/share/issues/27)
 
@@ -50,10 +64,10 @@ Using GCP buckets to manually upload + move files into the correct project folde
 For example:
 
 ```angular2html
-gsutil rsync -r gs://share-api-bucket ./api
+gsutil rsync -r gs://create-dapp-bucket ./api
 ```
 
-Moves all files under the `share-api-bucket` to the `./api` within the gcp project.
+Moves all files under the `create-dapp-bucket` to the `./api` within the gcp project.
 
 #### Deployment - UI
 
@@ -61,7 +75,7 @@ To deploy to GCP, follow the instructions here: [https://medium.com/google-cloud
 
 UI files under `share`
 
-Once successful, app should be viewable here: [https://share-ui.appspot.com/]](https://share-ui.appspot.com/)
+Once successful, app should be viewable here: [https://create-dapp.appspot.com/]](https://create-dapp.appspot.com/)
 
 #### Deployment - API
 
@@ -69,7 +83,7 @@ To deploy to GCP, follow the instructions here: [https://codelabs.developers.goo
 
 Follow UI instructions on how to sync bucket before deploying, API files under `api`
 
-Once successful, app should be viewable here: [https://share-api-229307.appspot.com](https://share-api-229307.appspot.com)
+Once successful, app should be viewable here: [https://create-dapp-229307.appspot.com](https://create-dapp-229307.appspot.com)
 
 ### Circle CI
 
@@ -77,4 +91,4 @@ File for cicle ci docker container configurations within `.circleci/config.yml`
 
 Project dashboard here: https://circleci.com/gh/escobard
 
-As of January 27th, 2019, testing, production bundling, and deployment to heroku is all automated for the UI, once the master branch is updated within the github repository.
+As of July 21st, 2019, testing, production bundling, and deployment to heroku is all automated UI and API layers.
