@@ -2,7 +2,7 @@
 
 A decentralized product boilerplate using javascript.
 
-Production version available here: https://create-dapp.herokuapp.com/
+Documentation has been fragmented into several different markdown files, to facilitate collaboration.
 
 ## Product Technology
 
@@ -23,13 +23,9 @@ Furthermore, the following frameworks were chosen to rapidly deliver a productio
 
 Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/share/blob/master/documentation/concept.md)
 
-## Documentation
+## DAPP Usage
 
-Documentation has been fragmented into several different markdown files, to facilitate collaboration.
-
-## APP Usage
-
-Production version available here: https://share-ui.herokuapp.com/
+Production version available here: https://create-dapp.herokuapp.com/
 
 Expanded instructions here: [documentation/usage.md](https://github.com/escobard/share/blob/master/documentation/usage.md)
 

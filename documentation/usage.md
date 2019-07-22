@@ -1,10 +1,10 @@
 ## DAPP Usage
 
-Production version available here: https://share-ui.herokuapp.com/
+Production version available here: https://create-dapp.herokuapp.com/
 
 Follow the instructions within the messages to utilize, expanded instructions below.
 
-#### Make donation form
+#### Make payment form
 
 Enter a valid `public address`, the `public address' private key` and an ether amount `smaller than 1`.
 
@@ -12,13 +12,13 @@ Feel free to use the following test account for a working `public / private` pai
 
 ```angular2html
 
-public address: 0xa102c7EE530B635E56f133a20786091eB800f640
+public address: 0xe71a0829E03c6e26fc5486c8d10e0bf0C1A92cF9
 
-private key: 1E8722F6E86B4E856B4BA2F75F492F4123242713E4E57C3789AFDCF2F631954A
+private key: EBDB03D10DC7131D24D8A7154839937352A11AB43CC9EFC11EE9747DA562BD72
 
 ```
 
-#### Fetch Donation 
+#### Fetch payment form
 
 Enter a valid `public address`, and a `donationID which has been created with the public address`.
 
@@ -26,9 +26,9 @@ Feel free to use the following test account for a working `public / donationID` 
 
 ```angular2html
 
-public address: 0xa102c7EE530B635E56f133a20786091eB800f640
+public address: 0xe71a0829E03c6e26fc5486c8d10e0bf0C1A92cF9
 
-donationId: 8
+donationId: 5
 ``` 
 
 ## Reviewer Info
