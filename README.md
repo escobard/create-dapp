@@ -28,7 +28,7 @@ The following `docker-compose` scripts are available:
 
 ## Product Technology
 
-This product is decentralized product boilerplate, forked from [https://github.com/escobard/share](https://github.com/escobard/share).
+A decentralized product boilerplate, forked from [https://github.com/escobard/share](https://github.com/escobard/share).
 
 The product's functional logic can be summarized as an open checkings account, where anyone can send money to the account and view the transactions, but only the owner can withdraw funds.
 
