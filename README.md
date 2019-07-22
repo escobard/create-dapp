@@ -1,6 +1,8 @@
 # create-dapp
 
-A decentralized product boilerplate written in javascript.
+A decentralized product boilerplate using javascript.
+
+Production version available here: https://create-dapp.herokuapp.com/
 
 ## Product Technology
 
