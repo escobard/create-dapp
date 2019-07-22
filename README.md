@@ -49,17 +49,15 @@ The following `docker-compose` scripts are available:
 
 ### UI
 
-UI NPM usage doc can be found here: [ui/README.md](https://github.com/escobard/create-dapp/blob/master/ui/README.md)
+UI documentation can be found here: [ui/README.md](https://github.com/escobard/create-dapp/blob/master/ui/README.md)
 
 ### API 
 
-API documentation can be found here: [documentation/api.md](https://github.com/escobard/create-dapp/blob/master/documentation/api.md)
+API documentation can be found here: [api/README.md](https://github.com/escobard/create-dapp/blob/master/api/README.md)
 
-API local usage doc can be found here: [api/README.md](https://github.com/escobard/create-dapp/blob/master/api/README.md)
+### DevOps
 
-### Devops
-
-Devops documentation can be found here: [documentation/devops.md](https://github.com/escobard/create-dapp/blob/master/documentation/devops.md)
+DevOps documentation can be found here: [documentation/devops.md](https://github.com/escobard/create-dapp/blob/master/documentation/devops.md)
 
 ### Contribution
 

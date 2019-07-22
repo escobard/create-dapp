@@ -21,7 +21,7 @@ router.post(
 
     // validates donation, sends response to UI stating transaction is being validated
     global.makePayment = {
-      status: "payment Validated! Sending to Smart Contract...",
+      status: "Payment Validated! Sending to Smart Contract...",
       result: "validated"
     };
 
