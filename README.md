@@ -1,6 +1,6 @@
 # create-dapp
 
-A decentralized product boilerplate using javascript.
+This product is decentralized product boilerplate, forked from [https://github.com/escobard/share](https://github.com/escobard/share).
 
 ## DAPP Usage
 
@@ -28,20 +28,19 @@ The following `docker-compose` scripts are available:
 
 ## Product Technology
 
-This product builds upon the traditional MVC (Model View Controller) paradigm where:
-   - The Model = the Truffle ethereum layer - is handled in the `/ethereum` directory.
-   - The View = the React user interface - is handled in the `/ui` directory.
-   - The Controller = the Node restful api  - handled in the `/api` directory.
+A decentralized product boilerplate, forked from [https://github.com/escobard/share](https://github.com/escobard/share).
 
-Furthermore, the following frameworks were chosen to rapidly deliver a production ready decentralized product:
+The product's functional logic can be summarized as an open checkings account, where anyone can send money to the account and view the transactions, but only the owner can withdraw funds.
 
-1) Heroku for automatic deployment / hosting of the UI / API layers.
-2) CircleCI for continuous integration and deployment.
-2) Github for source control and Github Projects for scrum.
-2) `react` for the User Interface using the `create-react-app` library.
-3) `node` with `express` for the restful API.
-5) `solidity` smart contracts managed by `truffle` to interact with the Ethereum protocol.
-6) Ethereum to manage transactions, currency and data persistence.
+Production version available here: https://create-dapp.herokuapp.com/
+
+The software architecture for this product was designed with the following criteria in mind:
+
+- Follow Object Oriented Practices to build re-usable and scalable functional components in all application layers.
+- Adapt best syntax design, file structure and framework practices as a foundation for scalable organization.
+- Utilize CircleCI to create re-usable, automated regression testing and deployment pipelines to Heroku.
+- Use Docker Compose to run the UI, API, and Ganache Ethereum network in a single network to facilitate local development.
+- Remain logically simple to serve as a boilerplate for future decentralized products.
 
 Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/create-dapp/blob/master/documentation/concept.md)
 

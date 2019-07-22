@@ -1,8 +1,17 @@
 # create-dapp
 
-This product was intentionally designed to be as bare-bones as possible to allow for future reusability.
+This product is decentralized product boilerplate, forked from [https://github.com/escobard/share](https://github.com/escobard/share).
 
-The smart contract functionality can be thought of as an open checkings account, where anyone can send money to the account and view the transactions, but only the owner can withdraw funds.
+The product's functional logic can be summarized as an open checkings account, where anyone can send money to the account and view the transactions, but only the owner can withdraw funds.
+
+The software architecture for this product was designed with the following criteria in mind:
+
+- Follow Object Oriented Practices to build re-usable and scalable functional components in all application layers.
+- Adapt best syntax design, file structure and framework practices as a foundation for scalable organization.
+- Utilize CircleCI to create re-usable, automated regression testing and deployment pipelines to Heroku.
+- Use Docker Compose to run the UI, API, and Ganache Ethereum network in a single network to facilitate local development.
+- Remain logically simple to serve as a boilerplate for future decentralized products.
+
 
 To showcase the smart contract interaction through a simple UI, 2 base functions were created:
 
