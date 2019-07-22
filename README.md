@@ -21,19 +21,19 @@ Furthermore, the following frameworks were chosen to rapidly deliver a productio
 5) `solidity` smart contracts managed by `truffle` to interact with the Ethereum protocol.
 6) Ethereum to manage transactions, currency and data persistence.
 
-Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/share/blob/master/documentation/concept.md)
+Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/create-dapp/blob/master/documentation/concept.md)
 
 ## DAPP Usage
 
 Production version available here: https://create-dapp.herokuapp.com/
 
-Expanded instructions here: [documentation/usage.md](https://github.com/escobard/share/blob/master/documentation/usage.md)
+Expanded instructions here: [documentation/usage.md](https://github.com/escobard/create-dapp/blob/master/documentation/usage.md)
 
 ### Docker
 
-It's recommended to use `docker-compose` to set up your development environment.
+It's recommended to use `docker-compose` to quickly setup a local development environment.
 
-The following `docker-compose` scripts are currently available: 
+The following `docker-compose` scripts are available: 
 
 #### Development
 
@@ -49,23 +49,21 @@ The following `docker-compose` scripts are currently available:
 
 ### UI
 
-UI documentation can be found here: [documentation/ui.md](https://github.com/escobard/share/blob/master/documentation/ui.md)
-
-UI NPM usage doc can be found here: [ui/README.md](https://github.com/escobard/share/blob/master/ui/README.md)
+UI NPM usage doc can be found here: [ui/README.md](https://github.com/escobard/create-dapp/blob/master/ui/README.md)
 
 ### API 
 
-API documentation can be found here: [documentation/api.md](https://github.com/escobard/share/blob/master/documentation/api.md)
+API documentation can be found here: [documentation/api.md](https://github.com/escobard/create-dapp/blob/master/documentation/api.md)
 
-API local usage doc can be found here: [api/README.md](https://github.com/escobard/share/blob/master/api/README.md)
+API local usage doc can be found here: [api/README.md](https://github.com/escobard/create-dapp/blob/master/api/README.md)
 
 ### Devops
 
-Devops documentation can be found here: [documentation/devops.md](https://github.com/escobard/share/blob/master/documentation/devops.md)
+Devops documentation can be found here: [documentation/devops.md](https://github.com/escobard/create-dapp/blob/master/documentation/devops.md)
 
 ### Contribution
 
-Contribution documentation can be found here: [documentation/contribution.md](https://github.com/escobard/share/blob/master/documentation/contribution.md)
+Contribution documentation can be found here: [documentation/contribution.md](https://github.com/escobard/create-dapp/blob/master/documentation/contribution.md)
 
 ## Libraries, Frameworks & Tools
 

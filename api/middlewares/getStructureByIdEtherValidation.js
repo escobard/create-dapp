@@ -36,9 +36,9 @@ module.exports = async (req, res, next) => {
 
     console.log(user_pa, payment.user)
     console.log(await contractInstance.methods.paymentID.call())
-
+    
     await validation.customValidation(
-      user_pa !== payment.user,
+      user_pa !== payment.user.toLowerCase(),
       " Unauthorized user"
     );
 
