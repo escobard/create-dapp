@@ -1,22 +1,23 @@
 # create-dapp
 
-An npm package to generate full stack javascript product boilerplates.
+A decentralized product boilerplate written in javascript.
 
 ## Product Technology
 
-This product follows the traditional MVC (Model View Controller) paradigm where:
-   - The Model = the Truffle ethereum layer 
-   - The View = the React user interface - is handled in the `/ui` directory
-   - The Controller = the Node restful api  - handled in the `/api` directory
+This product builds upon the traditional MVC (Model View Controller) paradigm where:
+   - The Model = the Truffle ethereum layer - is handled in the `/ethereum` directory.
+   - The View = the React user interface - is handled in the `/ui` directory.
+   - The Controller = the Node restful api  - handled in the `/api` directory.
 
-Furthermore, the following stack was chosen to rapidly deliver a production ready decentralized product:
+Furthermore, the following frameworks were chosen to rapidly deliver a production ready decentralized product:
 
 1) Heroku for automatic deployment / hosting of the UI / API layers.
 2) CircleCI for continuous integration and deployment.
 2) Github for source control and Github Projects for scrum.
-2) React for the UI with `create-react-app`.
-3) Node with Express for the restful API.
-5) Index and smart contracts for data persistence.
+2) `react` for the User Interface using the `create-react-app` library.
+3) `node` with `express` for the restful API.
+5) `solidity` smart contracts managed by `truffle` to interact with the Ethereum protocol.
+6) Ethereum to manage transactions, currency and data persistence.
 
 Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/share/blob/master/documentation/concept.md)
 
