@@ -13,7 +13,6 @@ A third `emptyBalance()` function can be accessed by the owner of the smart cont
 
 Production version available here: https://create-dapp.herokuapp.com/
 
-
 This product builds upon the traditional MVC (Model View Controller) paradigm where:
    - The Model = the Truffle ethereum layer - is handled in the `/ethereum` directory.
    - The View = the React user interface - is handled in the `/ui` directory.

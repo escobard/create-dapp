@@ -62,6 +62,7 @@ DevOps documentation can be found here: [documentation/devops.md](https://github
 Contribution documentation can be found here: [documentation/contribution.md](https://github.com/escobard/create-dapp/blob/master/documentation/contribution.md)
 
 ## Libraries, Frameworks & Tools
+
 [React](https://reactjs.org/)
 
 [Redux](https://redux.js.org/)
