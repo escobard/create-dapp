@@ -43,7 +43,6 @@ class DynamicForm extends Component {
     }
 
     if (fetchPayment) {
-
       fetchPayment(value0, value1);
     }
   };

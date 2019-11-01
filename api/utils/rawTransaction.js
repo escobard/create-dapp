@@ -1,4 +1,5 @@
 const Tx = require("ethereumjs-tx");
+
 /**
  * Build a raw transaction and sign offline before sending
  *
@@ -87,6 +88,7 @@ async function sendRawTransaction({
   res,
   web3
 }) {
+
   /**
    * send Ether through a signed transaction function.
    *
