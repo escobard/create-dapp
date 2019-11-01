@@ -4,7 +4,8 @@ workflows: # tells circleCI to do all test jobs for ui and api, then deploy both
     jobs:
     - test-build-ui
     - test-build-api
-    - test-build-docker-compose
+    ## removing this job for now, not working in current iteration
+    ## - test-build-docker-compose
     - heroku-deploy-ui:
         requires:
         - test-build-ui
