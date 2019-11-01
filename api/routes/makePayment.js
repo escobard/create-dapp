@@ -21,7 +21,7 @@ router.post(
 
     // validates donation, sends response to UI stating transaction is being validated
     global.makePayment = {
-      status: "payment Validated! Sending to Smart Contract...",
+      status: "Payment Validated! Sending to Smart Contract...",
       result: "validated"
     };
 
@@ -46,11 +46,10 @@ router.post(
     let paymentID = await contractInstance.methods.paymentID.call({
       from: user_pa
     });
-    console.log('PAYMENT ID', paymentID)
-    let currentPayment = paymentID - 2;
+    let currentPayment = paymentID - 1;
 
     global.makePayment = {
-      status: `Donation ${paymentID} created!`,
+      status: `Payment ${currentPayment} created!`,
       result: "created",
       currentPayment
     };

@@ -196,7 +196,7 @@ class App extends Component {
         return this.setState({
           fetchedPayment: donationArray,
           fetchedPaymentTitle: "fetchPayment() success",
-          fetchedPaymentMessage: `Donation ${payment.id} fetched, find your payment data below.`,
+          fetchedPaymentMessage: `Payment ${payment.id} fetched, find your payment data below.`,
           fetchedPaymentStatus: "green"
         });
       }
