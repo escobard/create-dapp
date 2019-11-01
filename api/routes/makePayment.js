@@ -46,7 +46,6 @@ router.post(
     let paymentID = await contractInstance.methods.paymentID.call({
       from: user_pa
     });
-
     let currentPayment = paymentID - 1;
 
     global.makePayment = {

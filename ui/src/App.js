@@ -180,7 +180,7 @@ class App extends Component {
       // checks for API promise rejections
       if (!response.status){
         return this.setState({
-          fetchedPaymentTitle: "fetchPayment error(s)",
+          fetchedPaymentTitle: "fetchPament error(s)",
           fetchedPaymentMessage: response,
           fetchedPaymentStatus: "red"
         });
