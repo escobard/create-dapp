@@ -1,40 +1,18 @@
 # create-dapp
 
-An npm package to generate full stack javascript product boilerplates.
+This product is decentralized product boilerplate, forked from [https://github.com/escobard/share](https://github.com/escobard/share).
 
-## Product Technology
+## DAPP Usage
 
-This product follows the traditional MVC (Model View Controller) paradigm where:
-   - The Model = the Truffle ethereum layer 
-   - The View = the React user interface - is handled in the `/ui` directory
-   - The Controller = the Node restful api  - handled in the `/api` directory
+Production version available here: https://create-dapp.herokuapp.com/
 
-Furthermore, the following stack was chosen to rapidly deliver a production ready decentralized product:
-
-1) Heroku for automatic deployment / hosting of the UI / API layers.
-2) CircleCI for continuous integration and deployment.
-2) Github for source control and Github Projects for scrum.
-2) React for the UI with `create-react-app`.
-3) Node with Express for the restful API.
-5) Index and smart contracts for data persistence.
-
-Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/share/blob/master/documentation/concept.md)
-
-## Documentation
-
-Documentation has been fragmented into several different markdown files, to facilitate collaboration.
-
-## APP Usage
-
-Production version available here: https://share-ui.herokuapp.com/
-
-Expanded instructions here: [documentation/usage.md](https://github.com/escobard/share/blob/master/documentation/usage.md)
+Expanded instructions here: [documentation/usage.md](https://github.com/escobard/create-dapp/blob/master/documentation/usage.md)
 
 ### Docker
 
-It's recommended to use `docker-compose` to set up your development environment.
+It's recommended to use `docker-compose` to quickly setup a local development environment.
 
-The following `docker-compose` scripts are currently available: 
+The following `docker-compose` scripts are available: 
 
 #### Development
 
@@ -48,25 +26,39 @@ The following `docker-compose` scripts are currently available:
 
 `docker-compose -f truffle-migrate.yaml up --build`
 
+## Product Technology
+
+A decentralized product boilerplate, forked from [https://github.com/escobard/share](https://github.com/escobard/share).
+
+The product's functional logic can be summarized as an open checkings account, where anyone can send money to the account and view the transactions, but only the owner can withdraw funds.
+
+Production version available here: https://create-dapp.herokuapp.com/
+
+The software architecture for this product was designed with the following criteria in mind:
+
+- Follow Object Oriented Practices to build re-usable and scalable functional components in all application layers.
+- Adapt best syntax design, file structure and framework practices as a foundation for scalable organization.
+- Utilize CircleCI to create re-usable, automated regression testing and deployment pipelines to Heroku.
+- Use Docker Compose to run the UI, API, and Ganache Ethereum network in a single network to facilitate local development.
+- Remain logically simple to serve as a boilerplate for future decentralized products.
+
+Expanded product concept and highlights can be found here: [documentation/concept.md](https://github.com/escobard/create-dapp/blob/master/documentation/concept.md)
+
 ### UI
 
-UI documentation can be found here: [documentation/ui.md](https://github.com/escobard/share/blob/master/documentation/ui.md)
-
-UI NPM usage doc can be found here: [ui/README.md](https://github.com/escobard/share/blob/master/ui/README.md)
+UI documentation can be found here: [ui/README.md](https://github.com/escobard/create-dapp/blob/master/ui/README.md)
 
 ### API 
 
-API documentation can be found here: [documentation/api.md](https://github.com/escobard/share/blob/master/documentation/api.md)
+API documentation can be found here: [api/README.md](https://github.com/escobard/create-dapp/blob/master/api/README.md)
 
-API local usage doc can be found here: [api/README.md](https://github.com/escobard/share/blob/master/api/README.md)
+### DevOps
 
-### Devops
-
-Devops documentation can be found here: [documentation/devops.md](https://github.com/escobard/share/blob/master/documentation/devops.md)
+DevOps documentation can be found here: [documentation/devops.md](https://github.com/escobard/create-dapp/blob/master/documentation/devops.md)
 
 ### Contribution
 
-Contribution documentation can be found here: [documentation/contribution.md](https://github.com/escobard/share/blob/master/documentation/contribution.md)
+Contribution documentation can be found here: [documentation/contribution.md](https://github.com/escobard/create-dapp/blob/master/documentation/contribution.md)
 
 ## Libraries, Frameworks & Tools
 
@@ -78,5 +70,12 @@ Contribution documentation can be found here: [documentation/contribution.md](ht
 
 [Express](https://expressjs.com/)
 
+[CircleCI](https://circleci.com/)
+
 [Heroku](https://www.heroku.com/)
 
+[Ethereum](https://www.ethereum.org/)
+
+[Solidity Smart Contracts](https://github.com/ethereum/solidity)
+
+[Truffle](https://truffleframework.com/)

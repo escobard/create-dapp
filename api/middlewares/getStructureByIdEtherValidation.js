@@ -26,19 +26,15 @@ module.exports = async (req, res, next) => {
       .call({
         from: user_pa
       });
-      console.log('PAYMENTID', payment)
     await validation.isValidPublic(user_pa, web3, "Public address is invalid");
 
     await validation.customValidation(
       id >= paymentID,
       " DonationID does not exist"
     );
-
-    console.log(user_pa, payment.user)
-    console.log(await contractInstance.methods.paymentID.call())
-
+    
     await validation.customValidation(
-      user_pa !== payment.user,
+      user_pa !== payment.user.toLowerCase(),
       " Unauthorized user"
     );
 
