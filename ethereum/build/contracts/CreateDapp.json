@@ -4031,10 +4031,17 @@
       "links": {},
       "address": "0xEC891b83078Caa958241e34d2f4dbfE9a1F3AfC3",
       "transactionHash": "0x45364473af67ccd00b38b9d92c9b5d6811a2f25e5acb1bbbe8ee0421e64f7a2e"
+    },
+    "1572637456942": {
+      "events": {},
+      "links": {},
+      "address": "0x24458FC714c552DEd3239EBa866826b9F946C3d0",
+      "transactionHash": "0x28f53c766de62ed2f364cf9926e8d5f8862f846fa919a4be10e89a9563392cd0"
     }
   },
-  "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-29T16:13:51.464Z",
+  "schemaVersion": "3.0.17",
+  "updatedAt": "2019-11-01T19:44:59.842Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

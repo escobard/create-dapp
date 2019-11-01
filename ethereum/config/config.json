@@ -1,7 +1,7 @@
 {
 	"ethereum": {
 		"network": "development",
-		"ownerAddress": "0x80241b1543Ee7893778a9eDa8C630A126AE8A6B8",
-		"contractAddress": "0xEC891b83078Caa958241e34d2f4dbfE9a1F3AfC3"
+		"ownerAddress": "0x13427287EC422F6FE4fCAcEA77B83473C61e03fF",
+		"contractAddress": "0x24458FC714c552DEd3239EBa866826b9F946C3d0"
 	}
 }

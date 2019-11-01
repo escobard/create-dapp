@@ -1,4 +1,4 @@
-const Tx = require("ethereumjs-tx");
+const Tx = require("ethereumjs-tx").Transaction;
 
 /**
  * Build a raw transaction and sign offline before sending
