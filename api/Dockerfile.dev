@@ -1,4 +1,10 @@
 FROM node:alpine
 WORKDIR /usr/create-dapp/api
 COPY package.json .
+RUN apk add git
+RUN apk add --virtual .gyp \
+        python \
+        make \
+        g++ 
+
 RUN npm install
